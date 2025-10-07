@@ -1,0 +1,29 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.cache
+*.log
+bin/
+obj/
+*.dbmdl
+*.pdb
+*.ldf
+*.mdf
+*.jfm
+*.tmp
+*.bak
+
+# Node / React
+Training_FE/node_modules/
+Training_FE/build/
+Training_FE/dist/
+
+# Environment files
+.env
+Training_FE/.env
+Training_BE/.env
+
+# OS
+*.DS_Store
+Thumbs.db

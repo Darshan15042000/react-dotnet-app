@@ -1,0 +1,125 @@
+/* Full dark theme background with subtle gradient */
+.admin-bg {
+  background: linear-gradient(135deg, #12121f, #1e1e2f);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+/* Header - keep original capsule style but darker gradient */
+.admin-header {
+  background: linear-gradient(90deg, #2a2a50, #1a1a35);
+  color: #f7f1f1;
+  padding: 20px 40px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 1200px;
+  margin-bottom: 50px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* Logout button */
+.btn-logout {
+  background: #e94f6d;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.btn-logout:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(233,79,109,0.5);
+}
+
+/* Container with darkish card background */
+.container {
+  background: linear-gradient(145deg, #1c1c2a, #262640);
+  border-radius: 25px;
+  padding: 50px 30px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+  width: 90%;
+  max-width: 1100px;
+  transition: all 0.3s ease;
+}
+
+/* Search heading */
+.search-heading {
+  color: #ff4f6d;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.8);
+  text-align: center;
+}
+
+/* Search input & button */
+.search-input {
+  border-radius: 50px;
+  width: 320px;
+  padding: 12px 20px;
+  border: none;
+  background-color: #2b2b3d;
+  color: #fff;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.7);
+  margin-right: 15px;
+}
+.search-input::placeholder { color: #bbb; }
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 12px #ff4f6d, inset 0 0 8px rgba(0,0,0,0.7);
+}
+
+.btn-search {
+  border-radius: 50px;
+  background: #ff4f6d;
+  color: #fff;
+  padding: 12px 30px;
+  border: none;
+  box-shadow: 0 0 12px rgba(255,79,109,0.7);
+  transition: all 0.3s ease;
+}
+.btn-search:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 25px rgba(255,79,109,0.9), 0 5px 20px rgba(0,0,0,0.5);
+}
+
+/* Admin Buttons */
+.admin-btn {
+  min-width: 160px;
+  padding: 15px 30px;
+  font-weight: bold;
+  border-radius: 20px;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  transition: all 0.3s ease, box-shadow 0.4s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Button hover animations */
+.admin-btn:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.9), 0 0 15px rgba(255,79,109,0.7);
+}
+
+/* CRUD button colors */
+.btn-add { background: #4ecca3; }
+.btn-update { background: #f3a712; }
+.btn-delete { background: #fc5c7d; }
+
+/* Text styles */
+h2 { font-size: 2rem; text-shadow: 1px 1px 8px rgba(0,0,0,0.8); }
+h3 { font-size: 1.6rem; text-shadow: 1px 1px 5px rgba(0,0,0,0.7); }
+
+/* Responsive adjustments */
+@media(max-width:768px){
+  .search-input { width: 70%; margin-bottom: 15px; }
+  .btn-search { width: 50%; }
+  .admin-btn { min-width: 140px; margin-bottom: 15px; }
+  .container { padding: 40px 20px; }
+}

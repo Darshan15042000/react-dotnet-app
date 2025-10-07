@@ -1,0 +1,79 @@
+/* Container for login page */
+.login-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #e0e7ff; /* soft blue */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* vertical center */
+}
+
+/* Floating images around login card */
+.login-floating-img {
+  position: absolute;
+  object-fit: contain;
+  opacity: 0.9;
+  animation: float 5s ease-in-out infinite alternate;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.login-floating-img.sm {
+  width: 70px;
+  height: 80px;
+}
+
+.login-floating-img.md {
+  width: 100px;
+  height: 100px;
+}
+
+.login-floating-img.lg {
+  width: 150px;
+  height: 150px;
+}
+
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Hover pop effect */
+.login-floating-img:hover {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* Positions even closer to login card */
+.top-left { top: 18%; left: 30%; }
+.top-right { top: 25%; right: 40%; }
+.mid-left { top: 40%; left: 5%; }
+.mid-right { top: 40%; right: 5%; }
+.bottom-left { bottom: 12%; left: 25%; }
+.bottom-right { bottom: 12%; right: 25%; }
+.top-center { top: 10%; left: 50%; transform: translateX(-50%); }
+.bottom-center { bottom: 10%; left: 50%; transform: translateX(-50%); }
+
+/* Extra custom positions for more images */
+.extra-left { top: 30%; left: 18%; }
+.extra-right { top: 30%; right: 18%; }
+.extra-bottom-left { bottom: 18%; left: 18%; }
+.extra-bottom-right { bottom: 18%; right: 18%; }
+
+/* Login card */
+.login-card {
+  width: 400px;
+  max-width: 90%;
+  z-index: 10; /* above images */
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+

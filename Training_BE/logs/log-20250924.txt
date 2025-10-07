@@ -1,0 +1,381 @@
+[2025-09-24 16:56:51] [INF] Starting The Applicationn
+[2025-09-24 16:56:51] [INF] User profile is available. Using 'C:\Users\dasha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2025-09-24 16:56:51] [INF] Now listening on: https://localhost:7165
+[2025-09-24 16:56:51] [INF] Now listening on: http://localhost:5022
+[2025-09-24 16:56:52] [INF] Application started. Press Ctrl+C to shut down.
+[2025-09-24 16:56:52] [INF] Hosting environment: Development
+[2025-09-24 16:56:52] [INF] Content root path: D:\Zest_India\Training_BE\Training_BE
+[2025-09-24 16:56:53] [INF] Request starting HTTP/2 GET https://localhost:7165/_vs/browserLink - null null
+[2025-09-24 16:56:53] [INF] Request starting HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - null null
+[2025-09-24 16:56:53] [INF] Request finished HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 66.5294ms
+[2025-09-24 16:56:53] [INF] Request finished HTTP/2 GET https://localhost:7165/_vs/browserLink - 200 null text/javascript; charset=UTF-8 143.2006ms
+[2025-09-24 16:56:53] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - null null
+[2025-09-24 16:56:53] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 69.0194ms
+[2025-09-24 16:57:48] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - null null
+[2025-09-24 16:57:48] [INF] CORS policy execution successful.
+[2025-09-24 16:57:48] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - 204 null null 56.6403ms
+[2025-09-24 16:57:48] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Auth/login - application/json 38
+[2025-09-24 16:57:48] [INF] CORS policy execution successful.
+[2025-09-24 16:57:48] [INF] Executing endpoint 'Training_BE.Controllers.AuthController.Login (Training_BE)'
+[2025-09-24 16:57:48] [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Training_BE.DTOs.UserLoginDto) on controller Training_BE.Controllers.AuthController (Training_BE).
+[2025-09-24 16:57:48] [INF] Login attempt for user: ganesh at "2025-09-24T11:27:48.4747870Z"
+[2025-09-24 16:57:48] [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+[2025-09-24 16:57:50] [INF] Executed DbCommand (169ms) [Parameters=[@__dto_Username_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[PasswordHash], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+[2025-09-24 16:57:50] [INF] Login successful for user: ganesh at "2025-09-24T11:27:50.4974520Z"
+[2025-09-24 16:57:50] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2025-09-24 16:57:50] [INF] Executed action Training_BE.Controllers.AuthController.Login (Training_BE) in 2343.9249ms
+[2025-09-24 16:57:50] [INF] Executed endpoint 'Training_BE.Controllers.AuthController.Login (Training_BE)'
+[2025-09-24 16:57:50] [INF] Request finished HTTP/2 POST https://localhost:7165/api/Auth/login - 200 null application/json; charset=utf-8 2488.1504ms
+[2025-09-24 16:59:21] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Auth/register - null null
+[2025-09-24 16:59:21] [INF] CORS policy execution successful.
+[2025-09-24 16:59:21] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Auth/register - 204 null null 33.8082ms
+[2025-09-24 16:59:21] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Auth/register - application/json 74
+[2025-09-24 16:59:21] [INF] CORS policy execution successful.
+[2025-09-24 16:59:21] [INF] Executing endpoint 'Training_BE.Controllers.AuthController.Register (Training_BE)'
+[2025-09-24 16:59:21] [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Training_BE.DTOs.UserRegisterDto) on controller Training_BE.Controllers.AuthController (Training_BE).
+[2025-09-24 16:59:21] [INF] Registration started for username: demo 123, email: demo@com at "2025-09-24T11:29:21.8336153Z"
+[2025-09-24 16:59:22] [INF] Executed DbCommand (46ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 450), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [Email], [PasswordHash], [Role], [Username])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2025-09-24 16:59:22] [INF] User registered successfully: demo 123, role: Admin at "2025-09-24T11:29:22.2665403Z"
+[2025-09-24 16:59:22] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`4[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2025-09-24 16:59:22] [INF] Executed action Training_BE.Controllers.AuthController.Register (Training_BE) in 451.7616ms
+[2025-09-24 16:59:22] [INF] Executed endpoint 'Training_BE.Controllers.AuthController.Register (Training_BE)'
+[2025-09-24 16:59:22] [INF] Request finished HTTP/2 POST https://localhost:7165/api/Auth/register - 200 null application/json; charset=utf-8 469.0737ms
+[2025-09-24 16:59:28] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - null null
+[2025-09-24 16:59:29] [INF] CORS policy execution successful.
+[2025-09-24 16:59:29] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - 204 null null 28.0048ms
+[2025-09-24 16:59:29] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Auth/login - application/json 40
+[2025-09-24 16:59:29] [INF] CORS policy execution successful.
+[2025-09-24 16:59:29] [INF] Executing endpoint 'Training_BE.Controllers.AuthController.Login (Training_BE)'
+[2025-09-24 16:59:29] [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Training_BE.DTOs.UserLoginDto) on controller Training_BE.Controllers.AuthController (Training_BE).
+[2025-09-24 16:59:29] [INF] Login attempt for user: demo 123 at "2025-09-24T11:29:29.1266875Z"
+[2025-09-24 16:59:29] [INF] Executed DbCommand (4ms) [Parameters=[@__dto_Username_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[PasswordHash], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+[2025-09-24 16:59:29] [INF] Login successful for user: demo 123 at "2025-09-24T11:29:29.3472260Z"
+[2025-09-24 16:59:29] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2025-09-24 16:59:29] [INF] Executed action Training_BE.Controllers.AuthController.Login (Training_BE) in 250.471ms
+[2025-09-24 16:59:29] [INF] Executed endpoint 'Training_BE.Controllers.AuthController.Login (Training_BE)'
+[2025-09-24 16:59:29] [INF] Request finished HTTP/2 POST https://localhost:7165/api/Auth/login - 200 null application/json; charset=utf-8 329.9561ms
+[2025-09-24 16:59:37] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product - null null
+[2025-09-24 16:59:37] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product - null null
+[2025-09-24 16:59:37] [INF] CORS policy execution successful.
+[2025-09-24 16:59:37] [INF] CORS policy execution successful.
+[2025-09-24 16:59:37] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product - 204 null null 47.5858ms
+[2025-09-24 16:59:37] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product - null null
+[2025-09-24 16:59:37] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product - 204 null null 54.1154ms
+[2025-09-24 16:59:37] [INF] CORS policy execution successful.
+[2025-09-24 16:59:37] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 16:59:37] [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 16:59:37] [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+[2025-09-24 16:59:37] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-09-24 16:59:37] [INF] Executed action Training_BE.Controllers.ProductController.GetAll (Training_BE) in 167.9518ms
+[2025-09-24 16:59:37] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product - null null
+[2025-09-24 16:59:37] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 16:59:37] [INF] CORS policy execution successful.
+[2025-09-24 16:59:37] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product - 200 null application/json; charset=utf-8 463.3368ms
+[2025-09-24 16:59:37] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 16:59:37] [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 16:59:37] [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+[2025-09-24 16:59:38] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-09-24 16:59:38] [INF] Executed action Training_BE.Controllers.ProductController.GetAll (Training_BE) in 43.2451ms
+[2025-09-24 16:59:38] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 16:59:38] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product - 200 null application/json; charset=utf-8 133.5019ms
+[2025-09-24 17:00:11] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product/2 - null null
+[2025-09-24 17:00:11] [INF] CORS policy execution successful.
+[2025-09-24 17:00:11] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product/2 - 204 null null 28.7462ms
+[2025-09-24 17:00:11] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product/2 - null null
+[2025-09-24 17:00:11] [INF] CORS policy execution successful.
+[2025-09-24 17:00:11] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetById (Training_BE)'
+[2025-09-24 17:00:11] [INF] Route matched with {action = "GetById", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 17:00:11] [INF] Executed DbCommand (15ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0
+[2025-09-24 17:00:11] [INF] Executing OkObjectResult, writing value of type 'Training_BE.Models.Product'.
+[2025-09-24 17:00:11] [INF] Executed action Training_BE.Controllers.ProductController.GetById (Training_BE) in 68.8573ms
+[2025-09-24 17:00:11] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetById (Training_BE)'
+[2025-09-24 17:00:11] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product/2 - 200 null application/json; charset=utf-8 165.5827ms
+[2025-09-24 17:00:37] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product - null null
+[2025-09-24 17:00:38] [INF] CORS policy execution successful.
+[2025-09-24 17:00:38] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product - 204 null null 55.1579ms
+[2025-09-24 17:00:38] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Product - application/json 50
+[2025-09-24 17:00:38] [INF] CORS policy execution successful.
+[2025-09-24 17:00:38] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.Create (Training_BE)'
+[2025-09-24 17:00:38] [INF] Route matched with {action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Training_BE.DTOs.ProductDto) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 17:00:38] [INF] Executed DbCommand (43ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Products] ([Description], [Name], [Price])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+[2025-09-24 17:00:38] [INF] Executing OkObjectResult, writing value of type 'Training_BE.Models.Product'.
+[2025-09-24 17:00:38] [INF] Executed action Training_BE.Controllers.ProductController.Create (Training_BE) in 219.0624ms
+[2025-09-24 17:00:38] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.Create (Training_BE)'
+[2025-09-24 17:00:38] [INF] Request finished HTTP/2 POST https://localhost:7165/api/Product - 200 null application/json; charset=utf-8 329.2246ms
+[2025-09-24 17:00:41] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product - null null
+[2025-09-24 17:00:41] [INF] CORS policy execution successful.
+[2025-09-24 17:00:41] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 17:00:41] [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 17:00:41] [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+[2025-09-24 17:00:41] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-09-24 17:00:41] [INF] Executed action Training_BE.Controllers.ProductController.GetAll (Training_BE) in 43.5867ms
+[2025-09-24 17:00:41] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product - null null
+[2025-09-24 17:00:41] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 17:00:41] [INF] CORS policy execution successful.
+[2025-09-24 17:00:41] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product - 200 null application/json; charset=utf-8 128.28ms
+[2025-09-24 17:00:41] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 17:00:41] [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 17:00:41] [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+[2025-09-24 17:00:41] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-09-24 17:00:41] [INF] Executed action Training_BE.Controllers.ProductController.GetAll (Training_BE) in 18.6513ms
+[2025-09-24 17:00:41] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 17:00:41] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product - 200 null application/json; charset=utf-8 99.2649ms
+[2025-09-24 17:02:12] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - null null
+[2025-09-24 17:02:12] [INF] CORS policy execution successful.
+[2025-09-24 17:02:12] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - 204 null null 70.8298ms
+[2025-09-24 17:02:12] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Auth/login - application/json 36
+[2025-09-24 17:02:13] [INF] CORS policy execution successful.
+[2025-09-24 17:02:13] [INF] Executing endpoint 'Training_BE.Controllers.AuthController.Login (Training_BE)'
+[2025-09-24 17:02:13] [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Training_BE.DTOs.UserLoginDto) on controller Training_BE.Controllers.AuthController (Training_BE).
+[2025-09-24 17:02:13] [INF] Login attempt for user: amol at "2025-09-24T11:32:13.0535541Z"
+[2025-09-24 17:02:13] [INF] Executed DbCommand (10ms) [Parameters=[@__dto_Username_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[PasswordHash], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+[2025-09-24 17:02:13] [INF] Login successful for user: amol at "2025-09-24T11:32:13.1997266Z"
+[2025-09-24 17:02:13] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2025-09-24 17:02:13] [INF] Executed action Training_BE.Controllers.AuthController.Login (Training_BE) in 150.8429ms
+[2025-09-24 17:02:13] [INF] Executed endpoint 'Training_BE.Controllers.AuthController.Login (Training_BE)'
+[2025-09-24 17:02:13] [INF] Request finished HTTP/2 POST https://localhost:7165/api/Auth/login - 200 null application/json; charset=utf-8 218.4615ms
+[2025-09-24 18:34:30] [INF] Starting The Applicationn
+[2025-09-24 18:34:31] [INF] User profile is available. Using 'C:\Users\dasha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2025-09-24 18:34:32] [INF] Now listening on: https://localhost:7165
+[2025-09-24 18:34:32] [INF] Now listening on: http://localhost:5022
+[2025-09-24 18:34:32] [INF] Application started. Press Ctrl+C to shut down.
+[2025-09-24 18:34:32] [INF] Hosting environment: Development
+[2025-09-24 18:34:32] [INF] Content root path: D:\Zest_India\Training_BE\Training_BE
+[2025-09-24 18:34:33] [INF] Request starting HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - null null
+[2025-09-24 18:34:33] [INF] Request starting HTTP/2 GET https://localhost:7165/_vs/browserLink - null null
+[2025-09-24 18:34:33] [INF] Request finished HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 86.2588ms
+[2025-09-24 18:34:33] [INF] Request finished HTTP/2 GET https://localhost:7165/_vs/browserLink - 200 null text/javascript; charset=UTF-8 270.7616ms
+[2025-09-24 18:34:33] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - null null
+[2025-09-24 18:34:33] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 89.0558ms
+[2025-09-24 18:38:39] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - null null
+[2025-09-24 18:38:39] [INF] CORS policy execution successful.
+[2025-09-24 18:38:39] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - 204 null null 119.623ms
+[2025-09-24 18:38:39] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Auth/login - application/json 39
+[2025-09-24 18:38:39] [INF] CORS policy execution successful.
+[2025-09-24 18:38:40] [INF] Executing endpoint 'Training_BE.Controllers.AuthController.Login (Training_BE)'
+[2025-09-24 18:38:40] [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Training_BE.DTOs.UserLoginDto) on controller Training_BE.Controllers.AuthController (Training_BE).
+[2025-09-24 18:38:41] [INF] Login attempt for user: darshan at "2025-09-24T13:08:41.6991739Z"
+[2025-09-24 18:38:42] [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+[2025-09-24 18:38:44] [INF] Executed DbCommand (162ms) [Parameters=[@__dto_Username_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[PasswordHash], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+[2025-09-24 18:38:45] [INF] Login successful for user: darshan at "2025-09-24T13:08:45.0140850Z"
+[2025-09-24 18:38:45] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2025-09-24 18:38:45] [INF] Executed action Training_BE.Controllers.AuthController.Login (Training_BE) in 4103.4964ms
+[2025-09-24 18:38:45] [INF] Executed endpoint 'Training_BE.Controllers.AuthController.Login (Training_BE)'
+[2025-09-24 18:38:45] [INF] Request finished HTTP/2 POST https://localhost:7165/api/Auth/login - 200 null application/json; charset=utf-8 5598.6208ms
+[2025-09-24 18:39:45] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product - null null
+[2025-09-24 18:39:45] [INF] CORS policy execution successful.
+[2025-09-24 18:39:45] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product - 204 null null 24.6676ms
+[2025-09-24 18:39:45] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Product - application/json 56
+[2025-09-24 18:39:45] [INF] CORS policy execution successful.
+[2025-09-24 18:39:45] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.Create (Training_BE)'
+[2025-09-24 18:39:45] [INF] Route matched with {action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Training_BE.DTOs.ProductDto) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 18:39:45] [INF] Admin darshan is attempting to add a product: Charger at "2025-09-24T13:09:45.5733491Z"
+[2025-09-24 18:39:45] [INF] Executed DbCommand (56ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Products] ([Description], [Name], [Price])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+[2025-09-24 18:39:45] [INF] Product Charger added successfully by Admin darshan at "2025-09-24T13:09:45.8296348Z"
+[2025-09-24 18:39:45] [INF] Executing OkObjectResult, writing value of type 'Training_BE.Models.Product'.
+[2025-09-24 18:39:45] [INF] Executed action Training_BE.Controllers.ProductController.Create (Training_BE) in 285.4269ms
+[2025-09-24 18:39:45] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.Create (Training_BE)'
+[2025-09-24 18:39:45] [INF] Request finished HTTP/2 POST https://localhost:7165/api/Product - 200 null application/json; charset=utf-8 377.2863ms
+[2025-09-24 18:40:08] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product - null null
+[2025-09-24 18:40:08] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product - null null
+[2025-09-24 18:40:08] [INF] CORS policy execution successful.
+[2025-09-24 18:40:08] [INF] CORS policy execution successful.
+[2025-09-24 18:40:08] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product - 204 null null 16.5201ms
+[2025-09-24 18:40:08] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product - 204 null null 13.4373ms
+[2025-09-24 18:40:08] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product - null null
+[2025-09-24 18:40:08] [INF] CORS policy execution successful.
+[2025-09-24 18:40:08] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 18:40:08] [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 18:40:09] [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+[2025-09-24 18:40:09] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-09-24 18:40:09] [INF] Executed action Training_BE.Controllers.ProductController.GetAll (Training_BE) in 89.0793ms
+[2025-09-24 18:40:09] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product - null null
+[2025-09-24 18:40:09] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 18:40:09] [INF] CORS policy execution successful.
+[2025-09-24 18:40:09] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product - 200 null application/json; charset=utf-8 130.5698ms
+[2025-09-24 18:40:09] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 18:40:09] [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 18:40:09] [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+[2025-09-24 18:40:09] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-09-24 18:40:09] [INF] Executed action Training_BE.Controllers.ProductController.GetAll (Training_BE) in 22.2232ms
+[2025-09-24 18:40:09] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 18:40:09] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product - 200 null application/json; charset=utf-8 47.2925ms
+[2025-09-24 18:40:57] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product/6 - null null
+[2025-09-24 18:40:57] [INF] CORS policy execution successful.
+[2025-09-24 18:40:57] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product/6 - 204 null null 16.3356ms
+[2025-09-24 18:40:57] [INF] Request starting HTTP/2 PUT https://localhost:7165/api/Product/6 - application/json 64
+[2025-09-24 18:40:57] [INF] CORS policy execution successful.
+[2025-09-24 18:40:57] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.Update (Training_BE)'
+[2025-09-24 18:40:57] [INF] Route matched with {action = "Update", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(Int32, Training_BE.DTOs.ProductDto) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 18:40:57] [INF] Admin darshan is attempting to Updtae a product: USB Cable at "2025-09-24T13:10:57.4076419Z"
+[2025-09-24 18:40:57] [INF] Executed DbCommand (9ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0
+[2025-09-24 18:40:57] [INF] Executed DbCommand (11ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Products] SET [Description] = @p0, [Name] = @p1, [Price] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+[2025-09-24 18:40:57] [INF] Product USB Cable Updated successfully by Admin darshan at "2025-09-24T13:10:57.4535082Z"
+[2025-09-24 18:40:57] [INF] Executing OkObjectResult, writing value of type 'Training_BE.Models.Product'.
+[2025-09-24 18:40:57] [INF] Executed action Training_BE.Controllers.ProductController.Update (Training_BE) in 54.4475ms
+[2025-09-24 18:40:57] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.Update (Training_BE)'
+[2025-09-24 18:40:57] [INF] Request finished HTTP/2 PUT https://localhost:7165/api/Product/6 - 200 null application/json; charset=utf-8 78.373ms
+[2025-09-24 18:41:20] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product - null null
+[2025-09-24 18:41:20] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product - null null
+[2025-09-24 18:41:20] [INF] CORS policy execution successful.
+[2025-09-24 18:41:20] [INF] CORS policy execution successful.
+[2025-09-24 18:41:20] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product - 204 null null 23.596ms
+[2025-09-24 18:41:20] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product - 204 null null 24.0819ms
+[2025-09-24 18:41:20] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product - null null
+[2025-09-24 18:41:20] [INF] CORS policy execution successful.
+[2025-09-24 18:41:20] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 18:41:20] [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 18:41:20] [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+[2025-09-24 18:41:20] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-09-24 18:41:20] [INF] Executed action Training_BE.Controllers.ProductController.GetAll (Training_BE) in 14.8139ms
+[2025-09-24 18:41:20] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product - null null
+[2025-09-24 18:41:20] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 18:41:20] [INF] CORS policy execution successful.
+[2025-09-24 18:41:20] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product - 200 null application/json; charset=utf-8 50.8616ms
+[2025-09-24 18:41:20] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 18:41:20] [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 18:41:20] [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+[2025-09-24 18:41:20] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-09-24 18:41:20] [INF] Executed action Training_BE.Controllers.ProductController.GetAll (Training_BE) in 10.9221ms
+[2025-09-24 18:41:20] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 18:41:20] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product - 200 null application/json; charset=utf-8 31.2173ms
+[2025-09-24 18:41:32] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product/6 - null null
+[2025-09-24 18:41:32] [INF] CORS policy execution successful.
+[2025-09-24 18:41:32] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product/6 - 204 null null 8.1282ms
+[2025-09-24 18:41:32] [INF] Request starting HTTP/2 DELETE https://localhost:7165/api/Product/6 - null null
+[2025-09-24 18:41:32] [INF] CORS policy execution successful.
+[2025-09-24 18:41:32] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.Delete (Training_BE)'
+[2025-09-24 18:41:32] [INF] Route matched with {action = "Delete", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(Int32) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 18:41:32] [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__p_0
+[2025-09-24 18:41:32] [INF] Admin darshan is attempting to delete product: USB Cable at "2025-09-24T13:11:32.9292409Z"
+[2025-09-24 18:41:32] [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Products]
+OUTPUT 1
+WHERE [Id] = @p0;
+[2025-09-24 18:41:32] [INF] Product USB Cable deleted successfully by Admin darshan at "2025-09-24T13:11:32.9495410Z"
+[2025-09-24 18:41:32] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2025-09-24 18:41:32] [INF] Executed action Training_BE.Controllers.ProductController.Delete (Training_BE) in 76.1199ms
+[2025-09-24 18:41:32] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.Delete (Training_BE)'
+[2025-09-24 18:41:32] [INF] Request finished HTTP/2 DELETE https://localhost:7165/api/Product/6 - 200 null application/json; charset=utf-8 104.3667ms
+[2025-09-24 18:51:28] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - null null
+[2025-09-24 18:51:28] [INF] CORS policy execution successful.
+[2025-09-24 18:51:28] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - 204 null null 50.0922ms
+[2025-09-24 18:51:28] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Auth/login - application/json 39
+[2025-09-24 18:51:28] [INF] CORS policy execution successful.
+[2025-09-24 18:51:28] [INF] Executing endpoint 'Training_BE.Controllers.AuthController.Login (Training_BE)'
+[2025-09-24 18:51:28] [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Training_BE.DTOs.UserLoginDto) on controller Training_BE.Controllers.AuthController (Training_BE).
+[2025-09-24 18:51:28] [INF] Login attempt for user: darshan at "2025-09-24T13:21:28.5653332Z"
+[2025-09-24 18:51:28] [INF] Executed DbCommand (22ms) [Parameters=[@__dto_Username_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[PasswordHash], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+[2025-09-24 18:51:29] [INF] Login successful for user: darshan at "2025-09-24T13:21:29.1295758Z"
+[2025-09-24 18:51:29] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2025-09-24 18:51:29] [INF] Executed action Training_BE.Controllers.AuthController.Login (Training_BE) in 575.3091ms
+[2025-09-24 18:51:29] [INF] Executed endpoint 'Training_BE.Controllers.AuthController.Login (Training_BE)'
+[2025-09-24 18:51:29] [INF] Request finished HTTP/2 POST https://localhost:7165/api/Auth/login - 200 null application/json; charset=utf-8 638.1616ms
+[2025-09-24 18:52:06] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product - null null
+[2025-09-24 18:52:06] [INF] CORS policy execution successful.
+[2025-09-24 18:52:06] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product - 204 null null 52.492ms
+[2025-09-24 18:52:06] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Product - application/json 59
+[2025-09-24 18:52:06] [INF] CORS policy execution successful.
+[2025-09-24 18:52:06] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.Create (Training_BE)'
+[2025-09-24 18:52:06] [INF] Route matched with {action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Training_BE.DTOs.ProductDto) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 18:52:06] [INF] Admin darshan is attempting to add a product: headphone at "2025-09-24T13:22:06.6387562Z"
+[2025-09-24 18:52:06] [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Products] ([Description], [Name], [Price])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+[2025-09-24 18:52:06] [INF] Product headphone added successfully by Admin darshan at "2025-09-24T13:22:06.6620750Z"
+[2025-09-24 18:52:06] [INF] Executing OkObjectResult, writing value of type 'Training_BE.Models.Product'.
+[2025-09-24 18:52:06] [INF] Executed action Training_BE.Controllers.ProductController.Create (Training_BE) in 30.388ms
+[2025-09-24 18:52:06] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.Create (Training_BE)'
+[2025-09-24 18:52:06] [INF] Request finished HTTP/2 POST https://localhost:7165/api/Product - 200 null application/json; charset=utf-8 115.5025ms
+[2025-09-24 18:52:29] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product - null null
+[2025-09-24 18:52:29] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product - null null
+[2025-09-24 18:52:29] [INF] CORS policy execution successful.
+[2025-09-24 18:52:29] [INF] CORS policy execution successful.
+[2025-09-24 18:52:29] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product - 204 null null 68.4098ms
+[2025-09-24 18:52:29] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product - null null
+[2025-09-24 18:52:29] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product - 204 null null 74.1269ms
+[2025-09-24 18:52:29] [INF] CORS policy execution successful.
+[2025-09-24 18:52:29] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 18:52:29] [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 18:52:29] [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+[2025-09-24 18:52:29] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-09-24 18:52:29] [INF] Executed action Training_BE.Controllers.ProductController.GetAll (Training_BE) in 45.7696ms
+[2025-09-24 18:52:29] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product - null null
+[2025-09-24 18:52:29] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 18:52:29] [INF] CORS policy execution successful.
+[2025-09-24 18:52:29] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product - 200 null application/json; charset=utf-8 170.7159ms
+[2025-09-24 18:52:29] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 18:52:29] [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-09-24 18:52:29] [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Description], [p].[Name], [p].[Price]
+FROM [Products] AS [p]
+[2025-09-24 18:52:29] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-09-24 18:52:29] [INF] Executed action Training_BE.Controllers.ProductController.GetAll (Training_BE) in 23.7456ms
+[2025-09-24 18:52:29] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetAll (Training_BE)'
+[2025-09-24 18:52:29] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product - 200 null application/json; charset=utf-8 102.6656ms
