@@ -83,7 +83,7 @@ namespace Training_BE.Services
 
                     //  simplified claim important!
                     new Claim("role", user.Role),
-                    new Claim ("Email", user.Email)
+                    new Claim (ClaimTypes.Email, user.Email)
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(Convert.ToDouble(_config["Jwt:TokenValidityInMinutes"])),
                 Issuer = _config["Jwt:Issuer"],

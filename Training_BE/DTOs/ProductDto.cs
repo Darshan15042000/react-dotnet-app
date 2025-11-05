@@ -22,6 +22,11 @@
         public string Specifications { get; set; }
         public string Warranty { get; set; }
 
+        public DateTime CreatedAt { get; set; }
+
+
+        // New field for quantity
+        public int Quantity { get; set; }
 
 
     }

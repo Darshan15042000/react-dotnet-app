@@ -1,60 +1,162 @@
-/* Background */
-.searchresults-bg {
-  background: linear-gradient(to bottom, #1f1c2c, #928dab);
+/* Page background */
+.modern-bg {
+  background-color: #ffffff; /* white page */
+  min-height: 100vh;
+  padding: 50px 20px;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
 }
 
-/* Product card */
-.product-card {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-  border-radius: 15px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
+/* Floating subtle shapes behind cards */
+.modern-bg::before, .modern-bg::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(108, 92, 231, 0.05);
+  z-index: 0;
+  animation: float 20s ease-in-out infinite alternate;
 }
-.product-card:hover {
-  transform: translateY(-5px);
+.modern-bg::before { width: 300px; height: 300px; top: 10%; left: 5%; }
+.modern-bg::after { width: 400px; height: 400px; bottom: 5%; right: 10%; }
+
+@keyframes float {
+  0% { transform: translateY(0px) translateX(0); }
+  50% { transform: translateY(20px) translateX(15px); }
+  100% { transform: translateY(0px) translateX(0); }
 }
 
-/* Image wrapper */
-.image-wrapper {
-  height: 220px;
-  width: 100%;
+/* Title */
+.modern-title {
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2d3436;
+}
+
+.modern-highlight {
+  color: #6c5ce7;
+}
+
+/* Cards */
+.modern-card {
+  background: linear-gradient(135deg, #eceff1, #cfd8dc); /* neutral masculine gradient */
+  border-radius: 25px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  position: relative;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-.product-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 10px;
+
+.modern-card:hover {
+  transform: translateY(-10px) scale(1.05) rotateZ(1deg);
+  box-shadow: 0 15px 25px rgba(108,92,231,0.25);
 }
-.no-image {
-  background: rgba(0, 0, 0, 0.4);
-  color: white;
+
+/* Image wrapper with floating icons */
+.modern-img-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.2);
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.modern-floating-icons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+  gap: 8px;
+  animation: floatIcon 2s ease-in-out infinite alternate;
 }
 
-/* Gradient button */
-.btn-gradient {
-  background: linear-gradient(to right, #ff7e5f, #feb47b);
-  border: none;
-  border-radius: 50px;
-  color: white;
+@keyframes floatIcon {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+.modern-product-img {
+  max-width: 100%;
+  max-height: 150px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.modern-card:hover .modern-product-img {
+  transform: scale(1.1);
+}
+
+.modern-no-image {
+  color: #555;
   font-weight: 600;
-  padding: 10px;
-  transition: 0.3s;
-}
-.btn-gradient:hover {
-  opacity: 0.9;
-  transform: scale(1.03);
+  padding: 40px 0;
 }
 
-/* Gradient price text */
-.text-gradient {
-  background: linear-gradient(90deg, #ff7e5f, #feb47b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Product info */
+.modern-product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modern-product-name {
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #2d3436;
+}
+
+.modern-product-description {
+  font-size: 0.95rem;
+  color: #444;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
+}
+
+.modern-product-price {
+  color: #6c5ce7;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* Button */
+.modern-btn-view {
+  background: linear-gradient(to right, #6c5ce7, #00b894);
+  border: none;
+  color: white;
+  border-radius: 50px;
+  padding: 10px 0;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+}
+
+.modern-btn-view:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(108,92,231,0.4);
+}
+
+/* Loading */
+.modern-loading {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 50px;
+  color: #2d3436;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modern-card {
+    margin: 0 auto;
+  }
 }

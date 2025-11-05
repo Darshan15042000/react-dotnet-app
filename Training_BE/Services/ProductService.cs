@@ -34,12 +34,14 @@ namespace Training_BE.Services
                 Brand = product.Brand,
                 Specifications = product.Specifications,
                 Warranty = product.Warranty,
-                ImageBase64 = product.Image != null ? Convert.ToBase64String(product.Image) : null
+                ImageBase64 = product.Image != null ? Convert.ToBase64String(product.Image) : null,
+                CreatedAt = product.CreatedAt,
+                Quantity = product.Quantity
             };
         }
 
 
-        // Create Product
+        //  1st Create Product
         public async Task<Product> CreateProduct(ProductDto dto, ClaimsPrincipal user)
         {
 
@@ -77,21 +79,23 @@ namespace Training_BE.Services
             }
 
 
-                var product = new Product
-                {
-                    Name = dto.Name,
-                    Price = dto.Price,
-                    Description = dto.Description,
-                    Category = dto.Category,        
-                    Brand = dto.Brand,             
-                    Specifications = dto.Specifications,
-                    Warranty = dto.Warranty,
-                    Image = imageBytes,
-                    CreatedBy = adminId,
-                    UpdatedBy = adminId,
-                    CreatedAt = DateTime.UtcNow,
-                    UpdatedAt = DateTime.UtcNow
-                };
+            var product = new Product
+            {
+                Name = dto.Name,
+                Price = dto.Price,
+                Description = dto.Description,
+                Category = dto.Category,
+                Brand = dto.Brand,
+                Specifications = dto.Specifications,
+                Warranty = dto.Warranty,
+                Image = imageBytes,
+                CreatedBy = adminId,
+                UpdatedBy = adminId,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
+                // NEW: Add stock quantity
+                Quantity = dto.Quantity
+            };
 
            
             // .select
@@ -104,14 +108,14 @@ namespace Training_BE.Services
                 dto.Name, adminUsername, DateTime.UtcNow);
             return product;
         }
-        // Get All Products 
+        // 2nd Get All Products 
         public async Task<List<ProductDto>> GetAllProducts()
         {
             var products = await _db.Products.ToListAsync();
             return products.Select(p => MapToDto(p)).ToList();
         }
 
-        // Get Product by Id
+        //  3rd Get Product by Id
         public async Task<ProductDto> GetProductById(int id)
         {
             var product = await _db.Products.FirstOrDefaultAsync(p => p.Id == id);
@@ -119,7 +123,7 @@ namespace Training_BE.Services
             return MapToDto(product);
         }
 
-        // Update Product
+        // 4th Update Product
         public async Task<Product> UpdateProduct(int id, ProductDto dto, ClaimsPrincipal user)
         {
             // 1 Get admin info from claims
@@ -155,6 +159,9 @@ namespace Training_BE.Services
             product.Specifications = dto.Specifications;
             product.Warranty = dto.Warranty;
 
+            // NEW: Update stock quantity
+            product.Quantity = dto.Quantity;
+
             // 5. Update image if provided
             if (dto.ImageFile != null && dto.ImageFile.Length > 0)
             {
@@ -183,7 +190,7 @@ namespace Training_BE.Services
             return product;
         }
 
-        // Delete Product
+        //-------------------- 5th Delete Product ------------------------------
         public async Task<bool> DeleteProduct(int id, ClaimsPrincipal user)
         {
             var adminIdClaim = user.Claims.FirstOrDefault(c => c.Type == "id")?.Value;
@@ -225,7 +232,7 @@ namespace Training_BE.Services
             return true;
         }
 
-        // method for serch the product with name like mobile/ laptop
+        // 6th--------- method for serch the product with name like mobile/ laptop ----------
         public async Task<IEnumerable<ProductDto>> SearchProductByName(string name)
         {
             name = name.Trim().ToLower();
@@ -236,112 +243,117 @@ namespace Training_BE.Services
 
 
 
-        // Add product to wishlist
-        public async Task<ProductDto> AddToWishlist(int productId, ClaimsPrincipal user)
-        {
-            var userId = Guid.Parse(user.Claims.First(c => c.Type == "id").Value);
-            var product = await _db.Products.FindAsync(productId);
-            if (product == null) throw new Exception("Product not found");
-
-            var existing = await _db.Wishlists.FirstOrDefaultAsync(w => w.UserId == userId && w.ProductId == productId);
-            if (existing != null) return MapToDto(product); // already in wishlist
-
-            _db.Wishlists.Add(new Wishlist { UserId = userId, ProductId = productId });
-            await _db.SaveChangesAsync();
-            return MapToDto(product);
-        }
-
-        public async Task<List<ProductDto>> GetWishlistItems(Guid userId)
-        {
-            // Step 1: Fetch wishlist + related products from DB
-            var wishlistItems = await _db.Wishlists
-                .Include(w => w.Product) // Include the related Product
-                .Where(w => w.UserId == userId)
-                .ToListAsync();          // Fetch into memory
-
-            // Step 2: Map in C# memory
-            return wishlistItems.Select(w => MapToDto(w.Product)).ToList();
-        }
+        // 7th --------------- Add product to wishlist ---------------------
 
 
-        // Add product to Cart
-        public async Task<CartItemDto> AddToCart(int productId, ClaimsPrincipal user, int quantity)
-        {
-            var userId = Guid.Parse(user.Claims.First(c => c.Type == "id").Value);
-            var product = await _db.Products.FindAsync(productId);
-            if (product == null) throw new Exception("Product not found");
 
-            var existing = await _db.Carts.FirstOrDefaultAsync(c => c.UserId == userId && c.ProductId == productId);
-            if (existing != null)
-            {
-                existing.Quantity += quantity;
-                await _db.SaveChangesAsync();
-            }
-            else
-            {
-                _db.Carts.Add(new Cart { UserId = userId, ProductId = productId, Quantity = quantity });
-                await _db.SaveChangesAsync();
-            }
+        //// 9th -------------------- Add product to Cart ----------------------------
+        //public async Task<CartItemDto> AddToCart(int productId, ClaimsPrincipal user, int quantity)
+        //{
+        //    var userId = Guid.Parse(user.Claims.First(c => c.Type == "id").Value);
+        //    var product = await _db.Products.FindAsync(productId);
+        //    if (product == null) throw new Exception("Product not found");
 
-            return new CartItemDto
-            {
-                Id = product.Id,
-                Name = product.Name,
-                Price = product.Price,
-                Description = product.Description,
-                Category = product.Category,
-                Brand = product.Brand,
-                Specifications = product.Specifications,
-                Warranty = product.Warranty,
-                ImageBase64 = product.Image != null ? Convert.ToBase64String(product.Image) : null,
-                Quantity = quantity
-            };
-        }
+        //    var existing = await _db.Carts.FirstOrDefaultAsync(c => c.UserId == userId && c.ProductId == productId);
+        //    if (existing != null)
+        //    {
+        //        existing.Quantity += quantity;
+        //        await _db.SaveChangesAsync();
+        //    }
+        //    else
+        //    {
+        //        _db.Carts.Add(new Cart { UserId = userId, ProductId = productId, Quantity = quantity });
+        //        await _db.SaveChangesAsync();
+        //    }
+
+        //    return new CartItemDto
+        //    {
+        //        Id = product.Id,
+        //        Name = product.Name,
+        //        Price = product.Price,
+        //        Description = product.Description,
+        //        Category = product.Category,
+        //        Brand = product.Brand,
+        //        Specifications = product.Specifications,
+        //        Warranty = product.Warranty,
+        //        ImageBase64 = product.Image != null ? Convert.ToBase64String(product.Image) : null,
+        //        Quantity = quantity
+        //    };
+        //}
 
 
-        // method for get wishlist of user
-
-        public async Task<List<CartItemDto>> GetCartItems(Guid userId)
-        {
-            return await _db.Carts
-                .Where(c => c.UserId == userId)
-                .Select(c => new CartItemDto
-                {
-                    Id = c.Product.Id,
-                    Name = c.Product.Name,
-                    Price = c.Product.Price,
-                    Description = c.Product.Description,
-                    Category = c.Product.Category,
-                    Brand = c.Product.Brand,
-                    Specifications = c.Product.Specifications,
-                    Warranty = c.Product.Warranty,
-                    ImageBase64 = c.Product.Image != null ? Convert.ToBase64String(c.Product.Image) : null,
-                    Quantity = c.Quantity
-                })
-                .ToListAsync();
-        }
+        //// method for get cart of user
+        ////10th -------------------------------------------------------------------------------
+        //public async Task<List<CartItemDto>> GetCartItems(Guid userId)
+        //{
+        //    return await _db.Carts
+        //        .Where(c => c.UserId == userId)
+        //        .Select(c => new CartItemDto
+        //        {
+        //            Id = c.Product.Id,
+        //            Name = c.Product.Name,
+        //            Price = c.Product.Price,
+        //            Description = c.Product.Description,
+        //            Category = c.Product.Category,
+        //            Brand = c.Product.Brand,
+        //            Specifications = c.Product.Specifications,
+        //            Warranty = c.Product.Warranty,
+        //            ImageBase64 = c.Product.Image != null ? Convert.ToBase64String(c.Product.Image) : null,
+        //            Quantity = c.Product.Quantity,
+        //        })
+        //        .ToListAsync();
+        //}
 
 
         //method for order the product by user (place order)
+        //11th -----------------------------------------------------------------------------
 
-        public async Task<Order> PlaceOrder(int productId, int quantity, ClaimsPrincipal user)
+        public async Task<Order> PlaceOrder(int productId, int quantity, int addressId, ClaimsPrincipal user)
         {
             var userId = Guid.Parse(user.Claims.First(c => c.Type == "id").Value);
             var userName = user.Claims.FirstOrDefault(c => c.Type == "username")?.Value;
             var userEmail = user.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
 
             var product = await _db.Products.FindAsync(productId);
-            if (product == null) throw new Exception("Product not found");
+            if (product == null)
+                throw new Exception("Product not found");
 
+            if (product.Quantity < quantity)
+                throw new Exception($"Only {product.Quantity} item(s) available in stock.");
+
+            // reduce quantity
+            product.Quantity -= quantity;
+
+            // ✅ Check that the address belongs to this user
+            var address = await _db.Addresses
+                .FirstOrDefaultAsync(a => a.Id == addressId && a.UserId == userId);
+
+            if (address == null)
+                throw new Exception("Invalid address or address not found.");
+
+            //  Find available delivery partner by pincode
+            var deliveryPartner = await _db.DeliveryPartners
+                .Include(dp => dp.Orders)
+                .Where(dp => dp.Pincode == address.Pincode)
+                .OrderBy(dp => dp.Orders.Count) // assign partner with fewest active orders
+                .FirstOrDefaultAsync();
+
+            if (deliveryPartner == null)
+                throw new Exception("No delivery partner available for this pincode.");
+
+            //  Create and assign order
             var order = new Order
             {
                 UserId = userId,
                 UserName = userName,
                 UserEmail = userEmail,
                 ProductId = productId,
-                AdminId = product.CreatedBy,   // product owner
+                AdminId = product.CreatedBy,
                 Quantity = quantity,
-                OrderDate = DateTime.UtcNow
+                OrderDate = DateTime.UtcNow,
+                AddressId = address.Id,
+                DeliveryPartnerId = deliveryPartner.Id,
+                Status = "Assigned"
             };
 
             _db.Orders.Add(order);
@@ -351,13 +363,17 @@ namespace Training_BE.Services
         }
 
 
-        // method for get the users orders details
 
+
+
+        // method for get the users orders details
+        //12th --------------------------- || --------------------------------------------
         public async Task<List<UserOrderDto>> GetUserOrders(Guid userId)
         {
             return await _db.Orders
                 .Where(o => o.UserId == userId)
                 .Include(o => o.Product)
+                .Include(o => o.Address) // 🆕 include Address
                 .Select(o => new UserOrderDto
                 {
                     ProductName = o.Product.Name,
@@ -366,13 +382,22 @@ namespace Training_BE.Services
                     Specifications = o.Product.Specifications,
                     ImageBase64 = o.Product.Image != null ? Convert.ToBase64String(o.Product.Image) : null,
                     Quantity = o.Quantity,
-                    OrderDate = o.OrderDate
+                    OrderDate = o.OrderDate,
+
+                    // 🆕 Address details
+                    MobileNumber = o.Address.MobileNumber,
+                    Pincode = o.Address.Pincode,
+                    AddressLine = o.Address.AddressLine,
+                    City = o.Address.City,
+                    State = o.Address.State,
+                    Landmark = o.Address.Landmark
                 })
                 .ToListAsync();
         }
 
         //method for admin's product details like who order the product 
 
+        //13 --------------------------------- || ----------------------------------------
 
         public async Task<List<AdminOrderDto>> GetAdminOrders(Guid adminId)
         {
@@ -385,6 +410,9 @@ namespace Training_BE.Services
                     UserName = o.UserName,
                     UserEmail = o.UserEmail,
                     ProductName = o.Product.Name,
+                    ProductId = o.Product.Id.ToString(),
+                    ProductBrand = o.Product.Brand,
+                    ProductPrice = o.Product.Price.ToString(),
                     ImageBase64 = o.Product.Image != null ? Convert.ToBase64String(o.Product.Image) : null,
                     Quantity = o.Quantity,
                     OrderDate = o.OrderDate
@@ -393,7 +421,7 @@ namespace Training_BE.Services
         }
 
         // method for taking the innfo about the admin's customer
-
+        //14th ----------------------------------- || -----------------------------------------
         public async Task<List<AdminCustomerDto>> GetAdminCustomers(Guid adminId)
         {
             return await _db.Orders
@@ -402,14 +430,16 @@ namespace Training_BE.Services
                 {
                     UserId = o.UserId,
                     UserName = o.UserName,
-                    UserEmail = o.UserEmail
+                    UserEmail = o.UserEmail,
+                    ProductId = o.ProductId,
+                    ProductName = o.Product.Name
                 })
                 .Distinct()
                 .ToListAsync();
         }
 
         //method for specific customers details with product
-
+        //16th ------------------------------- || ------------------------------------------
         public async Task<List<AdminOrderDto>> GetCustomerOrders(Guid adminId, Guid userId)
         {
             return await _db.Orders
@@ -431,10 +461,73 @@ namespace Training_BE.Services
 
 
 
+        // 17th ------------------ admin dashboard --------------------------
+        public async Task<AdminDashboardStatsDto> GetAdminDashboardStats(Guid adminId)
+        {
+            // total users who ordered from this admin
+            var totalUsers = await _db.Orders
+                .Where(o => o.AdminId == adminId)
+                .Select(o => o.UserId)
+                .Distinct()
+                .CountAsync();
+
+            // total products added by this admin
+            var totalProducts = await _db.Products
+                .CountAsync(p => p.CreatedBy == adminId);
+
+            // total orders for this admin’s products
+            var totalOrders = await _db.Orders
+                .CountAsync(o => o.AdminId == adminId);
+
+            // revenue = sum of (product price * quantity)
+            var totalRevenue = await _db.Orders
+                .Where(o => o.AdminId == adminId)
+                .Join(_db.Products,
+                      order => order.ProductId,
+                      product => product.Id,
+                      (order, product) => product.Price * order.Quantity)
+                .SumAsync();
+
+            return new AdminDashboardStatsDto
+            {
+                TotalUsers = totalUsers,
+                TotalProducts = totalProducts,
+                TotalOrders = totalOrders,
+                TotalRevenue = totalRevenue
+            };
+        }
+
+        // 18th --------- Get recent buyers for admin's products --------------------------
+        public async Task<List<RecentBuyerDto>> GetRecentBuyers(Guid adminId, int limit = 5)
+        {
+            return await _db.Orders
+                .Where(o => o.AdminId == adminId)
+                .Include(o => o.Product)
+                .OrderByDescending(o => o.OrderDate) // recent first
+                .Take(limit) // limit number of results
+                .Select(o => new RecentBuyerDto
+                {
+                    OrderId = o.Id,
+                    BuyerName = o.UserName,
+                    ProductName = o.Product.Name,
+                    OrderDate = o.OrderDate,
+                    Status = "Pending" // or your status property if exists
+                })
+                .ToListAsync();
+        }
 
 
+        //19th ----------- get adminsprodcut only ------------------------- 
 
+        
+        public async Task<List<ProductDto>> GetProductsByAdmin(Guid adminId)
+        {
+            var products = await _db.Products
+                .Where(p => p.CreatedBy == adminId)
+                .ToListAsync();
 
+            return products.Select(p => MapToDto(p)).ToList();
+        }
 
     }
 }

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./SearchResults.css"; // 👈 new CSS file for styling
+import "./SearchResults.css";
+import { Heart, ShoppingCart, Star } from "lucide-react";
 
 function SearchResults() {
   const { query } = useParams();
@@ -25,7 +26,7 @@ function SearchResults() {
           }
         } else {
           const data = await res.json();
-          setProducts(data);
+          setProducts(Array.isArray(data) ? data : []);
         }
       } catch (err) {
         console.error(err);
@@ -34,65 +35,51 @@ function SearchResults() {
         setLoading(false);
       }
     };
-
     fetchProducts();
   }, [query]);
 
-  if (loading) {
-    return <div className="text-center mt-5 text-light">Loading...</div>;
-  }
+  if (loading) return <div className="modern-loading">Loading...</div>;
 
   return (
-    <div className="searchresults-bg min-vh-100 py-5">
+    <div className="modern-bg">
       <div className="container">
-        <h2
-          className="mb-5 text-center fw-bold"
-          style={{
-            fontSize: "2.5rem",
-            background: "linear-gradient(90deg, #ff7e5f, #feb47b)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            textShadow: "2px 2px 6px rgba(0,0,0,0.4)",
-          }}
-        >
-          Search Results for "{query}"
+        <h2 className="modern-title">
+          Search Results for "<span className="modern-highlight">{query}</span>"
         </h2>
 
         {error ? (
-          <p className="text-danger text-center">{error}</p>
+          <p className="text-center text-danger">{error}</p>
         ) : (
-          <div className="row">
-            {products.map((p, index) => (
-              <div key={p.id || index} className="col-md-4 mb-4">
-                <div className="product-card h-100 shadow-lg d-flex flex-column">
-                  {/* Image */}
-                  <div className="image-wrapper">
+          <div className="row g-4">
+            {products.map((p, idx) => (
+              <div key={p.id || idx} className="col-md-4 col-sm-6">
+                <div className="modern-card">
+                  <div className="modern-img-wrapper">
                     {p.imageBase64 ? (
                       <img
                         src={`data:image/jpeg;base64,${p.imageBase64}`}
                         alt={p.name}
-                        className="product-img"
+                        className="modern-product-img"
                       />
                     ) : (
-                      <div className="no-image">No Image</div>
+                      <div className="modern-no-image">No Image</div>
                     )}
+                    <div className="modern-floating-icons">
+                      <Heart size={20} color="#ff4757" title="Wishlist"/>
+                      <Star size={20} color="#ffa502" title="Favorite"/>
+                    </div>
                   </div>
 
-                  {/* Card body */}
-                  <div className="card-body text-center d-flex flex-column justify-content-between mt-2">
-                    <div>
-                      <h5 className="product-name text-white">{p.name}</h5>
-                      <p className="text-light">{p.description}</p>
-                    </div>
-                    <div>
-                      <h6 className="fw-bold text-gradient">₹{p.price}</h6>
-                      <button
-                        className="btn btn-gradient mt-2 w-100"
-                        onClick={() => navigate(`/product/${p.id}`)}
-                      >
-                        View Details
-                      </button>
-                    </div>
+                  <div className="modern-product-info">
+                    <h5 className="modern-product-name">{p.name}</h5>
+                    <p className="modern-product-description">{p.description || "No description"}</p>
+                    <div className="modern-product-price">₹{p.price}</div>
+                    <button
+                      className="modern-btn-view w-100"
+                      onClick={() => navigate(`/product/${p.id}`)}
+                    >
+                      View Details <ShoppingCart size={18} style={{marginLeft: "5px"}}/>
+                    </button>
                   </div>
                 </div>
               </div>

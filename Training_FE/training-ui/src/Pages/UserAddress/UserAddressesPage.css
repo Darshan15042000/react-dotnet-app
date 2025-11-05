@@ -1,0 +1,185 @@
+/* Container */
+.addresses-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f6fa;
+  padding: 40px 80px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Header */
+.addresses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px 30px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  margin-bottom: 40px;
+}
+
+.addresses-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.addresses-profile-img {
+  width: 75px;
+    width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #6c5ce7;
+}
+
+.addresses-user-info h2 {
+  margin: 0;
+  color: #2d3436;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.addresses-user-info p {
+  margin-top: 5px;
+  color: #636e72;
+  font-size: 0.95rem;
+}
+
+/* Logout Button */
+.addresses-logout-btn {
+  background: linear-gradient(to right, #ff7675, #d63031);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.addresses-logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(214,48,49,0.4);
+}
+
+/* Main Section */
+.addresses-main {
+  background: #fff;
+  border-radius: 14px;
+  padding: 30px 40px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.addresses-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.addresses-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.addresses-add-btn:hover {
+  background: #5a4fd0;
+}
+
+/* Addresses List */
+.addresses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.addresses-no-data {
+  text-align: center;
+  color: #636e72;
+  font-weight: 500;
+}
+
+.addresses-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #f1f2f6;
+  padding: 20px;
+  border-radius: 14px;
+  position: relative;
+}
+
+.addresses-icon {
+  width: 35px;
+  height: 35px;
+  color: #74b9ff;
+}
+
+.addresses-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2d3436;
+}
+
+.addresses-info p {
+  margin: 4px 0;
+  color: #636e72;
+  font-size: 0.95rem;
+}
+
+.addresses-default {
+  color: #00b894;
+  font-weight: 600;
+}
+
+/* Edit Button */
+.addresses-edit-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: #fdcb6e;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.addresses-edit-btn:hover {
+  background: #e5b75d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .addresses-container {
+    padding: 30px 20px;
+  }
+
+  .addresses-main {
+    padding: 20px;
+  }
+
+  .addresses-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .addresses-edit-btn {
+    position: static;
+    margin-top: 10px;
+  }
+}

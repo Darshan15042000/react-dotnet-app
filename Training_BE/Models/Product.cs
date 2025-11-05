@@ -27,8 +27,8 @@ namespace Training_BE.Models
         // Track which admin last updated the product
         public Guid? UpdatedBy { get; set; }
 
-        // Track timestamps
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt        // Track timestamps
+ { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
         // Navigation property (optional)
@@ -48,6 +48,11 @@ namespace Training_BE.Models
 
         public string Specifications { get; set; }  // JSON string or text
         public string Warranty { get; set; }
+
+
+        // ✅ New field for stock management
+        [Required]
+        public int Quantity { get; set; } = 0;
 
     }
 }

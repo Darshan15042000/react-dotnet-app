@@ -7,6 +7,12 @@
         public string UserEmail { get; set; }
 
         public string ProductName { get; set; }
+
+        public string ProductId { get; set; }
+
+        public string ProductBrand { get; set; }
+
+        public string ProductPrice { get; set; }
         public string ImageBase64 { get; set; }
         public int Quantity { get; set; }
         public DateTime OrderDate { get; set; }

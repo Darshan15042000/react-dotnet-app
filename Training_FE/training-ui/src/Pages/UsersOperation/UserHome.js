@@ -8,6 +8,7 @@ import LaptopImg from "../../Dummy_Pics/Laptops.png";
 import Watches from "../../Dummy_Pics/Watch.png";
 import shoes from "../../Dummy_Pics/Shoes.png";
 import headphones from "../../Dummy_Pics/headphones.png";
+import { Search, LogOut } from "lucide-react";
 
 function UserHome() {
   const navigate = useNavigate();
@@ -32,72 +33,71 @@ function UserHome() {
   };
 
   return (
-    <div className="userhome-bg vh-100 d-flex flex-column">
+    <div className="uh-container">
       {/* Header */}
-      <header className="header shadow-sm d-flex justify-content-between align-items-center p-3">
-        <div className="d-flex align-items-center gap-3">
-          <h2 style={{ color: "#fff", fontWeight: "bold", margin: 0 }}>
-            Hello, {user.username}
-          </h2>
+      <header className="uh-header">
+        <div className="uh-header-left">
           <img
             src={profilePic}
             alt="Profile"
-            className="profile-img"
+            className="uh-profile"
             onClick={() => navigate("/user-profile")}
             title="Go to Profile"
           />
+          <h2>Hi, {user.username} 👋</h2>
         </div>
-        <button className="btn btn-outline-light btn-lg" onClick={handleLogout}>
-          Logout
+        <button className="uh-logout" onClick={handleLogout}>
+          <LogOut size={18} /> Logout
         </button>
       </header>
 
       {/* Search Section */}
-      <section className="user-section text-center">
-        <h3 className="mb-4 title">Find Your Favorite Products</h3>
+      <section className="uh-search-section">
+        <h3 className="uh-heading">Find Your Favorite Products</h3>
 
-        {/* Search Form */}
-        <form className="d-flex justify-content-center mb-3 search-form" onSubmit={handleSearch}>
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="form-control me-2 search-input"
-            placeholder="Search products..."
-          />
-          <button className="btn btn-gradient px-4">Search</button>
+        <form className="uh-search-form" onSubmit={handleSearch}>
+          <div className="uh-search-box">
+            <Search className="uh-search-icon" />
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search for products..."
+            />
+          </div>
+          <button className="uh-search-btn">Search</button>
         </form>
+      </section>
 
-        {/* Category Images */}
-        <div className="category-container">
-          <div className="category-item" onClick={() => navigate(`/search/headphone`)}>
-            <img src={headphones} alt="Headphones" />
-            <h5>HeadPhones</h5>
-          </div>
-
-          <div className="category-item" onClick={() => navigate(`/search/shoes`)}>
-            <img src={shoes} alt="Shoes" />
-            <h5>Shoes</h5>
-          </div>
-
-          <div className="category-item" onClick={() => navigate(`/search/mobile`)}>
-            <img src={smartphoneImg} alt="SmartPhones" />
-            <h5>SmartPhones</h5>
-          </div>
-
-          <div className="category-item" onClick={() => navigate(`/search/laptop`)}>
-            <img src={LaptopImg} alt="Laptops" />
-            <h5>Laptops</h5>
-          </div>
-
-          <div className="category-item" onClick={() => navigate(`/search/watch`)}>
-            <img src={Watches} alt="Watches" />
-            <h5>Watches</h5>
-          </div>
+      {/* Categories */}
+      <div className="uh-category-section">
+        <div className="uh-card" onClick={() => navigate(`/search/headphone`)}>
+          <img src={headphones} alt="Headphones" />
+          <h5>Headphones</h5>
         </div>
 
-        {message && <div className="alert alert-success w-50">{message}</div>}
-      </section>
+        <div className="uh-card" onClick={() => navigate(`/search/shoes`)}>
+          <img src={shoes} alt="Shoes" />
+          <h5>Shoes</h5>
+        </div>
+
+        <div className="uh-card" onClick={() => navigate(`/search/mobile`)}>
+          <img src={smartphoneImg} alt="SmartPhones" />
+          <h5>SmartPhones</h5>
+        </div>
+
+        <div className="uh-card" onClick={() => navigate(`/search/laptop`)}>
+          <img src={LaptopImg} alt="Laptops" />
+          <h5>Laptops</h5>
+        </div>
+
+        <div className="uh-card" onClick={() => navigate(`/search/watch`)}>
+          <img src={Watches} alt="Watches" />
+          <h5>Watches</h5>
+        </div>
+      </div>
+
+      {message && <div className="alert alert-success w-50 mx-auto">{message}</div>}
     </div>
   );
 }

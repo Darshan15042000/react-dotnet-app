@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './WishlistPage.css';
+import "./WishlistPage.css";
+import profilePic from "../../assets/images/User_Profile.jpg";
 
 function WishlistPage() {
   const navigate = useNavigate();
   const [wishlist, setWishlist] = useState([]);
   const [message, setMessage] = useState("");
+  const [user, setUser] = useState({ username: "" });
   const token = localStorage.getItem("token");
 
   useEffect(() => {
+    const username = localStorage.getItem("username");
+    setUser({ username: username || "User" });
     fetchWishlist();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchWishlist = async () => {
@@ -26,35 +31,90 @@ function WishlistPage() {
     }
   };
 
-  // ✅ Add to Cart function
-  const addToCart = async (productId) => {
+  // 🟢 Add to Cart logic with stock check
+  const addToCart = async (product) => {
     if (!token) return setMessage("Please login to add to cart!");
+    if (product.quantity === 0) {
+      setMessage(`❌ ${product.name} is out of stock!`);
+      return;
+    }
+
     try {
       const res = await fetch(
-        `https://localhost:7165/api/Product/cart/${productId}?quantity=1`,
-        {
-          method: "POST",
-          headers: { Authorization: `Bearer ${token}` },
-        }
+        `https://localhost:7165/api/Product/cart/${product.id}`,
+        { method: "POST", headers: { Authorization: `Bearer ${token}` } }
       );
-      if (!res.ok) throw new Error("Failed to add to cart");
-      setMessage("Product added to cart!");
+      const data = await res.json();
+
+     if (!res.ok) {
+      // 🔹 Check if backend sent "Product already in cart"
+      if (data.message === "Product already in cart") {
+        setMessage(`⚠️ ${product.name} is already in your cart!`);
+      } else {
+        setMessage("❌ " + data.message || "Failed to add to cart");
+      }
+      return;
+    }
+
+    setMessage(`✅ ${product.name} added to cart!`);
+  } catch (err) {
+    setMessage("❌ " + err.message);
+  }
+};
+
+  // 🟢 Remove product from wishlist
+  const removeFromWishlist = async (productId) => {
+    if (!token) return setMessage("Please login to remove items!");
+
+    try {
+      const res = await fetch(
+        `https://localhost:7165/api/Product/wishlist/${productId}`,
+        { method: "DELETE", headers: { Authorization: `Bearer ${token}` } }
+      );
+      if (!res.ok) throw new Error("Failed to remove item from wishlist");
+
+      // Remove item locally without refetching
+      setWishlist((prev) => prev.filter((p) => p.id !== productId));
+      setMessage("✅ Item removed from wishlist!");
     } catch (err) {
-      setMessage(err.message);
+      setMessage("❌ " + err.message);
     }
   };
 
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
+
   return (
-    <div className="wishlist-bg">
-      <h2 className="wishlist-title">💖 Your Wishlist</h2>
+    <div className="wh-container">
+      {/* Header */}
+      <header className="wh-header">
+        <div className="wh-header-left">
+          <img
+            src={profilePic}
+            alt="Profile"
+            className="wh-profile-img"
+            onClick={() => navigate("/user-profile")}
+            title="Go to Profile"
+          />
+          <h2>Hi, {user.username} 👋</h2>
+        </div>
+        <button className="wh-logout-btn" onClick={handleLogout}>
+          Logout
+        </button>
+      </header>
 
-      {message && <div className="alert-msg">{message}</div>}
+      {/* Wishlist Title */}
+      <h3 className="wh-title">💖 Your Wishlist</h3>
 
-      <div className="row g-4">
+      {message && <div className="wh-msg">{message}</div>}
+
+      <div className="wh-grid">
         {wishlist.length > 0 ? (
           wishlist.map((p) => (
-            <div key={p.id} className="col-md-4">
-              <div className="card product-card h-100 text-center p-3 shadow">
+            <div key={p.id} className="wh-card">
+              <div className="wh-card-top">
                 <img
                   src={
                     p.imageBase64
@@ -62,30 +122,49 @@ function WishlistPage() {
                       : "https://via.placeholder.com/150"
                   }
                   alt={p.name}
-                  className="product-img"
+                  className="wh-card-img"
                 />
-                <h5>{p.name}</h5>
-                <p className="product-price">₹{p.price}</p>
+                <h5 className="wh-card-title">{p.description}</h5>
+                <p className="wh-card-price">₹{p.price}</p>
 
-                {/* ✅ Cart Button */}
+                {/* Stock status */}
+                {p.quantity === 0 ? (
+                  <div className="stock-badge animated out-of-stock">
+                    <span className="icon">❌</span> Out of Stock
+                  </div>
+                ) : p.quantity <= 5 ? (
+                  <div className="stock-badge animated low-stock">
+                    <span className="icon">⚡</span> Only {p.quantity} item
+                    {p.quantity > 1 ? "s" : ""} left! Hurry up!
+                  </div>
+                ) : null}
+              </div>
+
+              <div className="wh-card-bottom">
                 <button
-                  className="btn btn-cart mt-2"
-                  onClick={() => addToCart(p.id)}
+                  className={`wh-btn-cart ${
+                    p.quantity === 0 ? "wishlist-disabled-btn" : ""
+                  }`}
+                  onClick={() => addToCart(p)}
+                  disabled={p.quantity === 0}
                 >
-                  🛒 Add to Cart
+                  {p.quantity === 0 ? "Unavailable" : "🛒 Add to Cart"}
+                </button>
+                <button
+                  className="wh-btn-remove"
+                  onClick={() => removeFromWishlist(p.id)}
+                >
+                  ❌ Remove
                 </button>
               </div>
             </div>
           ))
         ) : (
-          <p className="text-center w-100 text-light">No items in your wishlist.</p>
+          <p className="wh-empty">No items in your wishlist.</p>
         )}
       </div>
 
-      <button
-        className="btn btn-secondary btn-back"
-        onClick={() => navigate("/user-profile")}
-      >
+      <button className="wh-btn-back" onClick={() => navigate("/user-profile")}>
         ⬅ Back to Profile
       </button>
     </div>

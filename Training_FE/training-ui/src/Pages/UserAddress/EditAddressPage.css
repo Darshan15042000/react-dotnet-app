@@ -1,0 +1,146 @@
+.editaddress-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f6fa;
+  padding: 40px 80px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Header */
+.editaddress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px 30px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  margin-bottom: 40px;
+}
+
+.editaddress-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.editaddress-profile-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #6c5ce7;
+}
+
+.editaddress-user-info h2 {
+  margin: 0;
+  color: #2d3436;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.editaddress-user-info p {
+  margin-top: 5px;
+  color: #636e72;
+  font-size: 0.95rem;
+}
+
+.editaddress-logout-btn {
+  background: linear-gradient(to right, #ff7675, #d63031);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.editaddress-logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(214,48,49,0.4);
+}
+
+/* Form */
+.editaddress-form-container {
+  background: #fff;
+  border-radius: 14px;
+  padding: 30px 40px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.editaddress-form-container h2 {
+  margin-bottom: 20px;
+  color: #2d3436;
+}
+
+.editaddress-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.editaddress-form input[type="text"] {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.editaddress-default-label {
+  font-size: 0.95rem;
+  color: #2d3436;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.editaddress-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.editaddress-btns button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.editaddress-btns button[type="submit"] {
+  background: #6c5ce7;
+  color: white;
+}
+
+.editaddress-btns button[type="submit"]:hover {
+  background: #5a4fd0;
+}
+
+.editaddress-btns .editaddress-cancel {
+  background: #dfe6e9;
+}
+
+.editaddress-btns .editaddress-cancel:hover {
+  background: #b2bec3;
+}
+
+.editaddress-error {
+  color: red;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .editaddress-container {
+    padding: 30px 20px;
+  }
+
+  .editaddress-form-container {
+    padding: 20px;
+  }
+}

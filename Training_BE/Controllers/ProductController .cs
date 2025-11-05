@@ -134,74 +134,74 @@ namespace Training_BE.Controllers
 
 
 
-        // only loggged in users have accesse to add product in cart or wishlist
-        [HttpPost("wishlist/{productId}")]
-        [Authorize(Roles = "User,Admin")] // user and admin both
-        public async Task<IActionResult> AddToWishlist(int productId)
-        {
-            try
-            {
-                var wishlist = await _service.AddToWishlist(productId, HttpContext.User);
-                return Ok(wishlist);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-        }
+        //// only loggged in users have accesse to add product in cart or wishlist
+        //[HttpPost("wishlist/{productId}")]
+        //[Authorize(Roles = "User,Admin")] // user and admin both
+        //public async Task<IActionResult> AddToWishlist(int productId)
+        //{
+        //    try
+        //    {
+        //        var wishlist = await _service.AddToWishlist(productId, HttpContext.User);
+        //        return Ok(wishlist);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(new { message = ex.Message });
+        //    }
+        //}
 
-        // get the wishlist of user 
+        //// get the wishlist of user 
 
-        [HttpGet("wishlist")]
-        [Authorize]
-        public async Task<IActionResult> GetWishlist()
-        {
-            var userId = Guid.Parse(User.Claims.First(c => c.Type == "id").Value);
-            var wishlistItems = await _service.GetWishlistItems(userId);
-            return Ok(wishlistItems);
-        }
-
-
-
-        [HttpPost("cart/{productId}")]
-        [Authorize(Roles = "User,Admin")]
-        public async Task<IActionResult> AddToCart(int productId, [FromQuery] int quantity = 1)
-        {
-            try
-            {
-                var cart = await _service.AddToCart(productId, HttpContext.User, quantity);
-                return Ok(cart);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-        }
+        //[HttpGet("wishlist")]
+        //[Authorize]
+        //public async Task<IActionResult> GetWishlist()
+        //{
+        //    var userId = Guid.Parse(User.Claims.First(c => c.Type == "id").Value);
+        //    var wishlistItems = await _service.GetWishlistItems(userId);
+        //    return Ok(wishlistItems);
+        //}
 
 
-        // controller for wishlist products
+
+        //[HttpPost("cart/{productId}")]
+        //[Authorize(Roles = "User,Admin")]
+        //public async Task<IActionResult> AddToCart(int productId, [FromQuery] int quantity = 1)
+        //{
+        //    try
+        //    {
+        //        var cart = await _service.AddToCart(productId, HttpContext.User, quantity);
+        //        return Ok(cart);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(new { message = ex.Message });
+        //    }
+        //}
 
 
-        // controller for geting cart products
+        //// controller for wishlist products
 
-        [HttpGet("cart")]
-        [Authorize]
-        public async Task<IActionResult> GetCart()
-        {
-            var userId = Guid.Parse(User.Claims.First(c => c.Type == "id").Value);
-            var cartItems = await _service.GetCartItems(userId);
-            return Ok(cartItems);
-        }
+
+        //// controller for geting cart products
+
+        //[HttpGet("cart")]
+        //[Authorize]
+        //public async Task<IActionResult> GetCart()
+        //{
+        //    var userId = Guid.Parse(User.Claims.First(c => c.Type == "id").Value);
+        //    var cartItems = await _service.GetCartItems(userId);
+        //    return Ok(cartItems);
+        //}
 
 
         // Place an order (User)
         [HttpPost("order/{productId}")]
-        [Authorize(Roles = "User,Admin")] // both can order
-        public async Task<IActionResult> PlaceOrder(int productId, [FromQuery] int quantity = 1)
+        [Authorize(Roles = "User,Admin")]
+        public async Task<IActionResult> PlaceOrder(int productId, [FromQuery] int quantity, [FromQuery] int addressId)
         {
             try
             {
-                var order = await _service.PlaceOrder(productId, quantity, HttpContext.User);
+                var order = await _service.PlaceOrder(productId, quantity, addressId, HttpContext.User);
                 return Ok(order);
             }
             catch (Exception ex)
@@ -209,6 +209,8 @@ namespace Training_BE.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+
 
 
 
@@ -232,7 +234,7 @@ namespace Training_BE.Controllers
             var orders = await _service.GetAdminOrders(adminId);
             return Ok(orders);
         }
-
+        //getcart
 
         // controller method  for get the user of admis products
 
@@ -259,6 +261,48 @@ namespace Training_BE.Controllers
         }
 
 
+
+        [HttpGet("admin/stats")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetAdminDashboardStats()
+        {
+            var adminId = Guid.Parse(User.Claims.First(c => c.Type == "id").Value);
+            var stats = await _service.GetAdminDashboardStats(adminId);
+            return Ok(stats);
+        }
+
+
+        [HttpGet("admin/recent-buyers")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetRecentBuyers()
+        {
+            var adminId = Guid.Parse(User.Claims.First(c => c.Type == "id").Value);
+            var buyers = await _service.GetRecentBuyers(adminId);
+            return Ok(buyers);
+        }
+
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet("admin/products")]
+        public async Task<IActionResult> GetProductsByAdmin()
+        {
+            try
+            {
+                var adminIdClaim = User.Claims.FirstOrDefault(c => c.Type == "id")?.Value;
+                if (adminIdClaim == null)
+                    return Unauthorized("Admin ID not found in JWT token.");
+
+                var adminId = Guid.Parse(adminIdClaim);
+                var products = await _service.GetProductsByAdmin(adminId);
+
+                return Ok(products);
+            }
+            catch (Exception ex)
+            {
+                
+                return StatusCode(500, "Internal server error");
+            }
+        }
 
 
 

@@ -41,6 +41,7 @@ namespace Training_BE
             {
                 options.AddPolicy("CorsPolicy",
                     policy => policy
+                        //.WithOrigins("http://localhost:3000") // only my frontend will acccess
                         .AllowAnyOrigin()
                         .AllowAnyMethod()
                         .AllowAnyHeader());
@@ -88,6 +89,10 @@ namespace Training_BE
             // Register services for dependency injection
             builder.Services.AddScoped<AuthService>();
             builder.Services.AddScoped<ProductService>();
+            builder.Services.AddScoped<AddressService>();
+            builder.Services.AddScoped<WishlistService>();
+            builder.Services.AddScoped<CartService>();
+
 
             // JWT Authentication
             builder.Services.AddAuthentication(options =>
@@ -123,7 +128,7 @@ namespace Training_BE
 
 
                 // Configure the HTTP request pipeline
-                if (app.Environment.IsDevelopment())
+                if (app.Environment.IsDevelopment())  
                 {
                     app.UseSwagger();
                     app.UseSwaggerUI();

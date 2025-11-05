@@ -13,7 +13,7 @@ namespace Training_BE.Models
         public int ProductId { get; set; } // Reference to Product
         public Product Product { get; set; }
 
-        public int Quantity { get; set; } = 1;
+        //public int Quantity { get; set; } = 1;
 
         public DateTime AddedAt { get; set; } = DateTime.UtcNow;
     }

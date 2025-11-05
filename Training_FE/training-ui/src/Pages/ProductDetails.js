@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "./ProductDetails.css"; // 👈 new css file for background & styles
+import "./ProductDetails.css";
+import { Heart, ShoppingCart } from "lucide-react";
 
-function ProductDetails() {
+function ProductDetailsModern() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
@@ -63,53 +64,46 @@ function ProductDetails() {
     }
   };
 
-  if (loading) return <p className="text-center mt-5 text-light">Loading...</p>;
-  if (!product) return <p className="text-center mt-5 text-light">Product not found</p>;
+  if (loading) return <p className="modern-loading">Loading...</p>;
+  if (!product) return <p className="modern-loading">Product not found</p>;
 
   return (
-    <div className="productdetails-bg vh-100 d-flex justify-content-center align-items-center">
-      <div className="product-card shadow-lg">
-        {/* Back button */}
-        <button
-          className="btn btn-outline-light position-absolute back-btn"
-          onClick={() => navigate(-1)}
-        >
-          ← Back
-        </button>
+    <div className="modern-bg">
+      <div className="modern-card">
+        <button className="modern-back-btn" onClick={() => navigate(-1)}>← Back</button>
 
         {product.imageBase64 && (
-          <div className="text-center mb-3">
-            <img
-              src={`data:image/jpeg;base64,${product.imageBase64}`}
-              alt={product.name}
-              className="product-img"
-            />
+          <div className="modern-img-container">
+            <img src={`data:image/jpeg;base64,${product.imageBase64}`} alt={product.name} className="modern-img" />
           </div>
         )}
 
-        <h3 className="fw-bold text-center text-white">{product.name}</h3>
-        <p className="text-light"><strong>💲 Price:</strong> ₹{product.price}</p>
-        <p className="text-light"><strong>📂 Category:</strong> {product.category}</p>
-        <p className="text-light"><strong>🏷 Brand:</strong> {product.brand}</p>
-        <p className="text-light"><strong>📝 Description:</strong> {product.description}</p>
-        <p className="text-light"><strong>⚙ Specifications:</strong> {product.specifications}</p>
-        <p className="text-light"><strong>🛡 Warranty:</strong> {product.warranty}</p>
+        <h3 className="modern-name">{product.name}</h3>
+
+        <div className="modern-info">
+          <p>💲 <strong>Price:</strong> ₹{product.price}</p>
+          <p>📂 <strong>Category:</strong> {product.category}</p>
+          <p>🏷 <strong>Brand:</strong> {product.brand}</p>
+          <p>📝 <strong>Description:</strong> {product.description}</p>
+          <p>⚙ <strong>Specifications:</strong> {product.specifications}</p>
+          <p>🛡 <strong>Warranty:</strong> {product.warranty}</p>
+        </div>
 
         {token && (
-          <div className="d-flex gap-2 mt-3">
-            <button className="btn btn-success flex-grow-1" onClick={handleAddToCart} disabled={loadingAction}>
-              Add to Cart
+          <div className="modern-btns">
+            <button className="modern-btn modern-cart-btn" onClick={handleAddToCart} disabled={loadingAction}>
+              Add to Cart <ShoppingCart size={18} />
             </button>
-            <button className="btn btn-primary flex-grow-1" onClick={handleAddToWishlist} disabled={loadingAction}>
-              Add to Wishlist
+            <button className="modern-btn modern-wishlist-btn" onClick={handleAddToWishlist} disabled={loadingAction}>
+              Add to Wishlist <Heart size={18} />
             </button>
           </div>
         )}
 
-        {message && <p className="mt-3 text-success text-center">{message}</p>}
+        {message && <p className="modern-message">{message}</p>}
       </div>
     </div>
   );
 }
 
-export default ProductDetails;
+export default ProductDetailsModern;

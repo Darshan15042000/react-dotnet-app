@@ -21,6 +21,11 @@ namespace Training_BE.Data
 
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<Address> Addresses { get; set; }
+
+        public DbSet<DeliveryPartner> DeliveryPartners { get; set; }
+
+
 
 
 
@@ -28,6 +33,15 @@ namespace Training_BE.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+
+            // 🔹 One DeliveryPartner → Many Orders
+            modelBuilder.Entity<Order>() 
+                .HasOne(o => o.DeliveryPartner)
+                .WithMany(dp => dp.Orders)
+                .HasForeignKey(o => o.DeliveryPartnerId)
+                .OnDelete(DeleteBehavior.SetNull); // if partner removed, keep order
+
 
             // Disable cascade delete for Cart → User
             modelBuilder.Entity<Cart>()
@@ -60,6 +74,14 @@ namespace Training_BE.Data
         .WithMany()
         .HasForeignKey(o => o.ProductId)
         .OnDelete(DeleteBehavior.Cascade);
+
+            // Disable cascade delete for Address → User
+            modelBuilder.Entity<Address>()
+                .HasOne(a => a.User)
+                .WithMany()  // a User can have multiple addresses
+                .HasForeignKey(a => a.UserId)
+                .OnDelete(DeleteBehavior.Restrict); // important to prevent deleting user auto deleting addresses
+
         }
 
     }

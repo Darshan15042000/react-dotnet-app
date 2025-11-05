@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AdminProfile.css";
-import profilePic from "../assets/images/User_Profile.jpg";
+import profilePic from "../../assets/images/User_Profile.jpg";
 
 function AdminProfile() {
   const navigate = useNavigate();

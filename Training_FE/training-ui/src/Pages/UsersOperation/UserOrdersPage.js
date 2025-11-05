@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./UserOrdersPage.css";
+import profilePic from "../../assets/images/User_Profile.jpg";
 
 function UserOrdersPage() {
   const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
+  const [user, setUser] = useState({ username: "" });
   const token = localStorage.getItem("token");
 
   useEffect(() => {
+    const username = localStorage.getItem("username");
+    setUser({ username: username || "User" });
     fetchOrders();
   }, []);
 
   const fetchOrders = async () => {
     if (!token) return;
-
     try {
       const res = await fetch("https://localhost:7165/api/Product/orders/user", {
         headers: { Authorization: `Bearer ${token}` },
       });
-
       if (!res.ok) throw new Error("Failed to fetch orders");
-
       const data = await res.json();
       setOrders(data);
     } catch (err) {
@@ -28,44 +29,94 @@ function UserOrdersPage() {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
+
   return (
     <div className="orders-bg">
-      <h2 className="orders-title">📦 Your Orders</h2>
+      {/* Header */}
+      <header className="orders-header">
+        <div className="orders-header-left">
+          <img
+            src={profilePic}
+            alt="Profile"
+            className="orders-profile-img"
+            onClick={() => navigate("/user-profile")}
+            title="Go to Profile"
+          />
+          <h2>Hi, {user.username} 👋</h2>
+        </div>
+        <button className="orders-logout-btn" onClick={handleLogout}>
+          Logout
+        </button>
+      </header>
 
-      <div className="row g-4">
+      {/* Orders Section */}
+      <div className="orders-container">
         {orders.length > 0 ? (
           orders.map((o, index) => (
-            <div key={index} className="col-md-4">
-              <div className="card order-card h-100 text-center p-3 shadow">
+            <div key={index} className="order-box">
+              <div className="order-left">
                 <img
                   src={
                     o.imageBase64
                       ? `data:image/jpeg;base64,${o.imageBase64}`
-                      : "https://via.placeholder.com/150"
+                      : "https://via.placeholder.com/200"
                   }
                   alt={o.productName}
                   className="order-img"
                 />
-                <h5>{o.productName}</h5>
-                <p>Quantity: {o.quantity}</p>
-                <p className="text-muted">
-                  Ordered on: {new Date(o.orderDate).toLocaleString()}
+              </div>
+
+              <div className="order-right">
+                <h3 className="order-title">{o.productName}</h3>
+                <p className="order-desc">{o.description}</p>
+                {o.warranty && (
+                  <p>
+                    <strong>Warranty:</strong> {o.warranty}
+                  </p>
+                )}
+                {o.specifications && (
+                  <p>
+                    <strong>Specifications:</strong> {o.specifications}
+                  </p>
+                )}
+                <p>
+                  <strong>Quantity:</strong> {o.quantity}
                 </p>
-                <p><strong>Description:</strong> {o.description}</p>
-                <p><strong>Warranty:</strong> {o.warranty}</p>
-                <p><strong>Specifications:</strong> {o.specifications}</p>
+                <p>
+                  <strong>Order Date:</strong>{" "}
+                  {new Date(o.orderDate).toLocaleString()}
+                </p>
+
+                {/* Address Section */}
+                <div className="address-box">
+                  <h4>Delivery Address</h4>
+                  <p>
+                    <strong>Mobile:</strong> {o.mobileNumber}
+                  </p>
+                  <p>
+                    <strong>Address:</strong> {o.addressLine}, {o.landmark}
+                  </p>
+                  <p>
+                    <strong>City:</strong> {o.city}, <strong>State:</strong>{" "}
+                    {o.state}
+                  </p>
+                  <p>
+                    <strong>Pincode:</strong> {o.pincode}
+                  </p>
+                </div>
               </div>
             </div>
           ))
         ) : (
-          <p className="text-center w-100 text-light">No orders found.</p>
+          <p className="no-orders">No orders found.</p>
         )}
       </div>
 
-      <button
-        className="btn btn-back mt-4"
-        onClick={() => navigate("/user-profile")}
-      >
+      <button className="back-btn" onClick={() => navigate("/user-profile")}>
         ⬅ Back to Profile
       </button>
     </div>

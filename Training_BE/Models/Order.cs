@@ -18,13 +18,31 @@ namespace Training_BE.Models
 
 
         [ForeignKey("ProductId")]
-        public Product Product { get; set; }
+        public Product Product { get; set; } // this is for link the product table with order table 
 
         [Required]
         public Guid AdminId { get; set; }
 
         public int Quantity { get; set; }
         public DateTime OrderDate { get; set; }
+
+        // New column for Address
+        [Required]
+        public int AddressId { get; set; }
+
+        [ForeignKey("AddressId")]
+        public Address Address { get; set; }  // links to Address table
+
+
+        // 🔹 New fields for delivery
+        public int? DeliveryPartnerId { get; set; }
+
+        [ForeignKey(nameof(DeliveryPartnerId))]
+        public DeliveryPartner? DeliveryPartner { get; set; }
+
+        [Required]
+        [MaxLength(20)]
+        public string Status { get; set; } = "Pending"; // Pending, Assigned, Delivered
     }
 
 

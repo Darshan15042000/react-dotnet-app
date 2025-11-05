@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./AdminHome.css";
-import profilePic from '../assets/images/User_Profile.jpg';
+import profilePic from "../../assets/images/User_Profile.jpg";
 
 // Import Lottie Player
 import { Player } from '@lottiefiles/react-lottie-player';

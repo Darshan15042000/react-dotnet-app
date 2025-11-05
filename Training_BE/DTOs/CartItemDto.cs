@@ -2,6 +2,7 @@
 {
     public class CartItemDto : ProductDto
     {
-        public int Quantity { get; set; }
+        //public int Quantity { get; set; }
+
     }
 }

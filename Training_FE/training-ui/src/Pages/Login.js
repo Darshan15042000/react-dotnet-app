@@ -53,7 +53,7 @@ function Login() {
 
             if(data.role === "Admin")
             {
-              navigate("/admin-home");
+              navigate("/admin-dashboard");
             }
             else{
                   navigate("/user-home");
