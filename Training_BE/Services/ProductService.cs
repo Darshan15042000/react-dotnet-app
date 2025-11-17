@@ -324,7 +324,7 @@ namespace Training_BE.Services
             // reduce quantity
             product.Quantity -= quantity;
 
-            // ✅ Check that the address belongs to this user
+            // Check that the address belongs to this user
             var address = await _db.Addresses
                 .FirstOrDefaultAsync(a => a.Id == addressId && a.UserId == userId);
 
@@ -335,7 +335,7 @@ namespace Training_BE.Services
             var deliveryPartner = await _db.DeliveryPartners
                 .Include(dp => dp.Orders)
                 .Where(dp => dp.Pincode == address.Pincode)
-                .OrderBy(dp => dp.Orders.Count) // assign partner with fewest active orders
+                .OrderBy(dp => dp.Orders.Count)   // ✔ assigns least busy partner
                 .FirstOrDefaultAsync();
 
             if (deliveryPartner == null)
@@ -352,7 +352,7 @@ namespace Training_BE.Services
                 Quantity = quantity,
                 OrderDate = DateTime.UtcNow,
                 AddressId = address.Id,
-                DeliveryPartnerId = deliveryPartner.Id,
+                DeliveryPartnerId = deliveryPartner.Id,   // ⭐ assigned partner!
                 Status = "Assigned"
             };
 
@@ -366,6 +366,7 @@ namespace Training_BE.Services
 
 
 
+
         // method for get the users orders details
         //12th --------------------------- || --------------------------------------------
         public async Task<List<UserOrderDto>> GetUserOrders(Guid userId)
@@ -373,7 +374,7 @@ namespace Training_BE.Services
             return await _db.Orders
                 .Where(o => o.UserId == userId)
                 .Include(o => o.Product)
-                .Include(o => o.Address) // 🆕 include Address
+                .Include(o => o.Address) // include Address
                 .Select(o => new UserOrderDto
                 {
                     ProductName = o.Product.Name,

@@ -271,6 +271,7 @@ namespace Training_BE.Controllers
             return Ok(stats);
         }
 
+        
 
         [HttpGet("admin/recent-buyers")]
         [Authorize(Roles = "Admin")]

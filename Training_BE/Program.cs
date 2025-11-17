@@ -92,6 +92,8 @@ namespace Training_BE
             builder.Services.AddScoped<AddressService>();
             builder.Services.AddScoped<WishlistService>();
             builder.Services.AddScoped<CartService>();
+            builder.Services.AddScoped<DeliveryPartnerAuthService>();
+
 
 
             // JWT Authentication
