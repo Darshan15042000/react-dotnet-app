@@ -33,7 +33,13 @@ import AddAddressPage from "./Pages/UserAddress/AddAddressPage";
 import EditAddressPage from "./Pages/UserAddress/EditAddressPage";
 
 
+import DeliveryPartnerLogin from "./Pages/DeliveryPartner/DeliveryPartnerLogin";
+import DeliveryPartnerRegister from "./Pages/DeliveryPartner/DeliveryPartnerRegister";
+
+
 // import AdminHome from "./Pages/AdminOperation/AdminHome";
+
+
 
 
 function App() {
@@ -84,6 +90,13 @@ function App() {
         <Route path="/update-product" element={<UpdateProduct />} /> 
         <Route path="/delete-product" element={<DeleteProduct />} />
         <Route path="/" element={<Home />} />  {/*Default page to render */}
+
+        {/* delivery Partner */}
+
+        <Route path="/deliverypartner-login" element={<DeliveryPartnerLogin/>} />
+        <Route path="/deliverypartner-register" element={<DeliveryPartnerRegister />} />
+
+
 
     </Routes>
   

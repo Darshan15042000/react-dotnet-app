@@ -93,6 +93,7 @@ namespace Training_BE
             builder.Services.AddScoped<WishlistService>();
             builder.Services.AddScoped<CartService>();
             builder.Services.AddScoped<DeliveryPartnerAuthService>();
+            builder.Services.AddScoped<DeliveryPartnerOrderService>();
 
 
 

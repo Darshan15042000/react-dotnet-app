@@ -1,0 +1,87 @@
+.partner-register-container {
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: linear-gradient(135deg, #1f1f1f, #2c2c2c, #3a3a3a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Floating Animated Images */
+.partner-reg-img {
+  position: absolute;
+  object-fit: contain;
+  opacity: 0.9;
+  animation: regFloat 6s ease-in-out infinite alternate;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.partner-reg-img.sm { width: 120px; height: 120px; }
+.partner-reg-img.md { width: 180px; height: 180px; }
+.partner-reg-img.lg { width: 230px; height: 230px; }
+
+.partner-reg-img:hover {
+  transform: scale(1.12);
+}
+
+@keyframes regFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* REGISTER CARD */
+.partner-register-card {
+  background: linear-gradient(to right, #2a2a2a, #3c3c3c);
+  padding: 40px;
+  width: 450px;
+  color: #fff;
+  border-radius: 1.2rem;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+.partner-register-card h2 {
+  color: #fc5c7d;
+  font-weight: 700;
+}
+
+/* Input Fields */
+.partner-reg-input {
+  background: #1f1f1f;
+  border: 1px solid #555;
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.partner-reg-input:focus {
+  border-color: #fc5c7d;
+  box-shadow: 0 0 5px #fc5c7d;
+}
+
+/* Button */
+.partner-reg-btn {
+  background: linear-gradient(90deg, #4e54c8, #fc5c7d);
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  transition: 0.3s;
+}
+
+.partner-reg-btn:hover {
+  opacity: 0.9;
+}
+
+/* Login Link */
+.partner-reg-login-link {
+  color: #fc5c7d;
+  font-weight: bold;
+  cursor: pointer;
+}
