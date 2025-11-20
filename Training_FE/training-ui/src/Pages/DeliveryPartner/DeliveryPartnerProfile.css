@@ -1,0 +1,144 @@
+/* Wrapper */
+.dp-profile-wrapper {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Soft pastel card base */
+.pastel-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 22px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+  transition: 0.25s ease;
+}
+
+.pastel-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.1);
+}
+
+/* LEFT PROFILE CARD */
+.dp-profile-left {
+  width: 310px;
+  text-align: center;
+}
+
+.dp-profile-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.dp-name {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.dp-role {
+  color: #8b8b8b;
+  font-size: 15px;
+  margin-top: -3px;
+}
+
+/* Basic info cards */
+.dp-basic-info p {
+  font-size: 15px;
+  background: #f4f5ff;
+  padding: 12px 14px;
+  border-radius: 14px;
+  margin: 10px 0;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+/* RIGHT PANEL */
+.dp-profile-right {
+  flex: 1;
+}
+
+/* Title */
+.dp-section-title {
+  font-size: 24px;
+  font-weight: 650;
+  margin-bottom: 18px;
+  color: #444;
+}
+
+/* Form container */
+.dp-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Each field row */
+.dp-field-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.dp-field-row label {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;       /* Increased spacing */
+  color: #555;
+}
+
+/* Inputs */
+.dp-field-row input {
+  padding: 14px 16px;        /* More comfortable spacing */
+  border-radius: 14px;
+  border: 1px solid #d9d9d9;
+  background: #fafafa;
+  font-size: 15px;
+  transition: all 0.25s ease;
+}
+
+.dp-field-row input:focus {
+  outline: none;
+  border-color: #7d6bff;
+  box-shadow: 0 0 6px rgba(125, 107, 255, 0.35);
+}
+
+.dp-field-row input:disabled {
+  opacity: 0.55;
+}
+
+/* Buttons */
+.dp-btn {
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.edit-btn {
+  background: #6c63ff;
+  color: white;
+}
+
+.save-btn {
+  background: #4caf50;
+  color: white;
+}
+
+.cancel-btn {
+  background: #ff6b6b;
+  color: white;
+}
+
+.dp-btn:hover {
+  transform: scale(1.04);
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

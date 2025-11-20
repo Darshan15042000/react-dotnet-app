@@ -141,7 +141,7 @@ src={freezer2} alt="Freezer2" className="login-floating-img md"
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              style={{ backgroundColor: "#1f1f1f", color: "#fff", border: "1px solid #444" }}
+              style={{ backgroundColor: "#eee8e8ff", color: "#fff", border: "1px solid #444" }}
               required
             />
           </div>
@@ -152,7 +152,7 @@ src={freezer2} alt="Freezer2" className="login-floating-img md"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              style={{ backgroundColor: "#1f1f1f", color: "#fff", border: "1px solid #444" }}
+              style={{ backgroundColor: "#f7f6f6ff", color: "#fff", border: "1px solid #444" }}
               required
             />
           </div>

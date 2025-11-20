@@ -35,6 +35,8 @@ import EditAddressPage from "./Pages/UserAddress/EditAddressPage";
 
 import DeliveryPartnerLogin from "./Pages/DeliveryPartner/DeliveryPartnerLogin";
 import DeliveryPartnerRegister from "./Pages/DeliveryPartner/DeliveryPartnerRegister";
+import DeliveryPartnerDashboard from "./Pages/DeliveryPartner/DeliveryPartnerDashboard";
+import DeliveryPartnerProfile from "./Pages/DeliveryPartner/DeliveryPartnerProfile";
 
 
 // import AdminHome from "./Pages/AdminOperation/AdminHome";
@@ -95,6 +97,10 @@ function App() {
 
         <Route path="/deliverypartner-login" element={<DeliveryPartnerLogin/>} />
         <Route path="/deliverypartner-register" element={<DeliveryPartnerRegister />} />
+        <Route path="/deliverypartner-dashboard" element={<DeliveryPartnerDashboard />} />
+
+        <Route path="/deliverypartner-profile" element={<DeliveryPartnerProfile />} />
+
 
 
 

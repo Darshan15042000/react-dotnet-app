@@ -83,6 +83,7 @@ function DeliveryPartnerRegister() {
             placeholder="Full Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            style={{ backgroundColor: "#ffffffff", color: "#fff", border: "1px solid #444" }}
             required
           />
 
@@ -92,6 +93,7 @@ function DeliveryPartnerRegister() {
             placeholder="Phone Number"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
+            style={{ backgroundColor: "#eee8e8ff", color: "#fff", border: "1px solid #444" }}
             required
           />
 
@@ -101,6 +103,7 @@ function DeliveryPartnerRegister() {
             placeholder="Pincode"
             value={pincode}
             onChange={(e) => setPincode(e.target.value)}
+            style={{ backgroundColor: "#eee8e8ff", color: "#fff", border: "1px solid #444" }}
             required
           />
 
@@ -110,6 +113,7 @@ function DeliveryPartnerRegister() {
             placeholder="Email ID"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            style={{ backgroundColor: "#eee8e8ff", color: "#fff", border: "1px solid #444" }}
             required
           />
 
@@ -119,6 +123,7 @@ function DeliveryPartnerRegister() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            style={{ backgroundColor: "#eee8e8ff", color: "#fff", border: "1px solid #444" }}
             required
           />
 
