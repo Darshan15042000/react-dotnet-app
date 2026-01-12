@@ -130,6 +130,20 @@ namespace Training_BE.Controllers
 
             return Ok(result);
         }
+       
+
+        //   new methood for fast search
+        [HttpGet("suggest")]
+        [AllowAnonymous]
+        public async Task<IActionResult> SuggestProducts([FromQuery] string term)
+        {
+            if (string.IsNullOrWhiteSpace(term))
+                return Ok(new List<SearchSuggestionDto>());
+
+            var suggestions = await _service.GetProductSuggestions(term);
+
+            return Ok(suggestions);
+        }
 
 
 

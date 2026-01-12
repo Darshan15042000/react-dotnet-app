@@ -199,3 +199,46 @@
     width: 150px;
   }
 }
+
+/* ===== AUTOCOMPLETE DROPDOWN ===== */
+
+.uh-search-box-wrapper {
+  position: relative;
+  width: 350px;
+}
+
+.uh-suggestion-box {
+  position: absolute;
+  top: 105%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  z-index: 1000;
+  overflow: hidden;
+  animation: fadeIn 0.12s ease-in-out;
+}
+
+.uh-suggestion-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #2d3436;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+
+
+.uh-suggestion-item:hover {
+  background: #f1f2ff;
+  color: #6c5ce7;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+

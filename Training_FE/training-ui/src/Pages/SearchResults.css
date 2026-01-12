@@ -1,162 +1,110 @@
-/* Page background */
-.modern-bg {
-  background-color: #ffffff; /* white page */
-  min-height: 100vh;
-  padding: 50px 20px;
-  font-family: 'Poppins', sans-serif;
-  position: relative;
+/* MAIN OUTER CONTAINER */
+.search-wrapper {
+    min-height:100vh;
+    background:#f5f7fa; /* clean, modern */
+    padding:50px 0;
+    display:flex;
+    justify-content:center;
+    width:100%;
+    font-family:"Poppins",sans-serif;
 }
 
-/* Floating subtle shapes behind cards */
-.modern-bg::before, .modern-bg::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(108, 92, 231, 0.05);
-  z-index: 0;
-  animation: float 20s ease-in-out infinite alternate;
+/* Heading */
+.search-title{
+    text-align:center;
+    font-size:2rem;
+    font-weight:700;
+    margin-bottom:40px;
+    color:#1b1d21;
 }
-.modern-bg::before { width: 300px; height: 300px; top: 10%; left: 5%; }
-.modern-bg::after { width: 400px; height: 400px; bottom: 5%; right: 10%; }
+.search-title span{ color:#4c57d6; }
 
-@keyframes float {
-  0% { transform: translateY(0px) translateX(0); }
-  50% { transform: translateY(20px) translateX(15px); }
-  100% { transform: translateY(0px) translateX(0); }
-}
-
-/* Title */
-.modern-title {
-  font-weight: 700;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 40px;
-  color: #2d3436;
+/* PRODUCT GRID — FIXES RIGHT SIDE EMPTY GAP */
+.results-box{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:28px;
+    justify-items:center;
 }
 
-.modern-highlight {
-  color: #6c5ce7;
+/* PRODUCT CARD */
+.result-card{
+    width:260px;
+    background:white;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 4px 18px rgba(0,0,0,0.07);
+    text-align:center;
+    transition:.3s;
+}
+.result-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 26px rgba(0,0,0,0.12);
 }
 
-/* Cards */
-.modern-card {
-  background: linear-gradient(135deg, #eceff1, #cfd8dc); /* neutral masculine gradient */
-  border-radius: 25px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
+/* IMAGE CONTAINER */
+.card-img-box{
+    height:170px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eef1ff;
+    border-radius:12px;
+    margin-bottom:12px;
+}
+.card-img-box img{
+    max-height:135px;
+    object-fit:contain;
+    transition:.25s;
+}
+.result-card:hover img{ transform:scale(1.05); }
+
+/* TEXT DETAILS */
+.product-name{
+    font-size:17px;
+    font-weight:700;
+    margin-top:6px;
+    color:#111;
+}
+.product-desc{
+    font-size:.9rem;
+    color:#666;
+    height:38px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    margin:6px 0 10px;
+}
+.product-price{
+    color:#4c57d6;
+    font-size:1.15rem;
+    font-weight:700;
+    margin-bottom:12px;
 }
 
-.modern-card:hover {
-  transform: translateY(-10px) scale(1.05) rotateZ(1deg);
-  box-shadow: 0 15px 25px rgba(108,92,231,0.25);
+/* BUTTON */
+.view-btn{
+    background:#4c57d6;
+    color:white;
+    width:100%;
+    border:none;
+    padding:10px;
+    border-radius:8px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+.view-btn:hover{
+    background:#3247c3;
+    transform:translateY(-2px);
 }
 
-/* Image wrapper with floating icons */
-.modern-img-wrapper {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  background: rgba(255,255,255,0.2);
-  padding: 15px;
-  margin-bottom: 15px;
-}
-
-.modern-floating-icons {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  gap: 8px;
-  animation: floatIcon 2s ease-in-out infinite alternate;
-}
-
-@keyframes floatIcon {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0); }
-}
-
-.modern-product-img {
-  max-width: 100%;
-  max-height: 150px;
-  object-fit: contain;
-  transition: transform 0.4s ease;
-}
-
-.modern-card:hover .modern-product-img {
-  transform: scale(1.1);
-}
-
-.modern-no-image {
-  color: #555;
-  font-weight: 600;
-  padding: 40px 0;
-}
-
-/* Product info */
-.modern-product-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.modern-product-name {
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: #2d3436;
-}
-
-.modern-product-description {
-  font-size: 0.95rem;
-  color: #444;
-  height: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 10px;
-}
-
-.modern-product-price {
-  color: #6c5ce7;
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-}
-
-/* Button */
-.modern-btn-view {
-  background: linear-gradient(to right, #6c5ce7, #00b894);
-  border: none;
-  color: white;
-  border-radius: 50px;
-  padding: 10px 0;
-  font-weight: 600;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  transition: all 0.3s ease;
-}
-
-.modern-btn-view:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(108,92,231,0.4);
-}
-
-/* Loading */
-.modern-loading {
-  font-size: 1.5rem;
-  text-align: center;
-  margin-top: 50px;
-  color: #2d3436;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .modern-card {
-    margin: 0 auto;
-  }
+/* LOADING TEXT */
+.loading-screen{
+    font-size:1.8rem;
+    text-align:center;
+    margin-top:100px;
+    font-weight:600;
+    color:#4c57d6;
 }

@@ -61,15 +61,15 @@ function DeliveryPartnerRegister() {
     <div className="partner-register-container">
 
       {/* Floating Images */}
-      <img src={Partner1} className="partner-reg-img sm" style={{ top: "10%", left: "5%" }} />
-      <img src={Partner2} className="partner-reg-img md" style={{ top: "25%", right: "8%" }} />
-      <img src={Partner3} className="partner-reg-img lg" style={{ bottom: "10%", left: "10%" }} />
-      <img src={Partner4} className="partner-reg-img md" style={{ top: "40%", right: "20%" }} />
-      <img src={Partner5} className="partner-reg-img sm" style={{ bottom: "5%", right: "40%" }} />
-      <img src={Partner6} className="partner-reg-img sm" style={{ top: "5%", right: "35%" }} />
-      <img src={Partner7} className="partner-reg-img sm" style={{ top: "5%", right: "60%" }} />
-      <img src={Partner8} className="partner-reg-img md" style={{ top: "50%", left: "45%" }} />
-      <img src={Partner9} className="partner-reg-img sm" style={{ bottom: "5%", left: "55%" }} />
+       <img src={Partner1} className="partner-floating-img sm" style={{ top: "10%", left: "5%", width: "300px", height: "220px" }}  />
+       <img src={Partner2} className="partner-floating-img md" style={{ top: "20%", right: "8%", width: "300px",height: "300px"  }} />
+       <img src={Partner3} className="partner-floating-img lg" style={{ bottom: "8%", left: "15%" }} />
+       <img src={Partner4} className="partner-floating-img sm" style={{ bottom: "12%", right: "15%", width: "200px",height: "200px" }} />
+       <img src={Partner5} className="partner-floating-img md" style={{ top: "50%", left: "40%" }} />
+       <img src={Partner6} className="partner-floating-img sm" style={{ top: "3%", right: "30%", width: "150px",height: "150px" }} />
+       <img src={Partner7} className="partner-floating-img sm" style={{ top: "3%", right: "60%", width: "150px",height: "150px" }} />
+       <img src={Partner8} className="partner-floating-img sm" style={{ top: "40%", right: "67%", width: "200px",height: "200px" }} />
+       <img src={Partner9} className="partner-floating-img sm" style={{ bottom: "3%", right: "45%", width: "150px",height: "150px" }} />
 
       {/* REGISTER CARD */}
       <div className="partner-register-card">
@@ -83,7 +83,7 @@ function DeliveryPartnerRegister() {
             placeholder="Full Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            style={{ backgroundColor: "#ffffffff", color: "#fff", border: "1px solid #444" }}
+            style={{ backgroundColor: "#ffffffff", color: "#0a0a0aff", border: "1px solid #444" }}
             required
           />
 
@@ -93,7 +93,7 @@ function DeliveryPartnerRegister() {
             placeholder="Phone Number"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
-            style={{ backgroundColor: "#eee8e8ff", color: "#fff", border: "1px solid #444" }}
+            style={{ backgroundColor: "#eee8e8ff", color: "#080808ff", border: "1px solid #444" }}
             required
           />
 
@@ -103,7 +103,7 @@ function DeliveryPartnerRegister() {
             placeholder="Pincode"
             value={pincode}
             onChange={(e) => setPincode(e.target.value)}
-            style={{ backgroundColor: "#eee8e8ff", color: "#fff", border: "1px solid #444" }}
+            style={{ backgroundColor: "#eee8e8ff", color: "#0a0000ff", border: "1px solid #444" }}
             required
           />
 
@@ -113,7 +113,7 @@ function DeliveryPartnerRegister() {
             placeholder="Email ID"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            style={{ backgroundColor: "#eee8e8ff", color: "#fff", border: "1px solid #444" }}
+            style={{ backgroundColor: "#eee8e8ff", color: "#070000ff", border: "1px solid #444" }}
             required
           />
 
@@ -123,7 +123,7 @@ function DeliveryPartnerRegister() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={{ backgroundColor: "#eee8e8ff", color: "#fff", border: "1px solid #444" }}
+            style={{ backgroundColor: "#eee8e8ff", color: "#0b0000ff", border: "1px solid #444" }}
             required
           />
 

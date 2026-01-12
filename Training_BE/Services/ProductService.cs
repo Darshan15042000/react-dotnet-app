@@ -233,13 +233,69 @@ namespace Training_BE.Services
         }
 
         // 6th--------- method for serch the product with name like mobile/ laptop ----------
-        public async Task<IEnumerable<ProductDto>> SearchProductByName(string name)
+        public async Task<IEnumerable<ProductDto>> SearchProductByName(string text)
         {
-            name = name.Trim().ToLower();
+            text = text.Trim().ToLower();
+
+            var words = text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
             var allProducts = await _db.Products.ToListAsync();
-            var filtered = allProducts.Where(p => p.Name.ToLower().Split(' ').Any(word => word == name));
+
+            var filtered = allProducts.Where(p =>
+            {
+                var haystack = $"{p.Name} {p.Description} {p.Brand}".ToLower();
+
+                return words.Any(word => haystack.Contains(word));
+            });
+
             return filtered.Select(p => MapToDto(p));
         }
+
+
+
+        // new method for fast search
+
+        public async Task<List<SearchSuggestionDto>> GetProductSuggestions(string term)
+        {
+            term = term.Trim().ToLower();
+
+            var products = await _db.Products.ToListAsync();
+
+            var suggestions = products
+                .Where(p =>
+                    p.Name.ToLower().Contains(term) ||
+                    p.Description.ToLower().Contains(term) ||
+                    p.Brand.ToLower().Contains(term)
+                )
+                .Select(p => new SearchSuggestionDto
+                {
+                    Label = $"{p.Name} - {p.Description}",
+                    Value = ExtractSearchText(p)
+                })
+                .DistinctBy(x => x.Value)
+                .Take(8)
+                .ToList();
+
+            return suggestions;
+        }
+
+        private string ExtractSearchText(Product p)
+        {
+            var text = $"{p.Brand} {p.Description}".ToLower();
+
+            // remove junk words
+            var junk = new[] { "gb", "ram", "(", ")", ",", "-", "blue", "black" };
+
+            foreach (var j in junk)
+                text = text.Replace(j, "");
+
+            return string.Join(" ", text.Split(' ', StringSplitOptions.RemoveEmptyEntries).Take(2));
+        }
+ 
+
+
+
+
 
 
 

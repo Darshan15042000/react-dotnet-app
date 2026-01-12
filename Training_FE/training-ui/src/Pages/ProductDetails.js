@@ -68,42 +68,47 @@ function ProductDetailsModern() {
   if (!product) return <p className="modern-loading">Product not found</p>;
 
   return (
-    <div className="modern-bg">
-      <div className="modern-card">
-        <button className="modern-back-btn" onClick={() => navigate(-1)}>← Back</button>
+  <div className="product-page">
+    <div className="product-box">
 
-        {product.imageBase64 && (
-          <div className="modern-img-container">
-            <img src={`data:image/jpeg;base64,${product.imageBase64}`} alt={product.name} className="modern-img" />
-          </div>
-        )}
+      <button className="modern-back-btn" onClick={() => navigate(-1)}>← Back</button>
 
-        <h3 className="modern-name">{product.name}</h3>
-
-        <div className="modern-info">
-          <p>💲 <strong>Price:</strong> ₹{product.price}</p>
-          <p>📂 <strong>Category:</strong> {product.category}</p>
-          <p>🏷 <strong>Brand:</strong> {product.brand}</p>
-          <p>📝 <strong>Description:</strong> {product.description}</p>
-          <p>⚙ <strong>Specifications:</strong> {product.specifications}</p>
-          <p>🛡 <strong>Warranty:</strong> {product.warranty}</p>
-        </div>
-
-        {token && (
-          <div className="modern-btns">
-            <button className="modern-btn modern-cart-btn" onClick={handleAddToCart} disabled={loadingAction}>
-              Add to Cart <ShoppingCart size={18} />
-            </button>
-            <button className="modern-btn modern-wishlist-btn" onClick={handleAddToWishlist} disabled={loadingAction}>
-              Add to Wishlist <Heart size={18} />
-            </button>
-          </div>
-        )}
-
-        {message && <p className="modern-message">{message}</p>}
+      <div className="product-img-area">
+        <img className="product-img"
+          src={`data:image/jpeg;base64,${product.imageBase64}`}
+          alt={product.name}
+        />
       </div>
+
+      <h2 className="product-title">{product.name}</h2>
+
+      <div className="product-details">
+        <p><strong>Price:</strong> ₹{product.price}</p>
+        <p><strong>Category:</strong> {product.category}</p>
+        <p><strong>Brand:</strong> {product.brand}</p>
+        <p><strong>Description:</strong> {product.description}</p>
+        <p><strong>Specifications:</strong> {product.specifications}</p>
+        <p><strong>Warranty:</strong> {product.warranty}</p>
+      </div>
+
+      {token && (
+      <div className="action-row">
+        <button className="btn-buy" onClick={handleAddToCart}>
+          Add to Cart 🛒
+        </button>
+
+        <button className="btn-wish" onClick={handleAddToWishlist}>
+          Wishlist ❤️
+        </button>
+      </div>
+      )}
+
+      {message && <p className="response-msg">{message}</p>}
     </div>
-  );
+  </div>
+);
+
+
 }
 
 export default ProductDetailsModern;

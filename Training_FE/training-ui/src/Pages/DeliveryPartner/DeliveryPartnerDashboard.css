@@ -6,9 +6,7 @@
   font-family: "Inter", sans-serif;
 }
 
-/* ------------------------------
-   SIDEBAR — ROUND & SOFT
---------------------------------*/
+/* SIDEBAR – ROUND BUBBLE STYLE */
 .bubble-sidebar {
   width: 240px;
   padding: 25px;
@@ -54,9 +52,7 @@
   font-weight: 600;
 }
 
-/* ------------------------------
-   MAIN
---------------------------------*/
+/* MAIN CONTENT */
 .bubble-main {
   flex: 1;
   padding: 40px;
@@ -69,9 +65,7 @@
   color: #333;
 }
 
-/* ------------------------------
-   STATS CARDS
---------------------------------*/
+/* STATS */
 .stats-row {
   display: flex;
   gap: 20px;
@@ -95,9 +89,7 @@
   transform: translateY(-4px);
 }
 
-/* ------------------------------
-   TABLE
---------------------------------*/
+/* TABLE */
 .dp-table {
   width: 100%;
   border-collapse: separate;
@@ -156,4 +148,49 @@
   color: #28c95f;
   font-size: 20px;
   font-weight: 700;
+}
+
+/* EARNINGS SECTION */
+.earnings-section {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.earnings-card h2,
+.chart-card h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.earnings-grid {
+  display: flex;
+  gap: 20px;
+}
+
+.earning-box {
+  flex: 1;
+  background: #f8faff;
+  padding: 18px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.earning-box h3 {
+  font-size: 28px;
+  color: #4c57d6;
+  font-weight: 700;
+}
+
+.total-box {
+  background: #4c57d6;
+  color: white;
+}
+
+.chart-card {
+  padding: 20px;
+  text-align: center;
 }

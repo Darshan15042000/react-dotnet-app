@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./DeliveryPartnerDashboard.css";
 import { useNavigate } from "react-router-dom";
 import { User, Package, CheckCircle, Truck, Home, LogOut } from "lucide-react";
+import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
 
 function DeliveryPartnerDashboard() {
   const [orders, setOrders] = useState([]);
   const [activeMenu, setActiveMenu] = useState("dashboard");
+
   const [stats, setStats] = useState({
     totalOrders: 0,
     activeOrders: 0,
@@ -67,6 +69,16 @@ function DeliveryPartnerDashboard() {
 
   const assignedOrders = orders.filter(o => o.status !== "Delivered");
   const deliveredOrders = orders.filter(o => o.status === "Delivered");
+
+  // Earnings calculations
+  const earningPerOrder = 20;
+  const totalEarnings = deliveredOrders.length * earningPerOrder;
+
+  // Fake chart data based on delivered orders
+  const chartData = deliveredOrders.slice(0, 7).map((o, index) => ({
+    day: `Day ${index + 1}`,
+    amount: earningPerOrder,
+  }));
 
   const renderOrdersTable = (list) => (
     <div className="card-bubble">
@@ -160,6 +172,11 @@ function DeliveryPartnerDashboard() {
             <CheckCircle size={18}/> Delivered
           </li>
 
+          <li className={activeMenu === "earnings" ? "active" : ""} 
+              onClick={() => setActiveMenu("earnings")}>
+            💰 Earnings
+          </li>
+
           <li onClick={() => navigate("/deliverypartner-profile")}>
             <User size={18}/> Profile
           </li>
@@ -173,6 +190,7 @@ function DeliveryPartnerDashboard() {
       {/* MAIN */}
       <main className="bubble-main">
 
+        {/* DASHBOARD */}
         {activeMenu === "dashboard" && (
           <>
             <h1 className="title">Dashboard</h1>
@@ -194,8 +212,50 @@ function DeliveryPartnerDashboard() {
           </>
         )}
 
+        {/* ASSIGNED */}
         {activeMenu === "assigned" && renderOrdersTable(assignedOrders)}
+
+        {/* DELIVERED */}
         {activeMenu === "delivered" && renderOrdersTable(deliveredOrders)}
+
+        {/* EARNINGS PAGE */}
+        {activeMenu === "earnings" && (
+          <section className="earnings-section">
+
+            <div className="earnings-card card-bubble">
+              <h2>Earnings Overview</h2>
+
+              <div className="earnings-grid">
+                <div className="earning-box">
+                  <h3>{deliveredOrders.length}</h3>
+                  <p>Delivered Orders</p>
+                </div>
+
+                <div className="earning-box">
+                  <h3>₹{earningPerOrder}</h3>
+                  <p>Per Order</p>
+                </div>
+
+                <div className="earning-box total-box">
+                  <h3>₹{totalEarnings}</h3>
+                  <p>Total Earnings</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="chart-card card-bubble">
+              <h2>Earnings Chart</h2>
+
+              <LineChart width={600} height={300} data={chartData}>
+                <Line type="monotone" dataKey="amount" stroke="#4c57d6" strokeWidth={3} />
+                <XAxis dataKey="day" />
+                <YAxis />
+                <Tooltip />
+              </LineChart>
+            </div>
+
+          </section>
+        )}
 
       </main>
     </div>

@@ -72,7 +72,7 @@ function DeliveryPartnerLogin() {
             placeholder="Phone Number"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
-            style={{ backgroundColor: "#eee8e8ff", color: "#fff", border: "1px solid #444" }}
+            style={{ backgroundColor: "#eee8e8ff", color: "#080808ff", border: "1px solid #444" }}
             required
           />
           
@@ -83,7 +83,7 @@ function DeliveryPartnerLogin() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={{ backgroundColor: "#eee8e8ff", color: "#fff", border: "1px solid #444" }}
+            style={{ backgroundColor: "#eee8e8ff", color: "#0e0000ff", border: "1px solid #444" }}
             required
           />
 

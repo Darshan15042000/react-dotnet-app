@@ -1,0 +1,388 @@
+[2025-11-25 10:07:04] [INF] Starting The Applicationn
+[2025-11-25 10:07:05] [INF] User profile is available. Using 'C:\Users\dasha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2025-11-25 10:07:05] [INF] Now listening on: https://localhost:7165
+[2025-11-25 10:07:05] [INF] Now listening on: http://localhost:5022
+[2025-11-25 10:07:06] [INF] Application started. Press Ctrl+C to shut down.
+[2025-11-25 10:07:06] [INF] Hosting environment: Development
+[2025-11-25 10:07:06] [INF] Content root path: D:\Zest_India\Training_BE\Training_BE
+[2025-11-25 10:07:10] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/index.html - null null
+[2025-11-25 10:07:11] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/index.html - 200 null text/html;charset=utf-8 1409.7236ms
+[2025-11-25 10:07:12] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/swagger-ui-bundle.js - null null
+[2025-11-25 10:07:11] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/index.css - null null
+[2025-11-25 10:07:11] [INF] Request starting HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - null null
+[2025-11-25 10:07:11] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/swagger-ui.css - null null
+[2025-11-25 10:07:12] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/index.js - null null
+[2025-11-25 10:07:12] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/swagger-ui-standalone-preset.js - null null
+[2025-11-25 10:07:12] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/index.js - 200 null application/javascript;charset=utf-8 240.6559ms
+[2025-11-25 10:07:12] [INF] Request starting HTTP/2 GET https://localhost:7165/_vs/browserLink - null null
+[2025-11-25 10:07:12] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/index.css - 304 null null 331.3115ms
+[2025-11-25 10:07:12] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/swagger-ui-bundle.js - 304 null null 183.1128ms
+[2025-11-25 10:07:12] [INF] Request finished HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 332.0472ms
+[2025-11-25 10:07:12] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/swagger-ui.css - 304 null null 330.8677ms
+[2025-11-25 10:07:12] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/swagger-ui-standalone-preset.js - 304 null null 165.2333ms
+[2025-11-25 10:07:13] [INF] Request finished HTTP/2 GET https://localhost:7165/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1157.1281ms
+[2025-11-25 10:07:13] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - null null
+[2025-11-25 10:07:13] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/favicon-32x32.png - null null
+[2025-11-25 10:07:13] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/favicon-32x32.png - 200 628 image/png 89.2635ms
+[2025-11-25 10:07:13] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 235.9457ms
+[2025-11-25 10:08:24] [INF] Request starting HTTP/2 POST https://localhost:7165/api/deliverypartner/login - application/json 55
+[2025-11-25 10:08:24] [INF] CORS policy execution successful.
+[2025-11-25 10:08:26] [INF] Executing endpoint 'Training_BE.Controllers.DeliveryPartnerAuthController.Login (Training_BE)'
+[2025-11-25 10:08:26] [INF] Route matched with {action = "Login", controller = "DeliveryPartnerAuth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Training_BE.DTOs.DeliveryPartnerDTOs.DeliveryPartnerLoginDto) on controller Training_BE.Controllers.DeliveryPartnerAuthController (Training_BE).
+[2025-11-25 10:08:28] [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+[2025-11-25 10:08:31] [INF] Executed DbCommand (224ms) [Parameters=[@__dto_PhoneNumber_0='?' (Size = 15)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[Email], [d].[IsActive], [d].[MaxActiveOrders], [d].[Name], [d].[PasswordHash], [d].[PhoneNumber], [d].[Pincode], [d].[Role]
+FROM [DeliveryPartners] AS [d]
+WHERE [d].[PhoneNumber] = @__dto_PhoneNumber_0
+[2025-11-25 10:08:31] [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2025-11-25 10:08:31] [INF] Executed action Training_BE.Controllers.DeliveryPartnerAuthController.Login (Training_BE) in 4509.723ms
+[2025-11-25 10:08:31] [INF] Executed endpoint 'Training_BE.Controllers.DeliveryPartnerAuthController.Login (Training_BE)'
+[2025-11-25 10:08:31] [INF] Request finished HTTP/2 POST https://localhost:7165/api/deliverypartner/login - 401 null application/json; charset=utf-8 6437.145ms
+[2025-11-25 10:11:39] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - null null
+[2025-11-25 10:11:39] [INF] CORS policy execution successful.
+[2025-11-25 10:11:39] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - 204 null null 85.313ms
+[2025-11-25 10:11:39] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Auth/login - application/json 43
+[2025-11-25 10:11:39] [INF] CORS policy execution successful.
+[2025-11-25 10:11:39] [INF] Executing endpoint 'Training_BE.Controllers.AuthController.Login (Training_BE)'
+[2025-11-25 10:11:39] [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Training_BE.DTOs.UserLoginDto) on controller Training_BE.Controllers.AuthController (Training_BE).
+[2025-11-25 10:11:58] [INF] Login attempt for user: darshan@123 at "2025-11-25T04:41:58.8290571Z"
+[2025-11-25 10:11:59] [INF] Executed DbCommand (212ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[PasswordHash], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+[2025-11-25 10:12:00] [INF] Login successful for user: darshan@123 at "2025-11-25T04:42:00.3211227Z" with Eeeeemail: dashandeshmukh15@gmail.com
+[2025-11-25 10:17:15] [INF] Starting The Applicationn
+[2025-11-25 10:17:16] [INF] User profile is available. Using 'C:\Users\dasha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2025-11-25 10:17:16] [INF] Now listening on: https://localhost:7165
+[2025-11-25 10:17:16] [INF] Now listening on: http://localhost:5022
+[2025-11-25 10:17:17] [INF] Application started. Press Ctrl+C to shut down.
+[2025-11-25 10:17:17] [INF] Hosting environment: Development
+[2025-11-25 10:17:17] [INF] Content root path: D:\Zest_India\Training_BE\Training_BE
+[2025-11-25 10:17:20] [INF] Request starting HTTP/2 GET https://localhost:7165/_vs/browserLink - null null
+[2025-11-25 10:17:20] [INF] Request starting HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - null null
+[2025-11-25 10:17:20] [INF] Request finished HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 161.9198ms
+[2025-11-25 10:17:20] [INF] Request finished HTTP/2 GET https://localhost:7165/_vs/browserLink - 200 null text/javascript; charset=UTF-8 328.406ms
+[2025-11-25 10:17:20] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - null null
+[2025-11-25 10:17:21] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 107.7681ms
+[2025-11-25 10:18:06] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/laptop - null null
+[2025-11-25 10:18:06] [INF] CORS policy execution successful.
+[2025-11-25 10:18:06] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2025-11-25 10:18:06] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-11-25 10:18:20] [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+[2025-11-25 10:18:22] [INF] Executed DbCommand (102ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2025-11-25 10:19:13] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/laptop - null null
+[2025-11-25 10:37:11] [INF] Starting The Applicationn
+[2025-11-25 10:37:11] [INF] User profile is available. Using 'C:\Users\dasha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2025-11-25 10:37:12] [INF] Now listening on: https://localhost:7165
+[2025-11-25 10:37:12] [INF] Now listening on: http://localhost:5022
+[2025-11-25 10:37:13] [INF] Request starting HTTP/2 GET https://localhost:7165/_vs/browserLink - null null
+[2025-11-25 10:37:13] [INF] Request starting HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - null null
+[2025-11-25 10:37:13] [INF] Application started. Press Ctrl+C to shut down.
+[2025-11-25 10:37:13] [INF] Hosting environment: Development
+[2025-11-25 10:37:13] [INF] Request finished HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 62.4733ms
+[2025-11-25 10:37:13] [INF] Content root path: D:\Zest_India\Training_BE\Training_BE
+[2025-11-25 10:37:13] [INF] Request finished HTTP/2 GET https://localhost:7165/_vs/browserLink - 200 null text/javascript; charset=UTF-8 153.6515ms
+[2025-11-25 10:37:13] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - null null
+[2025-11-25 10:37:13] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 116.9944ms
+[2025-11-25 10:37:20] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/shoes - null null
+[2025-11-25 10:37:20] [INF] CORS policy execution successful.
+[2025-11-25 10:37:21] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2025-11-25 10:37:21] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-11-25 10:37:36] [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+[2025-11-25 10:37:38] [INF] Executed DbCommand (53ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2025-11-25 10:38:25] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/shoes - null null
+[2025-11-25 10:40:23] [INF] Starting The Applicationn
+[2025-11-25 10:40:23] [INF] User profile is available. Using 'C:\Users\dasha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2025-11-25 10:40:23] [INF] Now listening on: https://localhost:7165
+[2025-11-25 10:40:23] [INF] Now listening on: http://localhost:5022
+[2025-11-25 10:40:23] [INF] Application started. Press Ctrl+C to shut down.
+[2025-11-25 10:40:23] [INF] Hosting environment: Development
+[2025-11-25 10:40:23] [INF] Content root path: D:\Zest_India\Training_BE\Training_BE
+[2025-11-25 10:40:24] [INF] Request starting HTTP/2 GET https://localhost:7165/_vs/browserLink - null null
+[2025-11-25 10:40:24] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/shoes - null null
+[2025-11-25 10:40:24] [INF] Request starting HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - null null
+[2025-11-25 10:40:24] [INF] Request finished HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 84.9845ms
+[2025-11-25 10:40:24] [INF] CORS policy execution successful.
+[2025-11-25 10:40:24] [INF] Request finished HTTP/2 GET https://localhost:7165/_vs/browserLink - 200 null text/javascript; charset=UTF-8 154.2194ms
+[2025-11-25 10:40:24] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - null null
+[2025-11-25 10:40:24] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2025-11-25 10:40:24] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 52.8915ms
+[2025-11-25 10:40:24] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-11-25 10:40:25] [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+[2025-11-25 10:40:26] [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2025-11-25 10:40:26] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-11-25 10:40:26] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 2003.1781ms
+[2025-11-25 10:40:26] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2025-11-25 10:40:26] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/search/shoes - 200 null application/json; charset=utf-8 2358.8958ms
+[2025-11-25 10:40:31] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/shoes - null null
+[2025-11-25 10:40:31] [INF] CORS policy execution successful.
+[2025-11-25 10:40:31] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2025-11-25 10:40:31] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-11-25 10:40:31] [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2025-11-25 10:40:31] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-11-25 10:40:31] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/shoes - null null
+[2025-11-25 10:40:31] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 75.2029ms
+[2025-11-25 10:40:31] [INF] CORS policy execution successful.
+[2025-11-25 10:40:31] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2025-11-25 10:40:31] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2025-11-25 10:40:31] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/search/shoes - 200 null application/json; charset=utf-8 130.9535ms
+[2025-11-25 10:40:31] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-11-25 10:40:31] [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2025-11-25 10:40:31] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-11-25 10:40:31] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 114.28ms
+[2025-11-25 10:40:31] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2025-11-25 10:40:31] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/search/shoes - 200 null application/json; charset=utf-8 136.2274ms
+[2025-11-25 11:10:26] [INF] Starting The Applicationn
+[2025-11-25 11:10:26] [INF] User profile is available. Using 'C:\Users\dasha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2025-11-25 11:10:27] [INF] Now listening on: https://localhost:7165
+[2025-11-25 11:10:27] [INF] Now listening on: http://localhost:5022
+[2025-11-25 11:10:27] [INF] Application started. Press Ctrl+C to shut down.
+[2025-11-25 11:10:27] [INF] Hosting environment: Development
+[2025-11-25 11:10:27] [INF] Content root path: D:\Zest_India\Training_BE\Training_BE
+[2025-11-25 11:10:29] [INF] Request starting HTTP/2 GET https://localhost:7165/_vs/browserLink - null null
+[2025-11-25 11:10:29] [INF] Request starting HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - null null
+[2025-11-25 11:10:29] [INF] Request finished HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 114.8424ms
+[2025-11-25 11:10:29] [INF] Request finished HTTP/2 GET https://localhost:7165/_vs/browserLink - 200 null text/javascript; charset=UTF-8 191.4155ms
+[2025-11-25 11:10:29] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - null null
+[2025-11-25 11:10:29] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 102.8835ms
+[2025-11-25 11:10:39] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/login - null null
+[2025-11-25 11:10:39] [INF] CORS policy execution successful.
+[2025-11-25 11:10:39] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/login - 204 null null 86.6614ms
+[2025-11-25 11:10:39] [INF] Request starting HTTP/2 POST https://localhost:7165/api/deliverypartner/login - application/json 45
+[2025-11-25 11:10:39] [INF] CORS policy execution successful.
+[2025-11-25 11:10:39] [INF] Executing endpoint 'Training_BE.Controllers.DeliveryPartnerAuthController.Login (Training_BE)'
+[2025-11-25 11:10:39] [INF] Route matched with {action = "Login", controller = "DeliveryPartnerAuth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Training_BE.DTOs.DeliveryPartnerDTOs.DeliveryPartnerLoginDto) on controller Training_BE.Controllers.DeliveryPartnerAuthController (Training_BE).
+[2025-11-25 11:10:40] [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+[2025-11-25 11:10:41] [INF] Executed DbCommand (179ms) [Parameters=[@__dto_PhoneNumber_0='?' (Size = 15)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[Email], [d].[IsActive], [d].[MaxActiveOrders], [d].[Name], [d].[PasswordHash], [d].[PhoneNumber], [d].[Pincode], [d].[Role]
+FROM [DeliveryPartners] AS [d]
+WHERE [d].[PhoneNumber] = @__dto_PhoneNumber_0
+[2025-11-25 11:10:42] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType6`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2025-11-25 11:10:42] [INF] Executed action Training_BE.Controllers.DeliveryPartnerAuthController.Login (Training_BE) in 2862.6825ms
+[2025-11-25 11:10:42] [INF] Executed endpoint 'Training_BE.Controllers.DeliveryPartnerAuthController.Login (Training_BE)'
+[2025-11-25 11:10:42] [INF] Request finished HTTP/2 POST https://localhost:7165/api/deliverypartner/login - 200 null application/json; charset=utf-8 3128.6053ms
+[2025-11-25 11:10:45] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/orders - null null
+[2025-11-25 11:10:45] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/orders - null null
+[2025-11-25 11:10:45] [INF] CORS policy execution successful.
+[2025-11-25 11:10:45] [INF] CORS policy execution successful.
+[2025-11-25 11:10:45] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/orders - 204 null null 15.1451ms
+[2025-11-25 11:10:45] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/orders - 204 null null 15.8955ms
+[2025-11-25 11:10:45] [INF] Request starting HTTP/2 GET https://localhost:7165/api/deliverypartner/orders - null null
+[2025-11-25 11:10:45] [INF] CORS policy execution successful.
+[2025-11-25 11:10:45] [INF] Executing endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE)'
+[2025-11-25 11:10:45] [INF] Route matched with {action = "GetMyOrders", controller = "DeliveryPartnerOrders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyOrders() on controller Training_BE.Controllers.DeliveryPartnerOrdersController (Training_BE).
+[2025-11-25 11:10:45] [INF] Executed DbCommand (21ms) [Parameters=[@__partnerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[AddressId], [o].[AdminId], [o].[DeliveryPartnerId], [o].[OrderDate], [o].[ProductId], [o].[Quantity], [o].[Status], [o].[UserEmail], [o].[UserId], [o].[UserName], [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty], [a].[Id], [a].[AddressLine], [a].[AlternatePhone], [a].[City], [a].[CreatedAt], [a].[IsDefault], [a].[Landmark], [a].[MobileNumber], [a].[Name], [a].[Pincode], [a].[State], [a].[UpdatedAt], [a].[UserId]
+FROM [Orders] AS [o]
+INNER JOIN [Products] AS [p] ON [o].[ProductId] = [p].[Id]
+INNER JOIN [Addresses] AS [a] ON [o].[AddressId] = [a].[Id]
+WHERE [o].[DeliveryPartnerId] = @__partnerId_0
+[2025-11-25 11:10:45] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.DTOs.DeliveryPartnerDTOs.DeliveryPartnerOrderDto, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-11-25 11:10:45] [INF] Request starting HTTP/2 GET https://localhost:7165/api/deliverypartner/orders - null null
+[2025-11-25 11:10:45] [INF] CORS policy execution successful.
+[2025-11-25 11:10:45] [INF] Executing endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE)'
+[2025-11-25 11:10:45] [INF] Route matched with {action = "GetMyOrders", controller = "DeliveryPartnerOrders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyOrders() on controller Training_BE.Controllers.DeliveryPartnerOrdersController (Training_BE).
+[2025-11-25 11:10:45] [INF] Executed action Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE) in 273.505ms
+[2025-11-25 11:10:45] [INF] Executed endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE)'
+[2025-11-25 11:10:45] [INF] Request finished HTTP/2 GET https://localhost:7165/api/deliverypartner/orders - 200 null application/json; charset=utf-8 350.95ms
+[2025-11-25 11:10:45] [INF] Executed DbCommand (6ms) [Parameters=[@__partnerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[AddressId], [o].[AdminId], [o].[DeliveryPartnerId], [o].[OrderDate], [o].[ProductId], [o].[Quantity], [o].[Status], [o].[UserEmail], [o].[UserId], [o].[UserName], [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty], [a].[Id], [a].[AddressLine], [a].[AlternatePhone], [a].[City], [a].[CreatedAt], [a].[IsDefault], [a].[Landmark], [a].[MobileNumber], [a].[Name], [a].[Pincode], [a].[State], [a].[UpdatedAt], [a].[UserId]
+FROM [Orders] AS [o]
+INNER JOIN [Products] AS [p] ON [o].[ProductId] = [p].[Id]
+INNER JOIN [Addresses] AS [a] ON [o].[AddressId] = [a].[Id]
+WHERE [o].[DeliveryPartnerId] = @__partnerId_0
+[2025-11-25 11:10:45] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.DTOs.DeliveryPartnerDTOs.DeliveryPartnerOrderDto, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-11-25 11:10:45] [INF] Executed action Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE) in 107.8204ms
+[2025-11-25 11:10:45] [INF] Executed endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE)'
+[2025-11-25 11:10:45] [INF] Request finished HTTP/2 GET https://localhost:7165/api/deliverypartner/orders - 200 null application/json; charset=utf-8 125.5664ms
+[2025-11-25 11:10:48] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/me - null null
+[2025-11-25 11:10:48] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/me - null null
+[2025-11-25 11:10:48] [INF] CORS policy execution successful.
+[2025-11-25 11:10:48] [INF] CORS policy execution successful.
+[2025-11-25 11:10:48] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/me - 204 null null 41.2588ms
+[2025-11-25 11:10:48] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/me - 204 null null 43.7956ms
+[2025-11-25 11:10:48] [INF] Request starting HTTP/2 GET https://localhost:7165/api/deliverypartner/me - null null
+[2025-11-25 11:10:48] [INF] CORS policy execution successful.
+[2025-11-25 11:10:48] [INF] Executing endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyProfile (Training_BE)'
+[2025-11-25 11:10:48] [INF] Route matched with {action = "GetMyProfile", controller = "DeliveryPartnerOrders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyProfile() on controller Training_BE.Controllers.DeliveryPartnerOrdersController (Training_BE).
+[2025-11-25 11:10:48] [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[Email], [d].[IsActive], [d].[MaxActiveOrders], [d].[Name], [d].[PasswordHash], [d].[PhoneNumber], [d].[Pincode], [d].[Role]
+FROM [DeliveryPartners] AS [d]
+WHERE [d].[Id] = @__id_0
+[2025-11-25 11:10:48] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType7`8[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2025-11-25 11:10:48] [INF] Executed action Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyProfile (Training_BE) in 18.6905ms
+[2025-11-25 11:10:48] [INF] Executed endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyProfile (Training_BE)'
+[2025-11-25 11:10:48] [INF] Request finished HTTP/2 GET https://localhost:7165/api/deliverypartner/me - 200 null application/json; charset=utf-8 89.403ms
+[2025-11-25 11:10:48] [INF] Request starting HTTP/2 GET https://localhost:7165/api/deliverypartner/me - null null
+[2025-11-25 11:10:48] [INF] CORS policy execution successful.
+[2025-11-25 11:10:48] [INF] Executing endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyProfile (Training_BE)'
+[2025-11-25 11:10:48] [INF] Route matched with {action = "GetMyProfile", controller = "DeliveryPartnerOrders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyProfile() on controller Training_BE.Controllers.DeliveryPartnerOrdersController (Training_BE).
+[2025-11-25 11:10:48] [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[Email], [d].[IsActive], [d].[MaxActiveOrders], [d].[Name], [d].[PasswordHash], [d].[PhoneNumber], [d].[Pincode], [d].[Role]
+FROM [DeliveryPartners] AS [d]
+WHERE [d].[Id] = @__id_0
+[2025-11-25 11:10:48] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType7`8[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2025-11-25 11:10:48] [INF] Executed action Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyProfile (Training_BE) in 7.7624ms
+[2025-11-25 11:10:48] [INF] Executed endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyProfile (Training_BE)'
+[2025-11-25 11:10:48] [INF] Request finished HTTP/2 GET https://localhost:7165/api/deliverypartner/me - 200 null application/json; charset=utf-8 20.9095ms
+[2025-11-25 11:10:50] [INF] Request starting HTTP/2 GET https://localhost:7165/api/deliverypartner/orders - null null
+[2025-11-25 11:10:50] [INF] CORS policy execution successful.
+[2025-11-25 11:10:50] [INF] Executing endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE)'
+[2025-11-25 11:10:50] [INF] Route matched with {action = "GetMyOrders", controller = "DeliveryPartnerOrders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyOrders() on controller Training_BE.Controllers.DeliveryPartnerOrdersController (Training_BE).
+[2025-11-25 11:10:50] [INF] Executed DbCommand (8ms) [Parameters=[@__partnerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[AddressId], [o].[AdminId], [o].[DeliveryPartnerId], [o].[OrderDate], [o].[ProductId], [o].[Quantity], [o].[Status], [o].[UserEmail], [o].[UserId], [o].[UserName], [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty], [a].[Id], [a].[AddressLine], [a].[AlternatePhone], [a].[City], [a].[CreatedAt], [a].[IsDefault], [a].[Landmark], [a].[MobileNumber], [a].[Name], [a].[Pincode], [a].[State], [a].[UpdatedAt], [a].[UserId]
+FROM [Orders] AS [o]
+INNER JOIN [Products] AS [p] ON [o].[ProductId] = [p].[Id]
+INNER JOIN [Addresses] AS [a] ON [o].[AddressId] = [a].[Id]
+WHERE [o].[DeliveryPartnerId] = @__partnerId_0
+[2025-11-25 11:10:50] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.DTOs.DeliveryPartnerDTOs.DeliveryPartnerOrderDto, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-11-25 11:10:50] [INF] Request starting HTTP/2 GET https://localhost:7165/api/deliverypartner/orders - null null
+[2025-11-25 11:10:50] [INF] CORS policy execution successful.
+[2025-11-25 11:10:50] [INF] Executing endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE)'
+[2025-11-25 11:10:50] [INF] Route matched with {action = "GetMyOrders", controller = "DeliveryPartnerOrders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyOrders() on controller Training_BE.Controllers.DeliveryPartnerOrdersController (Training_BE).
+[2025-11-25 11:10:50] [INF] Executed action Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE) in 56.3348ms
+[2025-11-25 11:10:50] [INF] Executed endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE)'
+[2025-11-25 11:10:50] [INF] Request finished HTTP/2 GET https://localhost:7165/api/deliverypartner/orders - 200 null application/json; charset=utf-8 77.1852ms
+[2025-11-25 11:10:50] [INF] Executed DbCommand (6ms) [Parameters=[@__partnerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[AddressId], [o].[AdminId], [o].[DeliveryPartnerId], [o].[OrderDate], [o].[ProductId], [o].[Quantity], [o].[Status], [o].[UserEmail], [o].[UserId], [o].[UserName], [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty], [a].[Id], [a].[AddressLine], [a].[AlternatePhone], [a].[City], [a].[CreatedAt], [a].[IsDefault], [a].[Landmark], [a].[MobileNumber], [a].[Name], [a].[Pincode], [a].[State], [a].[UpdatedAt], [a].[UserId]
+FROM [Orders] AS [o]
+INNER JOIN [Products] AS [p] ON [o].[ProductId] = [p].[Id]
+INNER JOIN [Addresses] AS [a] ON [o].[AddressId] = [a].[Id]
+WHERE [o].[DeliveryPartnerId] = @__partnerId_0
+[2025-11-25 11:10:50] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.DTOs.DeliveryPartnerDTOs.DeliveryPartnerOrderDto, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-11-25 11:10:50] [INF] Executed action Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE) in 75.1064ms
+[2025-11-25 11:10:50] [INF] Executed endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE)'
+[2025-11-25 11:10:50] [INF] Request finished HTTP/2 GET https://localhost:7165/api/deliverypartner/orders - 200 null application/json; charset=utf-8 95.355ms
+[2025-11-25 18:40:04] [INF] Starting The Applicationn
+[2025-11-25 18:40:05] [INF] User profile is available. Using 'C:\Users\dasha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2025-11-25 18:40:06] [INF] Now listening on: https://localhost:7165
+[2025-11-25 18:40:06] [INF] Now listening on: http://localhost:5022
+[2025-11-25 18:40:06] [INF] Application started. Press Ctrl+C to shut down.
+[2025-11-25 18:40:06] [INF] Hosting environment: Development
+[2025-11-25 18:40:06] [INF] Content root path: D:\Zest_India\Training_BE\Training_BE
+[2025-11-25 18:40:07] [INF] Request starting HTTP/2 GET https://localhost:7165/_vs/browserLink - null null
+[2025-11-25 18:40:07] [INF] Request starting HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - null null
+[2025-11-25 18:40:08] [INF] Request finished HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 303.8166ms
+[2025-11-25 18:40:08] [INF] Request finished HTTP/2 GET https://localhost:7165/_vs/browserLink - 200 null text/javascript; charset=UTF-8 480.6158ms
+[2025-11-25 18:40:08] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - null null
+[2025-11-25 18:40:08] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 102.4539ms
+[2025-11-25 18:40:53] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/login - null null
+[2025-11-25 18:40:53] [INF] CORS policy execution successful.
+[2025-11-25 18:40:53] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/login - 204 null null 81.656ms
+[2025-11-25 18:40:53] [INF] Request starting HTTP/2 POST https://localhost:7165/api/deliverypartner/login - application/json 45
+[2025-11-25 18:40:53] [INF] CORS policy execution successful.
+[2025-11-25 18:40:55] [INF] Executing endpoint 'Training_BE.Controllers.DeliveryPartnerAuthController.Login (Training_BE)'
+[2025-11-25 18:40:55] [INF] Route matched with {action = "Login", controller = "DeliveryPartnerAuth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Training_BE.DTOs.DeliveryPartnerDTOs.DeliveryPartnerLoginDto) on controller Training_BE.Controllers.DeliveryPartnerAuthController (Training_BE).
+[2025-11-25 18:40:57] [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+[2025-11-25 18:41:01] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/login - null null
+[2025-11-25 18:41:01] [INF] CORS policy execution successful.
+[2025-11-25 18:41:01] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/login - 204 null null 8.5635ms
+[2025-11-25 18:41:01] [INF] Request starting HTTP/2 POST https://localhost:7165/api/deliverypartner/login - application/json 45
+[2025-11-25 18:41:01] [INF] CORS policy execution successful.
+[2025-11-25 18:41:01] [INF] Executing endpoint 'Training_BE.Controllers.DeliveryPartnerAuthController.Login (Training_BE)'
+[2025-11-25 18:41:01] [INF] Route matched with {action = "Login", controller = "DeliveryPartnerAuth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Training_BE.DTOs.DeliveryPartnerDTOs.DeliveryPartnerLoginDto) on controller Training_BE.Controllers.DeliveryPartnerAuthController (Training_BE).
+[2025-11-25 18:41:02] [INF] Executed DbCommand (214ms) [Parameters=[@__dto_PhoneNumber_0='?' (Size = 15)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[Email], [d].[IsActive], [d].[MaxActiveOrders], [d].[Name], [d].[PasswordHash], [d].[PhoneNumber], [d].[Pincode], [d].[Role]
+FROM [DeliveryPartners] AS [d]
+WHERE [d].[PhoneNumber] = @__dto_PhoneNumber_0
+[2025-11-25 18:41:02] [INF] Executed DbCommand (214ms) [Parameters=[@__dto_PhoneNumber_0='?' (Size = 15)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[Email], [d].[IsActive], [d].[MaxActiveOrders], [d].[Name], [d].[PasswordHash], [d].[PhoneNumber], [d].[Pincode], [d].[Role]
+FROM [DeliveryPartners] AS [d]
+WHERE [d].[PhoneNumber] = @__dto_PhoneNumber_0
+[2025-11-25 18:41:03] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType6`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2025-11-25 18:41:03] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType6`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2025-11-25 18:41:03] [INF] Executed action Training_BE.Controllers.DeliveryPartnerAuthController.Login (Training_BE) in 1097.1556ms
+[2025-11-25 18:41:03] [INF] Executed action Training_BE.Controllers.DeliveryPartnerAuthController.Login (Training_BE) in 7624.4073ms
+[2025-11-25 18:41:03] [INF] Executed endpoint 'Training_BE.Controllers.DeliveryPartnerAuthController.Login (Training_BE)'
+[2025-11-25 18:41:03] [INF] Executed endpoint 'Training_BE.Controllers.DeliveryPartnerAuthController.Login (Training_BE)'
+[2025-11-25 18:41:03] [INF] Request finished HTTP/2 POST https://localhost:7165/api/deliverypartner/login - 200 null application/json; charset=utf-8 1139.6187ms
+[2025-11-25 18:41:03] [INF] Request finished HTTP/2 POST https://localhost:7165/api/deliverypartner/login - 200 null application/json; charset=utf-8 9402.0697ms
+[2025-11-25 18:41:17] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/orders - null null
+[2025-11-25 18:41:17] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/orders - null null
+[2025-11-25 18:41:17] [INF] CORS policy execution successful.
+[2025-11-25 18:41:17] [INF] CORS policy execution successful.
+[2025-11-25 18:41:17] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/orders - 204 null null 38.9851ms
+[2025-11-25 18:41:17] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/orders - 204 null null 41.7923ms
+[2025-11-25 18:41:17] [INF] Request starting HTTP/2 GET https://localhost:7165/api/deliverypartner/orders - null null
+[2025-11-25 18:41:17] [INF] CORS policy execution successful.
+[2025-11-25 18:41:17] [INF] Executing endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE)'
+[2025-11-25 18:41:17] [INF] Route matched with {action = "GetMyOrders", controller = "DeliveryPartnerOrders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyOrders() on controller Training_BE.Controllers.DeliveryPartnerOrdersController (Training_BE).
+[2025-11-25 18:41:17] [INF] Executed DbCommand (43ms) [Parameters=[@__partnerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[AddressId], [o].[AdminId], [o].[DeliveryPartnerId], [o].[OrderDate], [o].[ProductId], [o].[Quantity], [o].[Status], [o].[UserEmail], [o].[UserId], [o].[UserName], [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty], [a].[Id], [a].[AddressLine], [a].[AlternatePhone], [a].[City], [a].[CreatedAt], [a].[IsDefault], [a].[Landmark], [a].[MobileNumber], [a].[Name], [a].[Pincode], [a].[State], [a].[UpdatedAt], [a].[UserId]
+FROM [Orders] AS [o]
+INNER JOIN [Products] AS [p] ON [o].[ProductId] = [p].[Id]
+INNER JOIN [Addresses] AS [a] ON [o].[AddressId] = [a].[Id]
+WHERE [o].[DeliveryPartnerId] = @__partnerId_0
+[2025-11-25 18:41:18] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.DTOs.DeliveryPartnerDTOs.DeliveryPartnerOrderDto, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-11-25 18:41:18] [INF] Request starting HTTP/2 GET https://localhost:7165/api/deliverypartner/orders - null null
+[2025-11-25 18:41:18] [INF] CORS policy execution successful.
+[2025-11-25 18:41:18] [INF] Executing endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE)'
+[2025-11-25 18:41:18] [INF] Route matched with {action = "GetMyOrders", controller = "DeliveryPartnerOrders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyOrders() on controller Training_BE.Controllers.DeliveryPartnerOrdersController (Training_BE).
+[2025-11-25 18:41:18] [INF] Executed DbCommand (5ms) [Parameters=[@__partnerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[AddressId], [o].[AdminId], [o].[DeliveryPartnerId], [o].[OrderDate], [o].[ProductId], [o].[Quantity], [o].[Status], [o].[UserEmail], [o].[UserId], [o].[UserName], [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty], [a].[Id], [a].[AddressLine], [a].[AlternatePhone], [a].[City], [a].[CreatedAt], [a].[IsDefault], [a].[Landmark], [a].[MobileNumber], [a].[Name], [a].[Pincode], [a].[State], [a].[UpdatedAt], [a].[UserId]
+FROM [Orders] AS [o]
+INNER JOIN [Products] AS [p] ON [o].[ProductId] = [p].[Id]
+INNER JOIN [Addresses] AS [a] ON [o].[AddressId] = [a].[Id]
+WHERE [o].[DeliveryPartnerId] = @__partnerId_0
+[2025-11-25 18:41:18] [INF] Executed action Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE) in 445.3655ms
+[2025-11-25 18:41:18] [INF] Executed endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE)'
+[2025-11-25 18:41:18] [INF] Request finished HTTP/2 GET https://localhost:7165/api/deliverypartner/orders - 200 null application/json; charset=utf-8 550.6389ms
+[2025-11-25 18:41:18] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.DTOs.DeliveryPartnerDTOs.DeliveryPartnerOrderDto, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-11-25 18:41:18] [INF] Executed action Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE) in 78.75ms
+[2025-11-25 18:41:18] [INF] Executed endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyOrders (Training_BE)'
+[2025-11-25 18:41:18] [INF] Request finished HTTP/2 GET https://localhost:7165/api/deliverypartner/orders - 200 null application/json; charset=utf-8 105.6571ms
+[2025-11-25 18:43:08] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/me - null null
+[2025-11-25 18:43:08] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/me - null null
+[2025-11-25 18:43:08] [INF] CORS policy execution successful.
+[2025-11-25 18:43:08] [INF] CORS policy execution successful.
+[2025-11-25 18:43:08] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/me - 204 null null 74.223ms
+[2025-11-25 18:43:08] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/deliverypartner/me - 204 null null 82.3127ms
+[2025-11-25 18:43:08] [INF] Request starting HTTP/2 GET https://localhost:7165/api/deliverypartner/me - null null
+[2025-11-25 18:43:08] [INF] CORS policy execution successful.
+[2025-11-25 18:43:08] [INF] Executing endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyProfile (Training_BE)'
+[2025-11-25 18:43:08] [INF] Route matched with {action = "GetMyProfile", controller = "DeliveryPartnerOrders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyProfile() on controller Training_BE.Controllers.DeliveryPartnerOrdersController (Training_BE).
+[2025-11-25 18:43:08] [INF] Executed DbCommand (27ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[Email], [d].[IsActive], [d].[MaxActiveOrders], [d].[Name], [d].[PasswordHash], [d].[PhoneNumber], [d].[Pincode], [d].[Role]
+FROM [DeliveryPartners] AS [d]
+WHERE [d].[Id] = @__id_0
+[2025-11-25 18:43:08] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType7`8[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2025-11-25 18:43:08] [INF] Executed action Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyProfile (Training_BE) in 100.2957ms
+[2025-11-25 18:43:08] [INF] Request starting HTTP/2 GET https://localhost:7165/api/deliverypartner/me - null null
+[2025-11-25 18:43:08] [INF] Executed endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyProfile (Training_BE)'
+[2025-11-25 18:43:08] [INF] CORS policy execution successful.
+[2025-11-25 18:43:08] [INF] Request finished HTTP/2 GET https://localhost:7165/api/deliverypartner/me - 200 null application/json; charset=utf-8 244.1842ms
+[2025-11-25 18:43:08] [INF] Executing endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyProfile (Training_BE)'
+[2025-11-25 18:43:08] [INF] Route matched with {action = "GetMyProfile", controller = "DeliveryPartnerOrders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyProfile() on controller Training_BE.Controllers.DeliveryPartnerOrdersController (Training_BE).
+[2025-11-25 18:43:08] [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[Email], [d].[IsActive], [d].[MaxActiveOrders], [d].[Name], [d].[PasswordHash], [d].[PhoneNumber], [d].[Pincode], [d].[Role]
+FROM [DeliveryPartners] AS [d]
+WHERE [d].[Id] = @__id_0
+[2025-11-25 18:43:08] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType7`8[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2025-11-25 18:43:08] [INF] Executed action Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyProfile (Training_BE) in 38.2619ms
+[2025-11-25 18:43:08] [INF] Executed endpoint 'Training_BE.Controllers.DeliveryPartnerOrdersController.GetMyProfile (Training_BE)'
+[2025-11-25 18:43:08] [INF] Request finished HTTP/2 GET https://localhost:7165/api/deliverypartner/me - 200 null application/json; charset=utf-8 138.8323ms
+[2025-11-25 18:46:12] [INF] Request starting HTTP/2 GET https://localhost:7165/api/deliverypartner/Testing - null null
+[2025-11-25 18:46:12] [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (DeliveryPartner)
+[2025-11-25 18:46:12] [INF] AuthenticationScheme: Bearer was challenged.
+[2025-11-25 18:46:12] [INF] Request finished HTTP/2 GET https://localhost:7165/api/deliverypartner/Testing - 401 0 null 44.5389ms
+[2025-11-25 18:46:38] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product/search/shoes - null null
+[2025-11-25 18:46:38] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2025-11-25 18:46:38] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2025-11-25 18:46:38] [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2025-11-25 18:46:38] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2025-11-25 18:46:38] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 118.6887ms
+[2025-11-25 18:46:38] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2025-11-25 18:46:38] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product/search/shoes - 200 null application/json; charset=utf-8 155.7604ms
