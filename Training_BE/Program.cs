@@ -114,15 +114,14 @@ namespace Training_BE
             // Global Exception Handling Middleware
             app.UseMiddleware<ExceptionMiddleware>();
 
-            if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
-            {
+            
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 {
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ecommerce API v1");
                     c.RoutePrefix = "swagger";
                 });
-            }
+            
 
             app.UseHttpsRedirection();
             app.UseCors("CorsPolicy");
