@@ -55,7 +55,10 @@ namespace Training_BE
 
             // Swagger with JWT support
             builder.Services.AddEndpointsApiExplorer();
-            
+
+            builder.Services.AddSwaggerGen();
+
+
 
             // Register DbContext with SQL Server
             //builder.Services.AddDbContext<ApplicationDbContext>(options =>
