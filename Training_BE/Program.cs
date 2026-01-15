@@ -100,6 +100,14 @@ namespace Training_BE
             builder.Services.AddAuthorization();
 
             Log.Information("Starting The Application");
+            
+
+            builder.WebHost.ConfigureKestrel(options =>
+            {
+                var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+                options.ListenAnyIP(int.Parse(port));
+            });
+
 
             var app = builder.Build();
 
@@ -109,7 +117,11 @@ namespace Training_BE
             if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ecommerce API v1");
+                    c.RoutePrefix = "swagger";
+                });
             }
 
             app.UseHttpsRedirection();
