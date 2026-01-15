@@ -33,11 +33,13 @@ namespace Training_BE.Services
 
                 var user = new User
                 {
+                    Id = Guid.NewGuid(),   // ⭐ REQUIRED ⭐
                     Username = dto.Username,
                     Email = dto.Email,
                     PasswordHash = hashedPassword,
                     Role = dto.Role
                 };
+
 
                 _db.Users.Add(user);
                 await _db.SaveChangesAsync();
