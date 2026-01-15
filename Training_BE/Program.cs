@@ -1,11 +1,12 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Text;
-using Training_BE.Data;
-using Training_BE.Services;
-using Training_BE.Middleware;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using Training_BE.Data;
+using Training_BE.Middleware;
+using Training_BE.Services;
 
 
 
@@ -54,37 +55,15 @@ namespace Training_BE
 
             // Swagger with JWT support
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen(c =>
-            {
-                c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
-                {
-                    Name = "Authorization",
-                    Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
-                    Scheme = "Bearer",
-                    BearerFormat = "JWT",
-                    In = Microsoft.OpenApi.Models.ParameterLocation.Header,
-                    Description = "JWT Authorization header using the Bearer scheme."
-                });
-
-                c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
-                {
-                    {
-                        new Microsoft.OpenApi.Models.OpenApiSecurityScheme
-                        {
-                            Reference = new Microsoft.OpenApi.Models.OpenApiReference
-                            {
-                                Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            }
-                        },
-                        new string[] {}
-                    }
-                });
-            });
+            
 
             // Register DbContext with SQL Server
+            //builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
             // Register services for dependency injection
             builder.Services.AddScoped<AuthService>();
@@ -120,48 +99,28 @@ namespace Training_BE
 
             builder.Services.AddAuthorization();
 
-            try
+            Log.Information("Starting The Application");
+
+            var app = builder.Build();
+
+            // Global Exception Handling Middleware
+            app.UseMiddleware<ExceptionMiddleware>();
+
+            if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
             {
-                Log.Information("Starting The Applicationn");
-
-                var app = builder.Build();
-
-                // Global Exception Handling Middleware
-                app.UseMiddleware<ExceptionMiddleware>();
-
-
-                // Configure the HTTP request pipeline
-                
-                    if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
-                    {
-                        app.UseSwagger();
-                        app.UseSwaggerUI();
-                    }
-
-
-
-                app.UseHttpsRedirection();
-
-                app.UseCors("CorsPolicy");
-
-                app.UseAuthentication();
-
-
-
-                app.UseAuthorization();
-
-                app.MapControllers();
-
-                app.Run();
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
-            catch(Exception e)
-            {
-                Log.Fatal(e, "Fail to start the Application");
-            }
-            finally
-            {
-                Log.CloseAndFlush();
-            }
+
+            app.UseHttpsRedirection();
+            app.UseCors("CorsPolicy");
+            app.UseAuthentication();
+            app.UseAuthorization();
+            app.MapControllers();
+
+            app.Run();
+
+           
 
 
             

@@ -1,0 +1,348 @@
+[2026-01-13 10:29:11] [INF] Starting The Applicationn
+[2026-01-13 10:29:13] [INF] User profile is available. Using 'C:\Users\dasha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-01-13 10:29:15] [INF] Now listening on: https://localhost:7165
+[2026-01-13 10:29:15] [INF] Now listening on: http://localhost:5022
+[2026-01-13 10:29:15] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/suggest?term=m - null null
+[2026-01-13 10:29:15] [INF] Application started. Press Ctrl+C to shut down.
+[2026-01-13 10:29:15] [INF] Hosting environment: Development
+[2026-01-13 10:29:15] [INF] Content root path: D:\Zest_India\Training_BE\Training_BE
+[2026-01-13 10:29:15] [INF] CORS policy execution successful.
+[2026-01-13 10:29:20] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SuggestProducts (Training_BE)'
+[2026-01-13 10:29:20] [INF] Route matched with {action = "SuggestProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SuggestProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:29:21] [INF] Request starting HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - null null
+[2026-01-13 10:29:21] [INF] Request starting HTTP/2 GET https://localhost:7165/_vs/browserLink - null null
+[2026-01-13 10:29:21] [INF] Request finished HTTP/2 GET https://localhost:7165/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 206.2923ms
+[2026-01-13 10:29:23] [INF] Request finished HTTP/2 GET https://localhost:7165/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2638.2979ms
+[2026-01-13 10:29:24] [INF] Request starting HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - null null
+[2026-01-13 10:29:24] [INF] Request finished HTTP/2 GET https://localhost:7165/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 161.2469ms
+[2026-01-13 10:29:26] [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+[2026-01-13 10:29:31] [INF] Executed DbCommand (195ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2026-01-13 10:29:39] [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Training_BE.DTOs.SearchSuggestionDto, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-01-13 10:29:39] [INF] Executed action Training_BE.Controllers.ProductController.SuggestProducts (Training_BE) in 18846.4316ms
+[2026-01-13 10:29:39] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SuggestProducts (Training_BE)'
+[2026-01-13 10:29:39] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/suggest?term=m - 200 null application/json; charset=utf-8 23983.1075ms
+[2026-01-13 10:29:55] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - null null
+[2026-01-13 10:29:55] [INF] CORS policy execution successful.
+[2026-01-13 10:29:55] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - 204 null null 29.3524ms
+[2026-01-13 10:29:55] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Auth/login - application/json 43
+[2026-01-13 10:29:55] [INF] CORS policy execution successful.
+[2026-01-13 10:29:55] [INF] Executing endpoint 'Training_BE.Controllers.AuthController.Login (Training_BE)'
+[2026-01-13 10:29:55] [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Training_BE.DTOs.UserLoginDto) on controller Training_BE.Controllers.AuthController (Training_BE).
+[2026-01-13 10:29:55] [INF] Login attempt for user: darshan@123 at "2026-01-13T04:59:55.8954600Z"
+[2026-01-13 10:29:56] [INF] Executed DbCommand (202ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[PasswordHash], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+[2026-01-13 10:29:57] [INF] Login successful for user: darshan@123 at "2026-01-13T04:59:57.2201725Z" with Eeeeemail: dashandeshmukh15@gmail.com
+[2026-01-13 10:29:57] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType4`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-01-13 10:29:57] [INF] Executed action Training_BE.Controllers.AuthController.Login (Training_BE) in 1591.5029ms
+[2026-01-13 10:29:57] [INF] Executed endpoint 'Training_BE.Controllers.AuthController.Login (Training_BE)'
+[2026-01-13 10:29:57] [INF] Request finished HTTP/2 POST https://localhost:7165/api/Auth/login - 200 null application/json; charset=utf-8 1642.4881ms
+[2026-01-13 10:30:41] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/mobile - null null
+[2026-01-13 10:30:41] [INF] CORS policy execution successful.
+[2026-01-13 10:30:41] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:30:41] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:30:41] [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2026-01-13 10:30:41] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-01-13 10:30:41] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/mobile - null null
+[2026-01-13 10:30:41] [INF] CORS policy execution successful.
+[2026-01-13 10:30:41] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:30:41] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:30:41] [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2026-01-13 10:30:41] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 565.9631ms
+[2026-01-13 10:30:41] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:30:41] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/search/mobile - 200 null application/json; charset=utf-8 613.4345ms
+[2026-01-13 10:30:42] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-01-13 10:30:42] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 407.2954ms
+[2026-01-13 10:30:42] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:30:42] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/search/mobile - 200 null application/json; charset=utf-8 471.4908ms
+[2026-01-13 10:32:15] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/laptop - null null
+[2026-01-13 10:32:15] [INF] CORS policy execution successful.
+[2026-01-13 10:32:15] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:15] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:32:15] [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2026-01-13 10:32:16] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-01-13 10:32:16] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 272.8244ms
+[2026-01-13 10:32:16] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/laptop - null null
+[2026-01-13 10:32:16] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:16] [INF] CORS policy execution successful.
+[2026-01-13 10:32:16] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/search/laptop - 200 null application/json; charset=utf-8 336.4529ms
+[2026-01-13 10:32:16] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:16] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:32:16] [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2026-01-13 10:32:16] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-01-13 10:32:16] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 219.6096ms
+[2026-01-13 10:32:16] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:16] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/search/laptop - 200 null application/json; charset=utf-8 279.1909ms
+[2026-01-13 10:32:19] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product/20 - null null
+[2026-01-13 10:32:19] [INF] CORS policy execution successful.
+[2026-01-13 10:32:19] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetById (Training_BE)'
+[2026-01-13 10:32:19] [INF] Route matched with {action = "GetById", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:32:19] [INF] Executed DbCommand (10ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0
+[2026-01-13 10:32:19] [INF] Executing OkObjectResult, writing value of type 'Training_BE.DTOs.ProductDto'.
+[2026-01-13 10:32:19] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product/20 - null null
+[2026-01-13 10:32:19] [INF] Executed action Training_BE.Controllers.ProductController.GetById (Training_BE) in 79.4475ms
+[2026-01-13 10:32:19] [INF] CORS policy execution successful.
+[2026-01-13 10:32:19] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetById (Training_BE)'
+[2026-01-13 10:32:19] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetById (Training_BE)'
+[2026-01-13 10:32:19] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product/20 - 200 null application/json; charset=utf-8 125.4801ms
+[2026-01-13 10:32:19] [INF] Route matched with {action = "GetById", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:32:19] [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0
+[2026-01-13 10:32:19] [INF] Executing OkObjectResult, writing value of type 'Training_BE.DTOs.ProductDto'.
+[2026-01-13 10:32:19] [INF] Executed action Training_BE.Controllers.ProductController.GetById (Training_BE) in 27.7016ms
+[2026-01-13 10:32:19] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetById (Training_BE)'
+[2026-01-13 10:32:19] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product/20 - 200 null application/json; charset=utf-8 78.6062ms
+[2026-01-13 10:32:23] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product/cart/20?quantity=1 - null null
+[2026-01-13 10:32:23] [INF] CORS policy execution successful.
+[2026-01-13 10:32:23] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product/cart/20?quantity=1 - 204 null null 12.5411ms
+[2026-01-13 10:32:23] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Product/cart/20?quantity=1 - null 0
+[2026-01-13 10:32:23] [INF] CORS policy execution successful.
+[2026-01-13 10:32:23] [INF] Executing endpoint 'Training_BE.Controllers.CartController.AddToCart (Training_BE)'
+[2026-01-13 10:32:23] [INF] Route matched with {action = "AddToCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(Int32) on controller Training_BE.Controllers.CartController (Training_BE).
+[2026-01-13 10:32:23] [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__p_0
+[2026-01-13 10:32:23] [INF] Executed DbCommand (36ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__productId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[AddedAt], [c].[ProductId], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[ProductId] = @__productId_1
+[2026-01-13 10:32:23] [INF] Executed DbCommand (46ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Carts] ([AddedAt], [ProductId], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+[2026-01-13 10:32:23] [INF] Executing OkObjectResult, writing value of type 'Training_BE.DTOs.CartItemDto'.
+[2026-01-13 10:32:23] [INF] Executed action Training_BE.Controllers.CartController.AddToCart (Training_BE) in 515.8382ms
+[2026-01-13 10:32:23] [INF] Executed endpoint 'Training_BE.Controllers.CartController.AddToCart (Training_BE)'
+[2026-01-13 10:32:23] [INF] Request finished HTTP/2 POST https://localhost:7165/api/Product/cart/20?quantity=1 - 200 null application/json; charset=utf-8 635.437ms
+[2026-01-13 10:32:29] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/laptop - null null
+[2026-01-13 10:32:29] [INF] CORS policy execution successful.
+[2026-01-13 10:32:29] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:29] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:32:29] [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2026-01-13 10:32:29] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-01-13 10:32:29] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 224.3033ms
+[2026-01-13 10:32:29] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/laptop - null null
+[2026-01-13 10:32:29] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:29] [INF] CORS policy execution successful.
+[2026-01-13 10:32:29] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/search/laptop - 200 null application/json; charset=utf-8 260.4333ms
+[2026-01-13 10:32:29] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:29] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:32:29] [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2026-01-13 10:32:29] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-01-13 10:32:29] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 260.1098ms
+[2026-01-13 10:32:29] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:29] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/search/laptop - 200 null application/json; charset=utf-8 299.8893ms
+[2026-01-13 10:32:32] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product/20 - null null
+[2026-01-13 10:32:32] [INF] CORS policy execution successful.
+[2026-01-13 10:32:32] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetById (Training_BE)'
+[2026-01-13 10:32:32] [INF] Route matched with {action = "GetById", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:32:32] [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0
+[2026-01-13 10:32:32] [INF] Executing OkObjectResult, writing value of type 'Training_BE.DTOs.ProductDto'.
+[2026-01-13 10:32:32] [INF] Executed action Training_BE.Controllers.ProductController.GetById (Training_BE) in 25.3107ms
+[2026-01-13 10:32:32] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product/20 - null null
+[2026-01-13 10:32:32] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetById (Training_BE)'
+[2026-01-13 10:32:32] [INF] CORS policy execution successful.
+[2026-01-13 10:32:32] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product/20 - 200 null application/json; charset=utf-8 66.3125ms
+[2026-01-13 10:32:32] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetById (Training_BE)'
+[2026-01-13 10:32:32] [INF] Route matched with {action = "GetById", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:32:32] [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0
+[2026-01-13 10:32:32] [INF] Executing OkObjectResult, writing value of type 'Training_BE.DTOs.ProductDto'.
+[2026-01-13 10:32:32] [INF] Executed action Training_BE.Controllers.ProductController.GetById (Training_BE) in 23.6658ms
+[2026-01-13 10:32:32] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetById (Training_BE)'
+[2026-01-13 10:32:32] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product/20 - 200 null application/json; charset=utf-8 71.3472ms
+[2026-01-13 10:32:35] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/laptop - null null
+[2026-01-13 10:32:35] [INF] CORS policy execution successful.
+[2026-01-13 10:32:35] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:35] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:32:35] [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2026-01-13 10:32:35] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-01-13 10:32:35] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 260.4478ms
+[2026-01-13 10:32:35] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/laptop - null null
+[2026-01-13 10:32:35] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:35] [INF] CORS policy execution successful.
+[2026-01-13 10:32:35] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/search/laptop - 200 null application/json; charset=utf-8 326.4125ms
+[2026-01-13 10:32:35] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:35] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:32:35] [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2026-01-13 10:32:35] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-01-13 10:32:35] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 215.2899ms
+[2026-01-13 10:32:35] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:35] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/search/laptop - 200 null application/json; charset=utf-8 262.8701ms
+[2026-01-13 10:32:45] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - null null
+[2026-01-13 10:32:45] [INF] CORS policy execution successful.
+[2026-01-13 10:32:45] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Auth/login - 204 null null 11.1251ms
+[2026-01-13 10:32:45] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Auth/login - application/json 43
+[2026-01-13 10:32:45] [INF] CORS policy execution successful.
+[2026-01-13 10:32:45] [INF] Executing endpoint 'Training_BE.Controllers.AuthController.Login (Training_BE)'
+[2026-01-13 10:32:45] [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Training_BE.DTOs.UserLoginDto) on controller Training_BE.Controllers.AuthController (Training_BE).
+[2026-01-13 10:32:45] [INF] Login attempt for user: darshan@123 at "2026-01-13T05:02:45.3575644Z"
+[2026-01-13 10:32:45] [INF] Executed DbCommand (6ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[PasswordHash], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+[2026-01-13 10:32:45] [INF] Login successful for user: darshan@123 at "2026-01-13T05:02:45.7073262Z" with Eeeeemail: dashandeshmukh15@gmail.com
+[2026-01-13 10:32:45] [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType4`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-01-13 10:32:45] [INF] Executed action Training_BE.Controllers.AuthController.Login (Training_BE) in 362.9565ms
+[2026-01-13 10:32:45] [INF] Executed endpoint 'Training_BE.Controllers.AuthController.Login (Training_BE)'
+[2026-01-13 10:32:45] [INF] Request finished HTTP/2 POST https://localhost:7165/api/Auth/login - 200 null application/json; charset=utf-8 402.3383ms
+[2026-01-13 10:32:55] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/watch - null null
+[2026-01-13 10:32:55] [INF] CORS policy execution successful.
+[2026-01-13 10:32:55] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:55] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:32:55] [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2026-01-13 10:32:55] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-01-13 10:32:55] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 287.6541ms
+[2026-01-13 10:32:55] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/watch - null null
+[2026-01-13 10:32:55] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:55] [INF] CORS policy execution successful.
+[2026-01-13 10:32:55] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/search/watch - 200 null application/json; charset=utf-8 346.294ms
+[2026-01-13 10:32:55] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:55] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:32:55] [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2026-01-13 10:32:56] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-01-13 10:32:56] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 311.8139ms
+[2026-01-13 10:32:56] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 10:32:56] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/search/watch - 200 null application/json; charset=utf-8 352.5182ms
+[2026-01-13 10:33:00] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product/35 - null null
+[2026-01-13 10:33:00] [INF] CORS policy execution successful.
+[2026-01-13 10:33:00] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetById (Training_BE)'
+[2026-01-13 10:33:00] [INF] Route matched with {action = "GetById", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:33:00] [INF] Executed DbCommand (14ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0
+[2026-01-13 10:33:00] [INF] Executing OkObjectResult, writing value of type 'Training_BE.DTOs.ProductDto'.
+[2026-01-13 10:33:00] [INF] Request starting HTTP/2 GET https://localhost:7165/api/Product/35 - null null
+[2026-01-13 10:33:00] [INF] Executed action Training_BE.Controllers.ProductController.GetById (Training_BE) in 54.4708ms
+[2026-01-13 10:33:00] [INF] CORS policy execution successful.
+[2026-01-13 10:33:00] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetById (Training_BE)'
+[2026-01-13 10:33:00] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.GetById (Training_BE)'
+[2026-01-13 10:33:00] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product/35 - 200 null application/json; charset=utf-8 117.5237ms
+[2026-01-13 10:33:00] [INF] Route matched with {action = "GetById", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 10:33:00] [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0
+[2026-01-13 10:33:00] [INF] Executing OkObjectResult, writing value of type 'Training_BE.DTOs.ProductDto'.
+[2026-01-13 10:33:00] [INF] Executed action Training_BE.Controllers.ProductController.GetById (Training_BE) in 32.518ms
+[2026-01-13 10:33:00] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.GetById (Training_BE)'
+[2026-01-13 10:33:00] [INF] Request finished HTTP/2 GET https://localhost:7165/api/Product/35 - 200 null application/json; charset=utf-8 81.082ms
+[2026-01-13 10:33:03] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product/cart/35?quantity=1 - null null
+[2026-01-13 10:33:03] [INF] CORS policy execution successful.
+[2026-01-13 10:33:03] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product/cart/35?quantity=1 - 204 null null 11.9562ms
+[2026-01-13 10:33:03] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Product/cart/35?quantity=1 - null 0
+[2026-01-13 10:33:03] [INF] CORS policy execution successful.
+[2026-01-13 10:33:03] [INF] Executing endpoint 'Training_BE.Controllers.CartController.AddToCart (Training_BE)'
+[2026-01-13 10:33:03] [INF] Route matched with {action = "AddToCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(Int32) on controller Training_BE.Controllers.CartController (Training_BE).
+[2026-01-13 10:33:03] [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__p_0
+[2026-01-13 10:33:03] [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__productId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[AddedAt], [c].[ProductId], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[ProductId] = @__productId_1
+[2026-01-13 10:33:03] [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Carts] ([AddedAt], [ProductId], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+[2026-01-13 10:33:03] [INF] Executing OkObjectResult, writing value of type 'Training_BE.DTOs.CartItemDto'.
+[2026-01-13 10:33:03] [INF] Executed action Training_BE.Controllers.CartController.AddToCart (Training_BE) in 67.6401ms
+[2026-01-13 10:33:03] [INF] Executed endpoint 'Training_BE.Controllers.CartController.AddToCart (Training_BE)'
+[2026-01-13 10:33:03] [INF] Request finished HTTP/2 POST https://localhost:7165/api/Product/cart/35?quantity=1 - 200 null application/json; charset=utf-8 101.606ms
+[2026-01-13 10:33:57] [INF] Request starting HTTP/2 OPTIONS https://localhost:7165/api/Product/cart/35?quantity=1 - null null
+[2026-01-13 10:33:57] [INF] CORS policy execution successful.
+[2026-01-13 10:33:57] [INF] Request finished HTTP/2 OPTIONS https://localhost:7165/api/Product/cart/35?quantity=1 - 204 null null 27.0338ms
+[2026-01-13 10:33:57] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Product/cart/35?quantity=1 - null 0
+[2026-01-13 10:33:57] [INF] CORS policy execution successful.
+[2026-01-13 10:33:57] [INF] Executing endpoint 'Training_BE.Controllers.CartController.AddToCart (Training_BE)'
+[2026-01-13 10:33:57] [INF] Route matched with {action = "AddToCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(Int32) on controller Training_BE.Controllers.CartController (Training_BE).
+[2026-01-13 10:33:57] [INF] Executed DbCommand (25ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__p_0
+[2026-01-13 10:33:57] [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__productId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[AddedAt], [c].[ProductId], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[ProductId] = @__productId_1
+[2026-01-13 10:33:57] [INF] Request starting HTTP/2 POST https://localhost:7165/api/Product/cart/35?quantity=1 - null 0
+[2026-01-13 10:33:57] [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-01-13 10:33:57] [INF] CORS policy execution successful.
+[2026-01-13 10:33:57] [INF] Executing endpoint 'Training_BE.Controllers.CartController.AddToCart (Training_BE)'
+[2026-01-13 10:33:57] [INF] Executed action Training_BE.Controllers.CartController.AddToCart (Training_BE) in 280.672ms
+[2026-01-13 10:33:57] [INF] Route matched with {action = "AddToCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(Int32) on controller Training_BE.Controllers.CartController (Training_BE).
+[2026-01-13 10:33:57] [INF] Executed endpoint 'Training_BE.Controllers.CartController.AddToCart (Training_BE)'
+[2026-01-13 10:33:58] [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__p_0
+[2026-01-13 10:33:58] [INF] Request finished HTTP/2 POST https://localhost:7165/api/Product/cart/35?quantity=1 - 400 null application/json; charset=utf-8 368.2672ms
+[2026-01-13 10:33:58] [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__productId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[AddedAt], [c].[ProductId], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE [c].[UserId] = @__userId_0 AND [c].[ProductId] = @__productId_1
+[2026-01-13 10:33:58] [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-01-13 10:33:58] [INF] Executed action Training_BE.Controllers.CartController.AddToCart (Training_BE) in 198.4743ms
+[2026-01-13 10:33:58] [INF] Executed endpoint 'Training_BE.Controllers.CartController.AddToCart (Training_BE)'
+[2026-01-13 10:33:58] [INF] Request finished HTTP/2 POST https://localhost:7165/api/Product/cart/35?quantity=1 - 400 null application/json; charset=utf-8 368.7711ms
+[2026-01-13 11:08:03] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/watch - null null
+[2026-01-13 11:08:03] [INF] CORS policy execution successful.
+[2026-01-13 11:08:03] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 11:08:03] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 11:08:03] [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2026-01-13 11:08:22] [INF] Request starting HTTP/2 GET https://localhost:7165/api/product/search/watch - null null
+[2026-01-13 11:08:22] [INF] CORS policy execution successful.
+[2026-01-13 11:08:23] [INF] Executing endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 11:08:23] [INF] Route matched with {action = "SearchProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchProducts(System.String) on controller Training_BE.Controllers.ProductController (Training_BE).
+[2026-01-13 11:08:37] [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Brand], [p].[Category], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[Image], [p].[Name], [p].[Price], [p].[Quantity], [p].[Specifications], [p].[UpdatedAt], [p].[UpdatedBy], [p].[Warranty]
+FROM [Products] AS [p]
+[2026-01-13 11:08:37] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-01-13 11:08:37] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 34583.7968ms
+[2026-01-13 11:08:37] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 11:08:37] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/search/watch - 200 null application/json; charset=utf-8 34709.6484ms
+[2026-01-13 11:08:37] [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[Training_BE.Models.Product, Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType10`9[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Training_BE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-01-13 11:08:37] [INF] Executed action Training_BE.Controllers.ProductController.SearchProducts (Training_BE) in 14977.01ms
+[2026-01-13 11:08:37] [INF] Executed endpoint 'Training_BE.Controllers.ProductController.SearchProducts (Training_BE)'
+[2026-01-13 11:08:38] [INF] Request finished HTTP/2 GET https://localhost:7165/api/product/search/watch - 200 null application/json; charset=utf-8 15011.8719ms

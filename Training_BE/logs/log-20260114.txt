@@ -1,0 +1,37 @@
+[2026-01-14 18:52:01] [INF] Starting The Applicationn
+[2026-01-14 18:52:01] [FTL] Fail to start the Application
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Training_BE.Program.Main(String[] args) in D:\Zest_India\Training_BE\Training_BE\Program.cs:line 132
+[2026-01-14 19:03:06] [INF] Starting The Applicationn
+[2026-01-14 19:03:07] [FTL] Fail to start the Application
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Training_BE.Program.Main(String[] args) in D:\Zest_India\Training_BE\Training_BE\Program.cs:line 132
+[2026-01-14 19:03:17] [INF] Starting The Applicationn
+[2026-01-14 19:03:17] [FTL] Fail to start the Application
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Training_BE.Program.Main(String[] args) in D:\Zest_India\Training_BE\Training_BE\Program.cs:line 132
+[2026-01-14 19:13:03] [INF] Starting The Application
+[2026-01-14 19:15:05] [INF] Starting The Application
+[2026-01-14 19:16:05] [INF] Starting The Application
+[2026-01-14 19:16:26] [INF] Starting The Application
