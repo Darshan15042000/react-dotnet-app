@@ -24,7 +24,8 @@ namespace Training_BE.Middleware
             catch (Exception ex)
             {
                 // Log the error
-                _logger.LogError(ex, "Unhandled Exception occurred");
+                _logger.LogError(ex, "Unhandled Exception occurred: {Exception}", ex.ToString());
+
 
                 // Handle the exception and send response
                 await HandleExceptionAsync(context, ex);
@@ -40,11 +41,12 @@ namespace Training_BE.Middleware
             {
                 StatusCode = context.Response.StatusCode,
                 Message = "Internal Server Error",
-                Detail = ex.Message
+                Detail = ex.InnerException?.Message ?? ex.Message
             };
 
             return context.Response.WriteAsync(JsonSerializer.Serialize(response));
         }
+
     }
 }
 

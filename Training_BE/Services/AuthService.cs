@@ -39,7 +39,7 @@ namespace Training_BE.Services
                     PasswordHash = hashedPassword,
                     Role = dto.Role
                 };
-
+ 
 
                 _db.Users.Add(user);
                 await _db.SaveChangesAsync();
