@@ -27,6 +27,7 @@ namespace Training_BE.Middleware
                 _logger.LogError(ex, "Unhandled Exception occurred: {Exception}", ex.ToString());
 
 
+
                 // Handle the exception and send response
                 await HandleExceptionAsync(context, ex);
             }

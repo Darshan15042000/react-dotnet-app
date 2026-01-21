@@ -80,6 +80,36 @@ namespace Training_BE
 
 
             // JWT Authentication
+            //builder.Services.AddAuthentication(options =>
+            //{
+            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //})
+            //.AddJwtBearer(options =>
+            //{
+            //    options.TokenValidationParameters = new TokenValidationParameters
+            //    {
+            //        ValidateIssuer = true,
+            //        ValidateAudience = true,
+            //        ValidateLifetime = true,
+            //        ValidateIssuerSigningKey = true,
+            //        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            //        ValidAudience = builder.Configuration["Jwt:Audience"],
+            //        IssuerSigningKey = new SymmetricSecurityKey(
+            //            Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]))
+            //    };
+            //});
+
+            // new Jwt Authentication with error handling
+            var jwtSection = builder.Configuration.GetSection("Jwt");
+
+            var jwtKey = jwtSection["Key"]
+                ?? throw new Exception("JWT Key is missing");
+            var jwtIssuer = jwtSection["Issuer"]
+                ?? throw new Exception("JWT Issuer is missing");
+            var jwtAudience = jwtSection["Audience"]
+                ?? throw new Exception("JWT Audience is missing");
+
             builder.Services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -93,12 +123,13 @@ namespace Training_BE
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
-                    ValidAudience = builder.Configuration["Jwt:Audience"],
+                    ValidIssuer = jwtIssuer,
+                    ValidAudience = jwtAudience,
                     IssuerSigningKey = new SymmetricSecurityKey(
-                        Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]))
+                        Encoding.ASCII.GetBytes(jwtKey))
                 };
             });
+
 
             builder.Services.AddAuthorization();
 
