@@ -7,8 +7,7 @@ using Serilog;
 using Training_BE.Data;
 using Training_BE.Middleware;
 using Training_BE.Services;
-
-
+using Microsoft.OpenApi.Models;
 
 namespace Training_BE
 {
@@ -16,13 +15,9 @@ namespace Training_BE
     {
         public static void Main(string[] args)
         {
-
-            
-
-
             var builder = WebApplication.CreateBuilder(args);
 
-            //  Configure Serilog
+            // Configure Serilog
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Information()
                 .WriteTo.Console()
@@ -33,42 +28,64 @@ namespace Training_BE
                 )
                 .CreateLogger();
 
-            // Use Serilog instead of default logger
             builder.Host.UseSerilog();
 
-
-            // 1. Add CORS service
+            // CORS
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
                     policy => policy
-                        //.WithOrigins("http://localhost:3000") // only my frontend will acccess
                         .AllowAnyOrigin()
                         .AllowAnyMethod()
                         .AllowAnyHeader());
             });
 
-
-
-            // Add services to the container
+            // Controllers
             builder.Services.AddControllers();
 
-            // Swagger with JWT support
+            // Swagger
             builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Ecommerce API",
+                    Version = "v1"
+                });
 
-            builder.Services.AddSwaggerGen();
+                //  JWT Bearer support
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "Enter: Bearer {your JWT token}"
+                });
 
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        Array.Empty<string>()
+                    }
+                });
+            });
 
-
-            // Register DbContext with SQL Server
-            //builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            //    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+            // DbContext
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+                options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+            );
 
-
-            // Register services for dependency injection
+            // DI Services
             builder.Services.AddScoped<AuthService>();
             builder.Services.AddScoped<ProductService>();
             builder.Services.AddScoped<AddressService>();
@@ -77,38 +94,12 @@ namespace Training_BE
             builder.Services.AddScoped<DeliveryPartnerAuthService>();
             builder.Services.AddScoped<DeliveryPartnerOrderService>();
 
-
-
-            // JWT Authentication
-            //builder.Services.AddAuthentication(options =>
-            //{
-            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //})
-            //.AddJwtBearer(options =>
-            //{
-            //    options.TokenValidationParameters = new TokenValidationParameters
-            //    {
-            //        ValidateIssuer = true,
-            //        ValidateAudience = true,
-            //        ValidateLifetime = true,
-            //        ValidateIssuerSigningKey = true,
-            //        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            //        ValidAudience = builder.Configuration["Jwt:Audience"],
-            //        IssuerSigningKey = new SymmetricSecurityKey(
-            //            Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]))
-            //    };
-            //});
-
-            // new Jwt Authentication with error handling
+            // JWT Authentication (UNCHANGED LOGIC)
             var jwtSection = builder.Configuration.GetSection("Jwt");
 
-            var jwtKey = jwtSection["Key"]
-                ?? throw new Exception("JWT Key is missing");
-            var jwtIssuer = jwtSection["Issuer"]
-                ?? throw new Exception("JWT Issuer is missing");
-            var jwtAudience = jwtSection["Audience"]
-                ?? throw new Exception("JWT Audience is missing");
+            var jwtKey = jwtSection["Key"] ?? throw new Exception("JWT Key is missing");
+            var jwtIssuer = jwtSection["Issuer"] ?? throw new Exception("JWT Issuer is missing");
+            var jwtAudience = jwtSection["Audience"] ?? throw new Exception("JWT Audience is missing");
 
             builder.Services.AddAuthentication(options =>
             {
@@ -130,32 +121,29 @@ namespace Training_BE
                 };
             });
 
-
             builder.Services.AddAuthorization();
 
             Log.Information("Starting The Application");
-            
 
+            // Kestrel (Render)
             builder.WebHost.ConfigureKestrel(options =>
             {
                 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
                 options.ListenAnyIP(int.Parse(port));
             });
 
-
             var app = builder.Build();
 
-            // Global Exception Handling Middleware
+            // Global Exception Middleware
             app.UseMiddleware<ExceptionMiddleware>();
 
-            
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ecommerce API v1");
-                    c.RoutePrefix = "swagger";
-                });
-            
+            // Swagger UI
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ecommerce API v1");
+                c.RoutePrefix = "swagger";
+            });
 
             app.UseHttpsRedirection();
             app.UseCors("CorsPolicy");
@@ -164,13 +152,6 @@ namespace Training_BE
             app.MapControllers();
 
             app.Run();
-
-           
-
-
-            
         }
     }
 }
-
-
