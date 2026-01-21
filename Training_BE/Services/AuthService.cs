@@ -59,47 +59,53 @@ namespace Training_BE.Services
         {
             _logger.LogInformation("Login attempt for user: {Username} at {Time}", dto.Username, DateTime.UtcNow);
 
-
             var user = await _db.Users.FirstOrDefaultAsync(u => u.Username == dto.Username);
-            if (user == null) 
-            {
-                _logger.LogWarning("Login failed: User {Username} not found ", dto.Username);
-                return null;
-            }
+            if (user == null) return null;
 
-            bool validPassword = BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash);
-            if (!validPassword) 
-            {
-                _logger.LogWarning("Login failed: Invalid password for {Username} ", dto.Username);
-                return null;
-            }
+            if (!BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash)) return null;
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_config["Jwt:Key"]);
+            // ✅ SAFE CONFIG ACCESS
+            var jwtSection = _config.GetSection("Jwt");
+
+            var jwtKey = jwtSection["Key"]
+                ?? throw new Exception("JWT Key missing");
+            var jwtIssuer = jwtSection["Issuer"]
+                ?? throw new Exception("JWT Issuer missing");
+            var jwtAudience = jwtSection["Audience"]
+                ?? throw new Exception("JWT Audience missing");
+
+            // Optional with default
+            var tokenValidityMinutes =
+                Convert.ToDouble(jwtSection["TokenValidityInMinutes"] ?? "60");
+
+            var key = Encoding.ASCII.GetBytes(jwtKey);
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new Claim[]
+                Subject = new ClaimsIdentity(new[]
                 {
-                    new Claim("id", user.Id.ToString()),
-                    new Claim("username", user.Username),
-
-                    //  simplified claim important!
-                    new Claim("role", user.Role),
-                    new Claim (ClaimTypes.Email, user.Email)
-                }),
-                Expires = DateTime.UtcNow.AddMinutes(Convert.ToDouble(_config["Jwt:TokenValidityInMinutes"])),
-                Issuer = _config["Jwt:Issuer"],
-                Audience = _config["Jwt:Audience"],
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            new Claim("id", user.Id.ToString()),
+            new Claim("username", user.Username),
+            new Claim("role", user.Role),
+            new Claim(ClaimTypes.Email, user.Email)
+        }),
+                Expires = DateTime.UtcNow.AddMinutes(tokenValidityMinutes),
+                Issuer = jwtIssuer,
+                Audience = jwtAudience,
+                SigningCredentials = new SigningCredentials(
+                    new SymmetricSecurityKey(key),
+                    SecurityAlgorithms.HmacSha256Signature
+                )
             };
 
+            var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            var jwt = tokenHandler.WriteToken(token);
 
-            _logger.LogInformation("Login successful for user: {Username} at {Time} with Eeeeemail: {Email}", dto.Username, DateTime.UtcNow,user.Email);
+            _logger.LogInformation("Login successful for user: {Username}", dto.Username);
 
-            return jwt;
+            return tokenHandler.WriteToken(token);
         }
+
     }
 }
 
