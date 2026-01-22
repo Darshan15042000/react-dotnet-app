@@ -20,6 +20,7 @@ import "../styles/Home.css";
 
 function Home() {
   const navigate = useNavigate();
+   
 
   const [search, setSearch] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -42,7 +43,7 @@ function Home() {
 
     try {
       const res = await fetch(
-        `https://localhost:7165/api/product/suggest?term=${value}`
+        `${process.env.REACT_APP_API_BASE_URL}/product/suggest?term=${value}`
       );
       const data = await res.json();
       setSuggestions(data);

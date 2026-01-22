@@ -6,7 +6,7 @@ function DeleteProduct() {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
-  const API_URL = "https://localhost:7165/api/Product";
+  const API_URL = "${process.env.REACT_APP_API_BASE_URL}/Product";
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
 

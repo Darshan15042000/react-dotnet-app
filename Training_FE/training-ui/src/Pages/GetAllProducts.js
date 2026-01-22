@@ -5,7 +5,7 @@ function GetAllProducts() {
   const [products, setProducts] = useState([]);
   const [message, setMessage] = useState("");
 
-  const API_URL = "https://localhost:7165/api/Product";
+  const API_URL = `${process.env.REACT_APP_API_BASE_URL}/Product`;
   const token = localStorage.getItem("token");
 
   // Fetch all products

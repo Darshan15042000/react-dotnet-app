@@ -22,7 +22,7 @@ function UserAddressesPage() {
   const fetchAddresses = async () => {
     if (!token) return;
     try {
-      const res = await fetch("https://localhost:7165/api/Address", {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Address`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error("Failed to fetch addresses");

@@ -18,7 +18,7 @@ function UserOrdersPage() {
   const fetchOrders = async () => {
     if (!token) return;
     try {
-      const res = await fetch("https://localhost:7165/api/Product/orders/user", {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/orders/user`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error("Failed to fetch orders");

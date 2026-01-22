@@ -36,7 +36,7 @@ function AddAddressPage() {
     setError("");
 
     try {
-      const res = await fetch("https://localhost:7165/api/Address", {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Address`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

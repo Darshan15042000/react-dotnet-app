@@ -14,7 +14,7 @@ function AdminCustomerOrdersPage() {
 
   const fetchOrders = async () => {
     try {
-      const res = await fetch(`https://localhost:7165/api/Product/orders/admin/customer-orders/${userId}`, {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/orders/admin/customer-orders/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();

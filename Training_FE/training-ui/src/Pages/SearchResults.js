@@ -16,8 +16,9 @@ function SearchResults() {
       setError("");
 
       try {
-        const res = await fetch(`https://localhost:7165/api/product/search/${query}`);
-
+        const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/search/${query}`);
+                                
+// https://ecommerce-be-api-j785.onrender.com/api/Product/1'
         if (!res.ok) {
           if (res.status === 404) {
             setProducts([]);

@@ -32,7 +32,7 @@ function EditAddressPage() {
   // Fetch address by ID
   const fetchAddressById = async () => {
     try {
-      const res = await fetch(`https://localhost:7165/api/Address/${id}`, {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Address/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -70,7 +70,7 @@ function EditAddressPage() {
     setError("");
 
     try {
-      const res = await fetch(`https://localhost:7165/api/Address/${id}`, {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Address/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

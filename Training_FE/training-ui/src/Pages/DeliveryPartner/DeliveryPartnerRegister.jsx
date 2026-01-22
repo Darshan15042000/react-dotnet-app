@@ -35,7 +35,7 @@ function DeliveryPartnerRegister() {
     };
 
     try {
-      const res = await fetch("https://localhost:7165/api/deliverypartner/register", {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/deliverypartner/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)

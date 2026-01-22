@@ -21,7 +21,7 @@ function CartPage() {
  const fetchCart = async () => {
   if (!token) return;
   try {
-    const res = await fetch("https://localhost:7165/api/Product/cart", {
+    const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/cart`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     if (!res.ok) throw new Error("Failed to fetch cart");
@@ -59,7 +59,7 @@ function CartPage() {
     if (!token) return setMessage("Please login to remove items");
     try {
       const res = await fetch(
-        `https://localhost:7165/api/Product/cart/${productId}`,
+        `${process.env.REACT_APP_API_BASE_URL}/Product/cart/${productId}`,
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },

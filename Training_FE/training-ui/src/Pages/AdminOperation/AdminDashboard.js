@@ -38,7 +38,7 @@ function AdminDashboard() {
   const fetchStats = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://localhost:7165/api/Product/admin/stats", {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/admin/stats`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!response.ok) throw new Error("Failed to fetch admin stats");
@@ -52,7 +52,7 @@ function AdminDashboard() {
   const fetchRecentBuyers = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://localhost:7165/api/Product/admin/recent-buyers", {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/admin/recent-buyers`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!response.ok) throw new Error("Failed to fetch recent buyers");
@@ -66,7 +66,7 @@ function AdminDashboard() {
   const fetchAllUsers = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://localhost:7165/api/Product/orders/admin/customers", {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/orders/admin/customers`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!response.ok) throw new Error("Failed to fetch users");
@@ -85,7 +85,7 @@ function AdminDashboard() {
   const fetchAdminProducts = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://localhost:7165/api/Product/admin/products", {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/admin/products`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!response.ok) throw new Error("Failed to fetch admin products");
@@ -104,7 +104,7 @@ function AdminDashboard() {
   const fetchAdminOrders = async () =>{
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://localhost:7165/api/Product/orders/admin", {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/orders/admin`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!response.ok) throw new Error("Failed to fetch admin products");

@@ -44,7 +44,7 @@ function PaymentPage() {
   // ✅ Fetch Default Address
   const fetchDefaultAddress = async () => {
     try {
-      const res = await fetch("https://localhost:7165/api/Address/default", {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Address/default`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error("Failed to fetch default address");
@@ -61,7 +61,7 @@ function PaymentPage() {
   // ✅ Fetch All Addresses when clicking "Change"
   const fetchAllAddresses = async () => {
     try {
-      const res = await fetch("https://localhost:7165/api/Address", {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Address`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error("Failed to fetch all addresses");
@@ -110,7 +110,7 @@ const handlePlaceOrder = async () => {
   try {
     const product = cart[0];
     const res = await fetch(
-      `https://localhost:7165/api/Product/order/${product.id}?quantity=${product.quantity}&addressId=${selectedAddress.id}`,
+      `${process.env.REACT_APP_API_BASE_URL}/Product/order/${product.id}?quantity=${product.quantity}&addressId=${selectedAddress.id}`,
       {
         method: "POST",
         headers: {

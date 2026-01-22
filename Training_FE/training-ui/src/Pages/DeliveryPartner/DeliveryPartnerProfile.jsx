@@ -13,7 +13,7 @@ function DeliveryPartnerProfile() {
     const token = localStorage.getItem("partner_token");
 
     try {
-      const res = await fetch("https://localhost:7165/api/deliverypartner/me", {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/deliverypartner/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -29,7 +29,7 @@ function DeliveryPartnerProfile() {
     const token = localStorage.getItem("partner_token");
 
     try {
-      const res = await fetch("https://localhost:7165/api/deliverypartner/update", {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/deliverypartner/update`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,

@@ -18,7 +18,7 @@ function ManageProductsPage() {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const res = await fetch("https://localhost:7165/api/Product/admin/products", {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/admin/products`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -51,7 +51,7 @@ function ManageProductsPage() {
     if (!confirmed) return;
 
     try {
-      const res = await fetch(`https://localhost:7165/api/Product/${id}`, {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

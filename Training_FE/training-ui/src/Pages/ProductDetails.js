@@ -16,7 +16,7 @@ function ProductDetailsModern() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`https://localhost:7165/api/Product/${id}`);
+        const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/${id}`);
         const data = await res.json();
         setProduct(data);
       } catch (err) {
@@ -32,7 +32,7 @@ function ProductDetailsModern() {
     if (!token) return alert("You must be logged in to add to cart!");
     setLoadingAction(true);
     try {
-      const res = await fetch(`https://localhost:7165/api/Product/cart/${id}?quantity=1`, {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/cart/${id}?quantity=1`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -50,7 +50,7 @@ function ProductDetailsModern() {
     if (!token) return alert("You must be logged in to add to wishlist!");
     setLoadingAction(true);
     try {
-      const res = await fetch(`https://localhost:7165/api/Product/wishlist/${id}`, {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/wishlist/${id}`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
       });

@@ -20,7 +20,7 @@ function WishlistPage() {
   const fetchWishlist = async () => {
     if (!token) return;
     try {
-      const res = await fetch("https://localhost:7165/api/Product/wishlist", {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/wishlist`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error("Failed to fetch wishlist");
@@ -41,7 +41,7 @@ function WishlistPage() {
 
     try {
       const res = await fetch(
-        `https://localhost:7165/api/Product/cart/${product.id}`,
+        `${process.env.REACT_APP_API_BASE_URL}/Product/cart/${product.id}`,
         { method: "POST", headers: { Authorization: `Bearer ${token}` } }
       );
       const data = await res.json();
@@ -68,7 +68,7 @@ function WishlistPage() {
 
     try {
       const res = await fetch(
-        `https://localhost:7165/api/Product/wishlist/${productId}`,
+        `${process.env.REACT_APP_API_BASE_URL}/Product/wishlist/${productId}`,
         { method: "DELETE", headers: { Authorization: `Bearer ${token}` } }
       );
       if (!res.ok) throw new Error("Failed to remove item from wishlist");

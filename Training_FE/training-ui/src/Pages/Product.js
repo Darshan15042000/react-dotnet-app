@@ -7,7 +7,7 @@ function Product() {
   const [searchId, setSearchId] = useState(""); // for dynamic ID input
   const [showIdInput, setShowIdInput] = useState(false); // toggle input box
 
-  const API_URL = "https://localhost:7165/api/Product";
+  const API_URL = `${process.env.REACT_APP_API_BASE_URL}/Product`;
 
   const token = localStorage.getItem("token"); // get JWT from login
   const role = localStorage.getItem("role"); // get role from login

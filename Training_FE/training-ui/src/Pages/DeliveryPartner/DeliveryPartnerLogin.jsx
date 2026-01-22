@@ -23,7 +23,7 @@ function DeliveryPartnerLogin() {
     e.preventDefault();
 
     try {
-      const res = await fetch("https://localhost:7165/api/deliverypartner/login", {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/deliverypartner/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phoneNumber, password })

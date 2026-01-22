@@ -29,7 +29,7 @@ function DeliveryPartnerDashboard() {
     }
 
     try {
-      const res = await fetch("https://localhost:7165/api/deliverypartner/orders", {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/deliverypartner/orders`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -50,7 +50,7 @@ function DeliveryPartnerDashboard() {
     const token = localStorage.getItem("partner_token");
     try {
       await fetch(
-        `https://localhost:7165/api/deliverypartner/orders/${orderId}/status?status=${newStatus}`,
+        `${process.env.REACT_APP_API_BASE_URL}/deliverypartner/orders/${orderId}/status?status=${newStatus}`,
         {
           method: "PUT",
           headers: { Authorization: `Bearer ${token}` },
