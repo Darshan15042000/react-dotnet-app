@@ -56,6 +56,14 @@ namespace Training_BE.Controllers
             });
         }
 
+        [HttpGet("feature_check")]
+        public string FeatureCheck()
+        {
+            return "Created 1st feature and its working";
+        }
+
+
+
 
     }
 }
